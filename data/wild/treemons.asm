@@ -9,6 +9,7 @@ TreeMons:
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
+	dw TreeMonSet_Cave
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
@@ -128,4 +129,11 @@ TreeMonSet_Forest:
 TreeMonSet_Rock:
 	db 90, KRABBY,     15
 	db 10, SHUCKLE,    15
+	db -1
+
+TreeMonSet_Cave:
+	db 60, GRAVELER,   25
+	db 30, SLUGMA,     25
+	db  9, SHUCKLE,    25
+	db  1, DUNSPARCE,  25
 	db -1

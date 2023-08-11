@@ -5,7 +5,8 @@
 	const ROUTE45_POKEFAN_M4
 	const ROUTE45_BLACK_BELT
 	const ROUTE45_COOLTRAINER_M
-	const ROUTE45_COOLTRAINER_F
+	const ROUTE45_COOLTRAINER_F1
+	const ROUTE45_COOLTRAINER_F2
 	const ROUTE45_FRUIT_TREE
 	const ROUTE45_POKE_BALL1
 	const ROUTE45_POKE_BALL2
@@ -263,6 +264,14 @@ TrainerCooltrainerfKelly:
 	closetext
 	end
 
+Route45CooltrainerfScript:
+	faceplayer
+	opentext
+	writetext Route45CooltrainerfText
+	waitbutton
+	closetext
+	end
+
 TrainerCamperQuentin:
 	faceplayer
 	opentext
@@ -497,6 +506,18 @@ CooltrainerfKellyAfterBattleText:
 	cont "to harm #MON."
 	done
 
+Route45CooltrainerfText:
+	text "You can encounter"
+	line "many types of"
+	
+	para "#MON when you"
+	line "use ROCK SMASH."
+
+	para "My AZUMARILL found"
+	line "a SLUGMA along the"
+	cont "mountain trail!"
+	done
+
 Route45DummyText:
 	text "I'm really, really"
 	line "tough!"
@@ -529,6 +550,9 @@ Route45SignText:
 	line "MOUNTAIN RD. AHEAD"
 	done
 
+Route45Rock:
+	jumpstd SmashRockScript
+
 Route45_MapEvents:
 	db 0, 0 ; filler
 
@@ -549,9 +573,13 @@ Route45_MapEvents:
 	object_event 11, 50, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltKenji, -1
 	object_event 17, 18, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermRyan, -1
 	object_event  5, 36, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKelly, -1
+	object_event  9,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route45CooltrainerfScript, -1
 	object_event 16, 82, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45FruitTree, -1
 	object_event  6, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Nugget, EVENT_ROUTE_45_NUGGET
 	object_event  5, 66, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Revive, EVENT_ROUTE_45_REVIVE
 	object_event  6, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER
 	object_event  7, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45MaxPotion, EVENT_ROUTE_45_MAX_POTION
 	object_event  4, 70, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerCamperQuentin, -1
+	object_event  3, 21, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45Rock, -1
+	object_event 10, 39, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45Rock, -1
+	object_event 11, 38, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45Rock, -1
