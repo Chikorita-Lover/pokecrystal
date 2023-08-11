@@ -67,7 +67,7 @@ KantoGrassWildMons:
 	db 12, ZUBAT
 	db 15, MACHOKE
 	db 12, MAROWAK
-	db 12, MAROWAK
+	db 16, CHARMELEON
 	; day
 	db 10, CUBONE
 	db 11, GEODUDE
@@ -75,7 +75,7 @@ KantoGrassWildMons:
 	db 12, ZUBAT
 	db 15, MACHOKE
 	db 12, MAROWAK
-	db 12, MAROWAK
+	db 16, CHARMELEON
 	; nite
 	db 12, ZUBAT
 	db 11, GEODUDE
@@ -83,7 +83,7 @@ KantoGrassWildMons:
 	db 17, HAUNTER
 	db 15, ZUBAT
 	db 15, ZUBAT
-	db 15, ZUBAT
+	db 16, CHARMELEON
 	end_grass_wildmons
 
 	def_grass_wildmons ROCK_TUNNEL_B1F
@@ -95,7 +95,7 @@ KantoGrassWildMons:
 	db 12, ZUBAT
 	db 15, MAROWAK
 	db 15, KANGASKHAN
-	db 15, KANGASKHAN
+	db 16, CHARMELEON
 	; day
 	db 12, CUBONE
 	db 14, GEODUDE
@@ -103,7 +103,7 @@ KantoGrassWildMons:
 	db 12, ZUBAT
 	db 15, MAROWAK
 	db 15, KANGASKHAN
-	db 15, KANGASKHAN
+	db 16, CHARMELEON
 	; nite
 	db 12, ZUBAT
 	db 14, GEODUDE
@@ -111,7 +111,7 @@ KantoGrassWildMons:
 	db 15, ZUBAT
 	db 15, HAUNTER
 	db 15, GOLBAT
-	db 15, GOLBAT
+	db 16, CHARMELEON
 	end_grass_wildmons
 
 	def_grass_wildmons VICTORY_ROAD
@@ -319,7 +319,7 @@ KantoGrassWildMons:
 	db 15, RATICATE
 	db 12, JIGGLYPUFF
 	db 15, GRANBULL
-	db 15, GRANBULL
+	db 14, SQUIRTLE
 	; day
 	db 13, RATTATA
 	db 13, SNUBBULL
@@ -327,7 +327,7 @@ KantoGrassWildMons:
 	db 15, RATICATE
 	db 12, JIGGLYPUFF
 	db 15, GRANBULL
-	db 15, GRANBULL
+	db 14, SQUIRTLE
 	; nite
 	db 13, MEOWTH
 	db 13, DROWZEE
@@ -335,7 +335,7 @@ KantoGrassWildMons:
 	db 15, PSYDUCK
 	db 12, JIGGLYPUFF
 	db 15, RATICATE
-	db 15, RATICATE
+	db 14, SQUIRTLE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_7
@@ -711,7 +711,7 @@ KantoGrassWildMons:
 	db 12, ABRA
 	db 10, BELLSPROUT
 	db 14, BUTTERFREE
-	db 14, BUTTERFREE
+	db 14, BULBASAUR
 	; day
 	db 8, CATERPIE
 	db 12, SUNKERN
@@ -719,7 +719,7 @@ KantoGrassWildMons:
 	db 12, ABRA
 	db 10, BELLSPROUT
 	db 14, BUTTERFREE
-	db 14, BUTTERFREE
+	db 14, BULBASAUR
 	; nite
 	db 10, VENONAT
 	db 10, ODDISH
@@ -727,7 +727,7 @@ KantoGrassWildMons:
 	db 12, ABRA
 	db 10, BELLSPROUT
 	db 14, GLOOM
-	db 14, GLOOM
+	db 14, BULBASAUR
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_25
