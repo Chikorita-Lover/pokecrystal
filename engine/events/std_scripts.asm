@@ -70,35 +70,35 @@ PokecenterNurseScript:
 	sjump .ok
 
 .morn
-	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
-	iftrue .morn_comcenter
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .morn_champion
 	farwritetext NurseMornText
 	promptbutton
 	sjump .ok
-.morn_comcenter
-	farwritetext PokeComNurseMornText
+.morn_champion
+	farwritetext NurseChampionMornText
 	promptbutton
 	sjump .ok
 
 .day
-	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
-	iftrue .day_comcenter
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .day_champion
 	farwritetext NurseDayText
 	promptbutton
 	sjump .ok
-.day_comcenter
-	farwritetext PokeComNurseDayText
+.day_champion
+	farwritetext NurseChampionDayText
 	promptbutton
 	sjump .ok
 
 .nite
-	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
-	iftrue .nite_comcenter
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .nite_champion
 	farwritetext NurseNiteText
 	promptbutton
 	sjump .ok
-.nite_comcenter
-	farwritetext PokeComNurseNiteText
+.nite_champion
+	farwritetext NurseChampionNiteText
 	promptbutton
 	sjump .ok
 
@@ -106,10 +106,13 @@ PokecenterNurseScript:
 	; only do this once
 	clearevent EVENT_WELCOMED_TO_POKECOM_CENTER
 
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .heal_champion
+
 	farwritetext NurseAskHealText
 	yesorno
 	iffalse .done
-
+.heal
 	farwritetext NurseTakePokemonText
 	pause 20
 	special StubbedTrainerRankings_Healings
@@ -130,8 +133,10 @@ PokecenterNurseScript:
 	iftrue .no
 	special CheckPokerus
 	iftrue .pokerus
-.no
 
+.no
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .done
 	farwritetext NurseReturnPokemonText
 	pause 20
 
@@ -146,6 +151,12 @@ PokecenterNurseScript:
 	waitbutton
 	closetext
 	end
+
+.heal_champion
+	farwritetext NurseChampionAskHealText
+	yesorno
+	iffalse .done
+	sjump .heal
 
 .pokerus
 	; already cleared earlier in the script
