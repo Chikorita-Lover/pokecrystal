@@ -2222,26 +2222,30 @@ FeraligatrEvosAttacks:
 SentretEvosAttacks:
 	db EVOLVE_LEVEL, 15, FURRET
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 5, DEFENSE_CURL
-	db 11, QUICK_ATTACK
-	db 17, FURY_SWIPES
+	db 1, SCRATCH
+	db 1, FORESIGHT
+	db 4, DEFENSE_CURL
+	db 7, QUICK_ATTACK
+	db 13, FURY_SWIPES
 	db 25, SLAM
-	db 33, REST
-	db 41, AMNESIA
+	db 28, REST
+	db 36, AMNESIA
+	db 39, BATON_PASS
 	db 0 ; no more level-up moves
 
 FurretEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
+	db 1, FORESIGHT
 	db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
-	db 5, DEFENSE_CURL
-	db 11, QUICK_ATTACK
-	db 18, FURY_SWIPES
+	db 4, DEFENSE_CURL
+	db 7, QUICK_ATTACK
+	db 13, FURY_SWIPES
 	db 28, SLAM
-	db 38, REST
-	db 48, AMNESIA
+	db 32, REST
+	db 42, AMNESIA
+	db 46, BATON_PASS
 	db 0 ; no more level-up moves
 
 HoothootEvosAttacks:
@@ -2249,27 +2253,29 @@ HoothootEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 6, FORESIGHT
-	db 11, PECK
-	db 16, HYPNOSIS
-	db 22, REFLECT
-	db 28, TAKE_DOWN
-	db 34, CONFUSION
+	db 1, FORESIGHT
+	db 5, HYPNOSIS
+	db 9, PECK
+	db 17, REFLECT
+	db 21, CONFUSION
+	db 29, TAKE_DOWN
+	db 33, WING_ATTACK
 	db 48, DREAM_EATER
 	db 0 ; no more level-up moves
 
 NoctowlEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, SKY_ATTACK
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, FORESIGHT
-	db 1, PECK
-	db 6, FORESIGHT
-	db 11, PECK
-	db 16, HYPNOSIS
-	db 25, REFLECT
-	db 33, TAKE_DOWN
-	db 41, CONFUSION
+	db 1, HYPNOSIS
+	db 5, HYPNOSIS
+	db 9, PECK
+	db 17, REFLECT
+	db 22, CONFUSION
+	db 32, TAKE_DOWN
+	db 37, WING_ATTACK
 	db 57, DREAM_EATER
 	db 0 ; no more level-up moves
 
