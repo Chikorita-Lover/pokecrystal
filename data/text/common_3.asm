@@ -261,11 +261,30 @@ _ReceivedItemText::
 	text "."
 	done
 
+_ReceivedMultipleItemText::
+	text "<PLAYER> received"
+	line "@"
+	text_decimal wItemQuantityChange, 1, 2
+	text " @"
+	text_ram wStringBuffer4
+	text "S."
+	done
+
 _PutItemInPocketText::
 	text "<PLAYER> put the"
 	line "@"
 	text_ram wStringBuffer1
 	text " in"
+	cont "the @"
+	text_ram wStringBuffer3
+	text "."
+	prompt
+
+_PutMultipleItemInPocketText::
+	text "<PLAYER> put the"
+	line "@"
+	text_ram wStringBuffer1
+	text "S in"
 	cont "the @"
 	text_ram wStringBuffer3
 	text "."

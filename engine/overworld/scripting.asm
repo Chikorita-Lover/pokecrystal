@@ -466,7 +466,14 @@ GiveItemScript_DummyFunction:
 
 GiveItemScript:
 	callasm GiveItemScript_DummyFunction
+	readmem wItemQuantityChange
+	ifnotequal 1, .Multiple
 	writetext .ReceivedItemText
+	sjump .ok
+.Multiple
+	writetext .ReceivedMultipleItemText
+
+.ok
 	iffalse .Full
 	waitsfx
 	specialsound
@@ -481,6 +488,10 @@ GiveItemScript:
 
 .ReceivedItemText:
 	text_far _ReceivedItemText
+	text_end
+
+.ReceivedMultipleItemText:
+	text_far _ReceivedMultipleItemText
 	text_end
 
 Script_verbosegiveitemvar:
@@ -512,10 +523,20 @@ Script_verbosegiveitemvar:
 Script_itemnotify:
 	call GetPocketName
 	call CurItemName
+	ld a, [wItemQuantityChange]
+	cp 1
+	jr nz, .multiple
 	ld b, BANK(PutItemInPocketText)
 	ld hl, PutItemInPocketText
+	jr .ok
+.multiple
+	ld b, BANK(PutMultipleItemInPocketText)
+	ld hl, PutMultipleItemInPocketText
+.ok
 	call MapTextbox
 	ret
+
+; INCLUDE "data/items/plural_names.asm"
 
 Script_pocketisfull:
 	call GetPocketName
@@ -564,6 +585,10 @@ CurItemName:
 
 PutItemInPocketText:
 	text_far _PutItemInPocketText
+	text_end
+
+PutMultipleItemInPocketText:
+	text_far _PutMultipleItemInPocketText
 	text_end
 
 PocketIsFullText:
