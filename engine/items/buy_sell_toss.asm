@@ -13,6 +13,7 @@ RooftopSale_SelectQuantityToBuy:
 	ld [wBuySellItemPrice + 1], a
 	ld hl, BuyItem_MenuHeader
 	call LoadMenuHeader
+	call Buy_DisplayQuantityOfItem
 	call Toss_Sell_Loop
 	ret
 
@@ -26,6 +27,30 @@ SelectQuantityToSell:
 	call LoadMenuHeader
 	call Toss_Sell_Loop
 	ret
+
+Buy_DisplayQuantityOfItem:
+	hlcoord 0, 9
+	ld b, 3
+	ld c, 7
+	call Textbox
+	hlcoord 1, 11
+	ld de, .InPackString
+	call PlaceString
+	ld hl, wNumItems
+	call Buy_GetQuantityInPack
+	hlcoord 0, 10
+	ld de, 2 * SCREEN_WIDTH + 5
+	add hl, de
+	ld [hl], "×"
+	inc hl
+	ld de, wItemQuantityChange
+	lb bc, 1, 2
+	call PrintNum
+	ld a, 1
+	ld [wItemQuantityChange], a
+	ret
+.InPackString
+	db "PACK@"
 
 Toss_Sell_Loop:
 	ld a, 1
@@ -200,6 +225,74 @@ BuySell_DisplaySubtotal:
 	lb bc, PRINTNUM_MONEY | 3, 6
 	call PrintNum
 	call WaitBGMap
+	ret
+
+Buy_GetQuantityInPack:
+	farcall CheckItemPocket
+	ld a, [wItemAttributeValue]
+	dec a
+	ld hl, .Pockets
+	rst JumpTable
+	ret
+
+.Pockets
+; entries correspond to item types
+	dw .Item
+	dw .KeyItem
+	dw .Ball
+	dw .TMHM
+
+.Item
+	ld hl, wNumItems
+	jr .count
+
+.KeyItem
+	ld hl, wNumKeyItems
+	jr .count
+
+.Ball
+	ld hl, wNumBalls
+	jr .count
+
+.TMHM
+; TMs and HMs Pocket data structure is different than the other pockets
+	ld a, [wCurItem]
+	ld c, a
+	farcall GetTMHMNumber
+	dec c
+	ld b, $0
+	ld hl, wTMsHMs
+	add hl, bc
+	ld a, [hl]
+	ld b, a
+	jr .done
+
+.count
+	ld a, [wCurItem]
+	ld c, a
+	ld b, 0
+.loop
+	inc hl
+	ld a, [hli]
+	cp -1
+	jr z, .done
+	cp c
+	jr nz, .loop
+	ld a, [hl]
+	add b
+	ld b, a
+	jr nc, .loop
+	ld b, -1
+
+.done
+	ld a, b
+	sub 99
+	jr c, .done2
+	ld b, 99
+.done2
+	ld a, b
+	ld [wItemQuantityChange], a
+	and a
 	ret
 
 TossItem_MenuHeader:

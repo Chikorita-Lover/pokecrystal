@@ -476,6 +476,9 @@ BuyMenuLoop:
 	call JoyWaitAorB
 
 .cancel
+	hlcoord 0, 9
+	lb bc, 3, 1
+	call ClearBox
 	call SpeechTextbox
 	and a
 	ret
