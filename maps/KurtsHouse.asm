@@ -169,7 +169,13 @@ Kurt1:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	setflag ENGINE_KURT_MAKING_BALLS
 .WaitForApricorns:
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .WaitForApricornsMultiple
 	writetext KurtsHouseKurtItWillTakeADayText
+	sjump .WaitForApricornsOk
+.WaitForApricornsMultiple
+	writetext KurtsHouseKurtItWillTakeADayText2
+.WaitForApricornsOk
 	waitbutton
 	closetext
 	end
@@ -183,7 +189,13 @@ Kurt1:
 ._ThatTurnedOutGreat:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 .ThatTurnedOutGreat:
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .ThatTurnedOutGreatMultiple
 	writetext KurtsHouseKurtTurnedOutGreatText
+	sjump .ThatTurnedOutGreatOk
+.ThatTurnedOutGreatMultiple
+	writetext KurtsHouseKurtTurnedOutGreatText2
+.ThatTurnedOutGreatOk
 	waitbutton
 .NoRoomForBall:
 	closetext
@@ -192,7 +204,13 @@ Kurt1:
 .GiveLevelBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveLevelBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveLevelBallOk
+.GiveLevelBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveLevelBallOk
 	promptbutton
 	verbosegiveitemvar LEVEL_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -202,7 +220,13 @@ Kurt1:
 .GiveLureBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveLureBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveLureBallOk
+.GiveLureBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveLureBallOk
 	promptbutton
 	verbosegiveitemvar LURE_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -212,7 +236,13 @@ Kurt1:
 .GiveMoonBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveMoonBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveMoonBallOk
+.GiveMoonBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveMoonBallOk
 	promptbutton
 	verbosegiveitemvar MOON_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -222,7 +252,13 @@ Kurt1:
 .GiveFriendBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveFriendBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveFriendBallOk
+.GiveFriendBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveFriendBallOk
 	promptbutton
 	verbosegiveitemvar FRIEND_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -232,7 +268,13 @@ Kurt1:
 .GiveFastBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveFastBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveFastBallOk
+.GiveFastBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveFastBallOk
 	promptbutton
 	verbosegiveitemvar FAST_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -242,7 +284,13 @@ Kurt1:
 .GiveHeavyBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveHeavyBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveHeavyBallOk
+.GiveHeavyBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveHeavyBallOk
 	promptbutton
 	verbosegiveitemvar HEAVY_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -252,7 +300,13 @@ Kurt1:
 .GiveLoveBall:
 	checkflag ENGINE_KURT_MAKING_BALLS
 	iftrue KurtMakingBallsScript
+	readvar VAR_KURT_APRICORNS
+	ifnotequal 1, .GiveLoveBallMultiple
 	writetext KurtsHouseKurtJustFinishedYourBallText
+	sjump .GiveLoveBallOk
+.GiveLoveBallMultiple
+	writetext KurtsHouseKurtJustFinishedYourBallText2
+.GiveLoveBallOk
 	promptbutton
 	verbosegiveitemvar LOVE_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
@@ -509,31 +563,42 @@ KurtsHouseKurtHonoredToMakeBallsText:
 	done
 
 KurtsHouseKurtBallsFromApricornsText:
-	text "KURT: I make BALLS"
-	line "from APRICORNS."
+	text "KURT: I make #"
+	line "BALLS from APRI-"
+	cont "CORNS."
 
 	para "Collect them from"
 	line "trees and bring"
 	cont "'em to me."
 
-	para "I'll make BALLS"
-	line "out of them."
+	para "I'll make #"
+	line "BALLS out of them."
 	done
 
 KurtsHouseKurtAskYouHaveAnApricornText:
-	text "KURT: You have an"
-	line "APRICORN for me?"
+	text "KURT: You have"
+	line "APRICORNS for me?"
 
-	para "Fine! I'll turn it"
-	line "into a BALL."
+	para "Fine! I'll turn"
+	line "them into #"
+	cont "BALLS."
 	done
 
 KurtsHouseKurtItWillTakeADayText:
 	text "KURT: It'll take a"
 	line "day to make you a"
 
-	para "BALL. Come back"
-	line "for it later."
+	para "# BALL. Come"
+	line "back for it later."
+	done
+
+KurtsHouseKurtItWillTakeADayText2:
+	text "KURT: It'll take a"
+	line "day to make you"
+
+	para "# BALLS. Come"
+	line "back for them"
+	cont "later."
 	done
 
 KurtsHouseKurtThatsALetdownText:
@@ -549,7 +614,17 @@ KurtsHouseKurtDontBotherMeText:
 KurtsHouseKurtJustFinishedYourBallText:
 	text "KURT: Ah, <PLAYER>!"
 	line "I just finished"
-	cont "your BALL. Here!"
+
+	para "your # BALL."
+	line "Here!"
+	done
+
+KurtsHouseKurtJustFinishedYourBallText2:
+	text "KURT: Ah, <PLAYER>!"
+	line "I just finished"
+
+	para "your # BALLS."
+	line "Here!"
 	done
 
 KurtsHouseKurtTurnedOutGreatText:
@@ -558,6 +633,14 @@ KurtsHouseKurtTurnedOutGreatText:
 
 	para "Try catching"
 	line "#MON with it."
+	done
+
+KurtsHouseKurtTurnedOutGreatText2:
+	text "KURT: Those turned"
+	line "out great."
+
+	para "Try catching"
+	line "#MON with them."
 	done
 
 KurtsHouseKurtGranddaughterHelpingWorkFasterText:
@@ -647,7 +730,7 @@ KurtsGranddaughterHelpText:
 
 KurtsGranddaughterFunText:
 	text "It's fun to make"
-	line "BALLS!"
+	line "# BALLS!"
 	done
 
 KurtsGranddaughterGSBallText:
