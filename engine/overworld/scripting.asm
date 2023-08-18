@@ -457,6 +457,8 @@ Script_verbosegiveitem:
 	ld de, wStringBuffer1
 	ld a, STRING_BUFFER_4
 	call CopyConvertedText
+	ld de, wStringBuffer4 + STRLEN("TM##")
+	call AppendTMHMMoveName
 	ld b, BANK(GiveItemScript)
 	ld de, GiveItemScript
 	jp ScriptCall
@@ -494,6 +496,25 @@ GiveItemScript:
 	text_far _ReceivedMultipleItemText
 	text_end
 
+AppendTMHMMoveName::
+	ld a, [wNamedObjectIndex]
+	cp TM01
+	ret c
+	push de
+	ld c, a
+	farcall GetTMHMNumber
+	ld a, c
+	ld [wTempTMHM], a
+	predef GetTMHMMove
+	ld a, [wTempTMHM]
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	pop hl
+	ld [hl], " "
+	inc hl
+	ld de, wStringBuffer1
+	jp CopyName2
+
 Script_verbosegiveitemvar:
 	call GetScriptByte
 	cp ITEM_FROM_MEM
@@ -516,6 +537,8 @@ Script_verbosegiveitemvar:
 	ld de, wStringBuffer1
 	ld a, STRING_BUFFER_4
 	call CopyConvertedText
+	ld de, wStringBuffer4 + STRLEN("TM##")
+	call AppendTMHMMoveName
 	ld b, BANK(GiveItemScript)
 	ld de, GiveItemScript
 	jp ScriptCall
