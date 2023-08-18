@@ -66,7 +66,7 @@ EvolveAfterBattle_MasterLoop:
 	ld b, a
 
 	cp EVOLVE_TRADE
-	jr z, .trade
+	jp z, .trade
 
 	ld a, [wLinkMode]
 	and a
@@ -86,6 +86,9 @@ EvolveAfterBattle_MasterLoop:
 
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
+
+	cp EVOLVE_HELD_ITEM
+	jr z, .held_item
 
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
@@ -113,7 +116,7 @@ EvolveAfterBattle_MasterLoop:
 	jp nz, .dont_evolve_2
 
 	inc hl
-	jr .proceed
+	jp .proceed
 
 .happiness
 	ld a, [wTempMonHappiness]
@@ -139,6 +142,17 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jp z, .dont_evolve_3
+	jr .proceed
+
+.held_item
+	ld a, [hli]
+	ld b, a
+	ld a, [wTempMonItem]
+	cp b
+	jp nz, .dont_evolve_2
+
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_2
 	jr .proceed
 
 .trade
