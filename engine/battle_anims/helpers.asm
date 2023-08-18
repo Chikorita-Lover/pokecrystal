@@ -104,6 +104,8 @@ GetBattleAnimOAMPointer:
 
 LoadBattleAnimGFX:
 	push hl
+	cp ANIM_GFX_POKE_BALL
+	call z, .LoadBallPalette
 	ld l, a
 	ld h, 0
 	add hl, hl
@@ -122,6 +124,44 @@ LoadBattleAnimGFX:
 	call DecompressRequest2bpp
 	pop bc
 	ret
+
+.LoadBallPalette:
+	ld a, [rSVBK]
+	push af
+	ld a, BANK(wCurItem)
+	ld [rSVBK], a
+	ld a, [wCurItem]
+	ld b, a
+	ld hl, BallColors
+.loop
+	ld a, [hli]
+	cp b
+	jr z, .done
+	cp -1
+	jr z, .done
+rept PAL_COLOR_SIZE * 2
+	inc hl
+endr
+	jr .loop
+.done
+	ld a, BANK(wOBPals2)
+	ld [rSVBK], a
+	ld de, wOBPals2 palette PAL_BATTLE_OB_RED color 1
+rept PAL_COLOR_SIZE * 2 - 1
+	ld a, [hli]
+	ld [de], a
+	inc de
+endr
+	ld a, [hl]
+	ld [de], a
+	ld a, $1
+	ldh [hCGBPalUpdate], a
+	pop af
+	ld [rSVBK], a
+	ld a, ANIM_GFX_POKE_BALL
+	ret
+
+INCLUDE "data/battle_anims/ball_colors.asm"
 
 INCLUDE "data/battle_anims/framesets.asm"
 
