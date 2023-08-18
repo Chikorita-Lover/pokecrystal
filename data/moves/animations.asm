@@ -2792,16 +2792,25 @@ BattleAnim_Smokescreen:
 	anim_ret
 
 BattleAnim_Strength:
-	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_Y, $10, $1, $20
-	anim_sound 0, 0, SFX_STRENGTH
-	anim_obj ANIM_OBJ_STRENGTH, 64, 104, $1
-	anim_wait 128
-	anim_incobj 1
-	anim_wait 20
-	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 132, 40, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
+	anim_wait 60
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 8
+	anim_call BattleAnim_ShowMon_0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $10, $1, $20
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 48, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_HIT_YFIX, 152, 48, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 24
 	anim_ret
 
 BattleAnim_SwordsDance:
