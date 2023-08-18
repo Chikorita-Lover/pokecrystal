@@ -153,6 +153,9 @@ EvolveAfterBattle_MasterLoop:
 
 	call IsMonHoldingEverstone
 	jp z, .dont_evolve_2
+
+	ld a, $0
+	ld [wTempMonItem], a
 	jr .proceed
 
 .trade
