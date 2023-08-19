@@ -55,7 +55,7 @@ SFX:
 	dba Sfx_CometPunch
 	dba Sfx_MegaPunch
 	dba Sfx_Scratch
-	dba Sfx_Vicegrip
+	dba Sfx_ViseGrip
 	dba Sfx_RazorWind
 	dba Sfx_Cut
 	dba Sfx_WingAttack

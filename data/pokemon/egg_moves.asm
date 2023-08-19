@@ -493,7 +493,7 @@ LedybaEggMoves:
 SpinarakEggMoves:
 	db PSYBEAM
 	db DISABLE
-	db SONICBOOM
+	db SONIC_BOOM
 	db BATON_PASS
 	db PURSUIT
 	db -1 ; end
