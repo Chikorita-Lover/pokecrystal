@@ -2052,7 +2052,7 @@ BattleAnimFunction_Kick:
 	ret
 
 BattleAnimFunction_Egg:
-; Used by Egg Bomb and Softboiled
+; Used by Egg Bomb and SoftBoiled
 ; Obj Param: Defines jumptable starting index
 	call BattleAnim_AnonJumptable
 .anon_dw
@@ -2062,12 +2062,12 @@ BattleAnimFunction_Egg:
 	dw .three
 	dw .four ; ret
 	dw .five
-	dw .six ; Softboiled obj 1 start
+	dw .six ; SoftBoiled obj 1 start
 	dw .seven
 	dw .eight
 	dw .nine
 	dw .ten ; ret
-	dw .eleven ; Softboiled obj 2 start
+	dw .eleven ; SoftBoiled obj 2 start
 	dw .twelve
 	dw .thirteen ; ret
 
@@ -2099,7 +2099,7 @@ BattleAnimFunction_Egg:
 	ret
 
 .six
-	; Initial Softboiled arc movement to x coord $4b
+	; Initial SoftBoiled arc movement to x coord $4b
 	ld hl, BATTLEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
@@ -2174,14 +2174,14 @@ BattleAnimFunction_Egg:
 	ret
 
 .seven
-	; Switches Softboiled frameset to egg wobbling
+	; Switches SoftBoiled frameset to egg wobbling
 	ld a, BATTLEANIMFRAMESET_4E ; Egg wobbling
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ret
 
 .eight
-	; Softboiled object waves slightly side to side
+	; SoftBoiled object waves slightly side to side
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -2195,7 +2195,7 @@ BattleAnimFunction_Egg:
 	ret
 
 .nine
-	; First Softboiled ANIM_OBJ_EGG turns into the bottom half frameset
+	; First SoftBoiled ANIM_OBJ_EGG turns into the bottom half frameset
 	ld a, BATTLEANIMFRAMESET_50 ; Cracked egg bottom
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -2205,7 +2205,7 @@ BattleAnimFunction_Egg:
 	ret
 
 .eleven
-	; Second Softboiled ANIM_OBJ_EGG
+	; Second SoftBoiled ANIM_OBJ_EGG
 	ld a, BATTLEANIMFRAMESET_4F ; Cracked egg top
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex

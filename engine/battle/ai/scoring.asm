@@ -384,7 +384,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
-	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
+	dbw EFFECT_SOLAR_BEAM,        AI_Smart_SolarBeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	db -1 ; end
@@ -2634,7 +2634,7 @@ AI_Smart_Stomp:
 	dec [hl]
 	ret
 
-AI_Smart_Solarbeam:
+AI_Smart_SolarBeam:
 ; 80% chance to encourage this move when it's sunny.
 ; 90% chance to discourage this move when it's raining.
 
