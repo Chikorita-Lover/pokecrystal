@@ -836,6 +836,7 @@ AbraEvosAttacks:
 	db 0 ; no more level-up moves
 
 KadabraEvosAttacks:
+	db EVOLVE_LEVEL, 34, ALAKAZAM
 	db EVOLVE_TRADE, -1, ALAKAZAM
 	db 0 ; no more evolutions
 	db 1, TELEPORT
@@ -843,11 +844,11 @@ KadabraEvosAttacks:
 	db 1, CONFUSION
 	db 16, CONFUSION
 	db 18, DISABLE
-	db 21, PSYBEAM
-	db 26, RECOVER
-	db 31, FUTURE_SIGHT
-	db 38, PSYCHIC_M
-	db 45, REFLECT
+	db 26, PSYBEAM
+	db 30, REFLECT
+	db 36, RECOVER
+	db 42, PSYCHIC_M
+	db 48, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 AlakazamEvosAttacks:
@@ -857,11 +858,11 @@ AlakazamEvosAttacks:
 	db 1, CONFUSION
 	db 16, CONFUSION
 	db 18, DISABLE
-	db 21, PSYBEAM
-	db 26, RECOVER
-	db 31, FUTURE_SIGHT
-	db 38, PSYCHIC_M
-	db 45, REFLECT
+	db 26, PSYBEAM
+	db 30, REFLECT
+	db 37, RECOVER
+	db 46, PSYCHIC_M
+	db 52, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 MachopEvosAttacks:
