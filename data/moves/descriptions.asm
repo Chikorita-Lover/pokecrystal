@@ -11,7 +11,7 @@ MoveDescriptions::
 	dw IcePunchDescription
 	dw ThunderpunchDescription
 	dw ScratchDescription
-	dw ViseGripDescription
+	dw VicegripDescription
 	dw GuillotineDescription
 	dw RazorWindDescription
 	dw SwordsDanceDescription
@@ -49,7 +49,7 @@ MoveDescriptions::
 	dw RoarDescription
 	dw SingDescription
 	dw SupersonicDescription
-	dw SonicBoomDescription
+	dw SonicboomDescription
 	dw DisableDescription
 	dw AcidDescription
 	dw EmberDescription
@@ -268,8 +268,8 @@ Move00Description:
 	db "?@"
 
 PoundDescription:
-	db   "Pounds foe with"
-	next "tail or forelegs.@"
+	db   "Pounds with fore-"
+	next "legs or tail.@"
 
 KarateChopDescription:
 	db   "Has a high criti-"
@@ -284,108 +284,108 @@ CometPunchDescription:
 	next "2-5 times.@"
 
 MegaPunchDescription:
-	db   "Slugs foe with a"
-	next "powerful punch.@"
+	db   "A powerful punch"
+	next "thrown very hard.@"
 
 PayDayDescription:
-	db   "Hurls coins. Earns"
-	next "money after fight.@"
+	db   "Throws coins. Gets"
+	next "them back later.@"
 
 FirePunchDescription:
 	db   "A fiery punch. May"
-	next "leave a burn.@"
+	next "cause a burn.@"
 
 IcePunchDescription:
 	db   "An icy punch. May"
-	next "leave foe frozen.@"
+	next "cause freezing.@"
 
 ThunderpunchDescription:
 	db   "An electric punch."
-	next "May paralyze foe.@"
+	next "It may paralyze.@"
 
 ScratchDescription:
-	db   "Scratches the foe"
-	next "with sharp claws.@"
+	db   "Scratches with"
+	next "sharp claws.@"
 
-ViseGripDescription:
-	db   "Grips the foe with"
-	next "powerful pincers.@"
+VicegripDescription:
+	db   "Grips with power-"
+	next "ful pincers.@"
 
 GuillotineDescription:
-	db   "Pincer attack that"
-	next "may one-hit KO.@"
+	db   "A one-hit KO,"
+	next "pincer attack.@"
 
 RazorWindDescription:
-	db   "2-turn move with"
-	next "hi critical ratio.@"
+	db   "1st turn: Prepare"
+	next "2nd turn: Attack@"
 
 SwordsDanceDescription:
-	db   "A dance that shar-"
-	next "ply raises ATTACK.@"
+	db   "A dance that in-"
+	next "creases ATTACK.@"
 
 CutDescription:
-	db   "Cuts with sharp"
-	next "scythes or claws.@"
+	db   "Cuts using claws,"
+	next "scythes, etc.@"
 
 GustDescription:
-	db   "Strikes foe with"
-	next "a gust of wind.@"
+	db   "Whips up a strong"
+	next "gust of wind.@"
 
 WingAttackDescription:
-	db   "Strikes foe with"
-	next "wings spread wide.@"
+	db   "Strikes the target"
+	next "with wings.@"
 
 WhirlwindDescription:
 	db   "Blows away the foe"
-	next "& switches it out.@"
+	next "& ends battle.@"
 
 FlyDescription:
-	db   "Soars up and stri-"
-	next "kes on 2nd turn.@"
+	db   "1st turn: Fly"
+	next "2nd turn: Attack@"
 
 BindDescription:
-	db   "Binds and squeezes"
-	next "foe for 2-5 turns.@"
+	db   "Binds the target"
+	next "for 2-5 turns.@"
 
 SlamDescription:
 	db   "Slams the foe with"
 	next "a tail, vine, etc.@"
 
 VineWhipDescription:
-	db   "Strikes foe with"
+	db   "Whips the foe with"
 	next "slender vines.@"
 
 StompDescription:
-	db   "Stomps foe and may"
-	next "make foe flinch.@"
+	db   "An attack that may"
+	next "cause flinching.@"
 
 DoubleKickDescription:
-	db   "Kicks foe twice in"
-	next "quick succession.@"
+	db   "A double kicking"
+	next "attack.@"
 
 MegaKickDescription:
-	db   "Attacks foe with a"
-	next "powerful kick.@"
+	db   "A powerful kicking"
+	next "attack.@"
 
 JumpKickDescription:
 	db   "May miss, damaging"
 	next "the user.@"
 
 RollingKickDescription:
-	db   "A fast kick. May"
-	next "make foe flinch.@"
+	db   "A fast, spinning"
+	next "kick.@"
 
 SandAttackDescription:
-	db   "Lowers accuracy"
-	next "by hurling sand.@"
+	db   "Reduces accuracy"
+	next "by throwing sand.@"
 
 HeadbuttDescription:
-	db   "A ram attack. May"
+	db   "An attack that may"
 	next "make foe flinch.@"
 
 HornAttackDescription:
-	db   "Jabs the foe with"
-	next "a sharp horn.@"
+	db   "An attack using a"
+	next "horn to jab.@"
 
 FuryAttackDescription:
 	db   "Jabs the target"
@@ -396,23 +396,23 @@ HornDrillDescription:
 	next "drill attack.@"
 
 TackleDescription:
-	db   "Charges the foe"
-	next "with a tackle.@"
+	db   "A full-body charge"
+	next "attack.@"
 
 BodySlamDescription:
-	db   "A full-body slam."
-	next "May paralyze foe.@"
+	db   "An attack that may"
+	next "cause paralysis.@"
 
 WrapDescription:
-	db   "Wraps and squeezes"
-	next "foe for 2-5 turns.@"
+	db   "Squeezes the foe"
+	next "for 2-5 turns.@"
 
 TakeDownDescription:
-	db   "A charge that also"
+	db   "A tackle that also"
 	next "hurts the user.@"
 
 ThrashDescription:
-	db   "Rampages 2-3 turns"
+	db   "Works 2-3 turns"
 	next "and confuses user.@"
 
 DoubleEdgeDescription:
@@ -420,52 +420,52 @@ DoubleEdgeDescription:
 	next "hurts the user.@"
 
 TailWhipDescription:
-	db   "Wags its tail to"
-	next "lower DEFENSE.@"
+	db   "Lowers the foe's"
+	next "DEFENSE.@"
 
 PoisonStingDescription:
-	db   "A toxic attack"
-	next "that may poison.@"
+	db   "An attack that may"
+	next "poison the target.@"
 
 TwineedleDescription:
 	db   "Jabs the foe twice"
-	next "and may poison.@"
+	next "using stingers.@"
 
 PinMissileDescription:
 	db   "Fires pins that"
 	next "strike 2-5 times.@"
 
 LeerDescription:
-	db   "Frightens the foe"
-	next "to lower DEFENSE.@"
+	db   "Reduces the foe's"
+	next "DEFENSE.@"
 
 BiteDescription:
-	db   "A bite that may"
-	next "make foe flinch.@"
+	db   "An attack that may"
+	next "cause flinching.@"
 
 GrowlDescription:
-	db   "Growls at the foe"
-	next "to lower ATTACK.@"
+	db   "Reduces the foe's"
+	next "ATTACK.@"
 
 RoarDescription:
-	db   "Scares off the foe"
-	next "& switches it out.@"
+	db   "Scares wild foes"
+	next "to end battle.@"
 
 SingDescription:
-	db   "A lullaby that may"
-	next "induce sleep.@"
+	db   "May cause the foe"
+	next "to fall asleep.@"
 
 SupersonicDescription:
-	db   "Emits sound waves"
-	next "to confuse foes.@"
+	db   "Sound waves that"
+	next "cause confusion.@"
 
-SonicBoomDescription:
+SonicboomDescription:
 	db   "Always inflicts"
-	next "20 HP damage.@"
+	next "20HP damage.@"
 
 DisableDescription:
-	db   "Disables one of"
-	next "the foe's moves.@"
+	db   "Disables the foe's"
+	next "most recent move.@"
 
 AcidDescription:
 	db   "An attack that may"

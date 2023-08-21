@@ -58,7 +58,7 @@ MoveGrammar:
 ; 3: originally "[mon]の¯[move]　こうげき!" ("[mon]'s¯[move] attack!")
 	db POUND
 	db SCRATCH
-	db VISE_GRIP
+	db VICEGRIP
 	db WING_ATTACK
 	db FLY
 	db BIND

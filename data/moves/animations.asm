@@ -12,7 +12,7 @@ BattleAnimations::
 	dw BattleAnim_IcePunch
 	dw BattleAnim_Thunderpunch
 	dw BattleAnim_Scratch
-	dw BattleAnim_ViseGrip
+	dw BattleAnim_Vicegrip
 	dw BattleAnim_Guillotine
 	dw BattleAnim_RazorWind
 	dw BattleAnim_SwordsDance
@@ -50,7 +50,7 @@ BattleAnimations::
 	dw BattleAnim_Roar
 	dw BattleAnim_Sing
 	dw BattleAnim_Supersonic
-	dw BattleAnim_SonicBoom
+	dw BattleAnim_Sonicboom
 	dw BattleAnim_Disable
 	dw BattleAnim_Acid
 	dw BattleAnim_Ember
@@ -1315,17 +1315,17 @@ BattleAnim_RazorWind:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_SonicBoom_JP: ; unreferenced
+BattleAnim_Sonicboom_JP: ; unreferenced
 	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
 .loop
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 80, $3
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
 	anim_wait 8
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 88, $2
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
 	anim_wait 8
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 96, $4
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
 	anim_wait 8
 	anim_loop 2, .loop
 	anim_wait 32
@@ -1340,7 +1340,7 @@ BattleAnim_SonicBoom_JP: ; unreferenced
 	anim_ret
 
 BattleAnim_Gust:
-BattleAnim_SonicBoom:
+BattleAnim_Sonicboom:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT
 .loop
 	anim_sound 0, 1, SFX_RAZOR_WIND
@@ -1498,9 +1498,9 @@ BattleAnim_AuroraBeam:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_ViseGrip:
+BattleAnim_Vicegrip:
 	anim_1gfx ANIM_GFX_CUT
-	anim_sound 0, 1, SFX_VISE_GRIP
+	anim_sound 0, 1, SFX_VICEGRIP
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
 	anim_wait 32
@@ -2004,7 +2004,7 @@ BattleAnim_AcidArmor:
 
 BattleAnim_Splash:
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 0, SFX_VISE_GRIP
+	anim_sound 0, 0, SFX_VICEGRIP
 	anim_call BattleAnim_TargetObj_2Row
 	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
 	anim_wait 96
@@ -2513,7 +2513,7 @@ BattleAnim_Guillotine:
 	anim_1gfx ANIM_GFX_CUT
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_sound 0, 1, SFX_VISE_GRIP
+	anim_sound 0, 1, SFX_VICEGRIP
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 156, 44, $0
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 148, 36, $0
@@ -4365,7 +4365,7 @@ BattleAnim_CrossChop:
 	anim_wait 8
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $58, $2, $0
 	anim_wait 92
-	anim_sound 0, 1, SFX_VISE_GRIP
+	anim_sound 0, 1, SFX_VICEGRIP
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
 	anim_wait 16
 	anim_ret

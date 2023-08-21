@@ -270,9 +270,9 @@ Sfx_Scratch:
 	channel_count 1
 	channel 8, Sfx_Scratch_Ch8
 
-Sfx_ViseGrip:
+Sfx_Vicegrip:
 	channel_count 1
-	channel 8, Sfx_ViseGrip_Ch8
+	channel 8, Sfx_Vicegrip_Ch8
 
 Sfx_RazorWind:
 	channel_count 1
@@ -4323,7 +4323,7 @@ Sfx_Scratch_Ch8:
 	noise_note 8, 15, 1, 33
 	sound_ret
 
-Sfx_ViseGrip_Ch8:
+Sfx_Vicegrip_Ch8:
 	noise_note 2, 14, 1, 75
 	noise_note 10, 15, 1, 68
 	noise_note 2, 14, 1, 58
