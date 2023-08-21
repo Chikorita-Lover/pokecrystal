@@ -2215,13 +2215,21 @@ BattleAnim_Mist:
 	anim_ret
 
 BattleAnim_Smog:
-	anim_1gfx ANIM_GFX_HAZE
-	anim_sound 0, 1, SFX_BUBBLE_BEAM
-.loop
-	anim_obj ANIM_OBJ_SMOG, 132, 16, $0
+	anim_2gfx ANIM_GFX_HAZE, ANIM_GFX_SMOKE
 	anim_wait 8
-	anim_loop 10, .loop
-	anim_wait 96
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj ANIM_OBJ_BALL_POOF, 132, 56, $10
+.loop
+	anim_sound 0, 1, SFX_MENU
+	anim_obj ANIM_OBJ_SMOKE, 132, 60, $20
+	anim_wait 8
+	anim_loop 5, .loop
+	anim_wait 24
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, BG_EFFECT_TARGET, $40
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
+	anim_call BattleAnim_ShowMon_1
+	anim_wait 8
 	anim_ret
 
 BattleAnim_PoisonGas:
