@@ -82,7 +82,7 @@ SFX:
 	dba Sfx_Supersonic
 	dba Sfx_Leer
 	dba Sfx_Ember
-	dba Sfx_BubbleBeam
+	dba Sfx_Bubblebeam
 	dba Sfx_HydroPump
 	dba Sfx_Surf
 	dba Sfx_Psybeam

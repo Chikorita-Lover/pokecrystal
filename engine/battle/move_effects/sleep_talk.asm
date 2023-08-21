@@ -133,7 +133,7 @@ BattleCommand_SleepTalk:
 	ret z
 	cp EFFECT_SKY_ATTACK
 	ret z
-	cp EFFECT_SOLAR_BEAM
+	cp EFFECT_SOLARBEAM
 	ret z
 	cp EFFECT_FLY
 	ret z

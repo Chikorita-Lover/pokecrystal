@@ -1080,7 +1080,7 @@ BattleCommand_DoTurn:
 	db EFFECT_RAZOR_WIND
 	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
-	db EFFECT_SOLAR_BEAM
+	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
 	db EFFECT_BIDE
@@ -1892,7 +1892,7 @@ BattleCommand_LowerSub:
 	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
-	cp EFFECT_SOLAR_BEAM
+	cp EFFECT_SOLARBEAM
 	jr z, .charge_turn
 	cp EFFECT_FLY
 	jr z, .charge_turn
@@ -2901,6 +2901,16 @@ BattleCommand_DamageCalc:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
+
+; Selfdestruct and Explosion halve defense.
+	cp EFFECT_SELFDESTRUCT
+	jr nz, .dont_selfdestruct
+
+	srl c
+	jr nz, .dont_selfdestruct
+	inc c
+
+.dont_selfdestruct
 
 ; Variable-hit moves and Conversion can have a power of 0.
 	cp EFFECT_MULTI_HIT
@@ -4738,8 +4748,6 @@ BattleCommand_Curl:
 	set SUBSTATUS_CURLED, [hl]
 	ret
 
-INCLUDE "engine/battle/move_effects/growth.asm"
-
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
 	ldh a, [hBattleTurn]
@@ -5548,7 +5556,7 @@ BattleCommand_Charge:
 	ld hl, .BattleMadeWhirlwindText
 	jr z, .done
 
-	cp SOLAR_BEAM
+	cp SOLARBEAM
 	ld hl, .BattleTookSunlightText
 	jr z, .done
 

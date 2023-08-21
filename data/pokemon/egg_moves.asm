@@ -38,7 +38,7 @@ SquirtleEggMoves:
 
 PidgeyEggMoves:
 	db PURSUIT
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db FORESIGHT
 	db -1 ; end
 
@@ -52,7 +52,7 @@ RattataEggMoves:
 	db -1 ; end
 
 SpearowEggMoves:
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db FALSE_SWIPE
 	db SCARY_FACE
 	db QUICK_ATTACK
@@ -96,7 +96,7 @@ NidoranMEggMoves:
 	db -1 ; end
 
 VulpixEggMoves:
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db HYPNOSIS
 	db FLAIL
 	db SPITE
@@ -106,7 +106,7 @@ VulpixEggMoves:
 ZubatEggMoves:
 	db QUICK_ATTACK
 	db PURSUIT
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db GUST
 	db WHIRLWIND
 	db -1 ; end
@@ -135,7 +135,7 @@ VenonatEggMoves:
 	db -1 ; end
 
 DiglettEggMoves:
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db SCREECH
 	db ANCIENTPOWER
 	db PURSUIT
@@ -180,7 +180,7 @@ GrowlitheEggMoves:
 PoliwagEggMoves:
 	db MIST
 	db SPLASH
-	db BUBBLE_BEAM
+	db BUBBLEBEAM
 	db HAZE
 	db MIND_READER
 	db -1 ; end
@@ -247,7 +247,7 @@ DoduoEggMoves:
 	db QUICK_ATTACK
 	db SUPERSONIC
 	db HAZE
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db FLAIL
 	db -1 ; end
 
@@ -267,7 +267,7 @@ GrimerEggMoves:
 	db -1 ; end
 
 ShellderEggMoves:
-	db BUBBLE_BEAM
+	db BUBBLEBEAM
 	db TAKE_DOWN
 	db BARRIER
 	db RAPID_SPIN
@@ -408,7 +408,7 @@ EeveeEggMoves:
 	db -1 ; end
 
 OmanyteEggMoves:
-	db BUBBLE_BEAM
+	db BUBBLEBEAM
 	db AURORA_BEAM
 	db SLAM
 	db SUPERSONIC
@@ -416,7 +416,7 @@ OmanyteEggMoves:
 	db -1 ; end
 
 KabutoEggMoves:
-	db BUBBLE_BEAM
+	db BUBBLEBEAM
 	db AURORA_BEAM
 	db RAPID_SPIN
 	db DIG
@@ -478,7 +478,7 @@ SentretEggMoves:
 HoothootEggMoves:
 	db MIRROR_MOVE
 	db SUPERSONIC
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db WING_ATTACK
 	db WHIRLWIND
 	db SKY_ATTACK
@@ -524,7 +524,7 @@ CleffaEggMoves:
 IgglybuffEggMoves:
 	db PERISH_SONG
 	db PRESENT
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db -1 ; end
 
 TogepiEggMoves:
@@ -539,7 +539,7 @@ NatuEggMoves:
 	db HAZE
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db STEEL_WING
 	db -1 ; end
 
@@ -646,7 +646,7 @@ GligarEggMoves:
 
 SnubbullEggMoves:
 	db METRONOME
-	db FEINT_ATTACK
+	db FAINT_ATTACK
 	db REFLECT
 	db PRESENT
 	db CRUNCH
@@ -658,7 +658,7 @@ SnubbullEggMoves:
 QwilfishEggMoves:
 	db FLAIL
 	db HAZE
-	db BUBBLE_BEAM
+	db BUBBLEBEAM
 	db SUPERSONIC
 	db -1 ; end
 

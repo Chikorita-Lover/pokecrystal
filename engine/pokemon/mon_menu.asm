@@ -135,8 +135,8 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_WHIRLPOOL,  MonMenu_Whirlpool
 	dbw MONMENUITEM_DIG,        MonMenu_Dig
 	dbw MONMENUITEM_TELEPORT,   MonMenu_Teleport
-	dbw MONMENUITEM_SOFTBOILED, MonMenu_SoftBoiled_MilkDrink
-	dbw MONMENUITEM_MILKDRINK,  MonMenu_SoftBoiled_MilkDrink
+	dbw MONMENUITEM_SOFTBOILED, MonMenu_Softboiled_MilkDrink
+	dbw MONMENUITEM_MILKDRINK,  MonMenu_Softboiled_MilkDrink
 	dbw MONMENUITEM_HEADBUTT,   MonMenu_Headbutt
 	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
 	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
@@ -721,10 +721,10 @@ MonMenu_Dig:
 	ld a, $3
 	ret
 
-MonMenu_SoftBoiled_MilkDrink:
+MonMenu_Softboiled_MilkDrink:
 	call .CheckMonHasEnoughHP
 	jr nc, .NotEnoughHP
-	farcall SoftBoiled_MilkDrinkFunction
+	farcall Softboiled_MilkDrinkFunction
 	jr .finish
 
 .NotEnoughHP:

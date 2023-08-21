@@ -676,7 +676,7 @@ Script_UsedWaterfall:
 	writetext .UseWaterfallText
 	waitbutton
 	closetext
-	playsound SFX_BUBBLE_BEAM
+	playsound SFX_BUBBLEBEAM
 .loop
 	applymovement PLAYER, .WaterfallStep
 	callasm .CheckContinueWaterfall

@@ -62,7 +62,7 @@ BattleAnimations::
 	dw BattleAnim_IceBeam
 	dw BattleAnim_Blizzard
 	dw BattleAnim_Psybeam
-	dw BattleAnim_BubbleBeam
+	dw BattleAnim_Bubblebeam
 	dw BattleAnim_AuroraBeam
 	dw BattleAnim_HyperBeam
 	dw BattleAnim_Peck
@@ -77,7 +77,7 @@ BattleAnimations::
 	dw BattleAnim_LeechSeed
 	dw BattleAnim_Growth
 	dw BattleAnim_RazorLeaf
-	dw BattleAnim_SolarBeam
+	dw BattleAnim_Solarbeam
 	dw BattleAnim_Poisonpowder
 	dw BattleAnim_StunSpore
 	dw BattleAnim_SleepPowder
@@ -136,7 +136,7 @@ BattleAnimations::
 	dw BattleAnim_Constrict
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Kinesis
-	dw BattleAnim_SoftBoiled
+	dw BattleAnim_Softboiled
 	dw BattleAnim_HiJumpKick
 	dw BattleAnim_Glare
 	dw BattleAnim_DreamEater
@@ -186,7 +186,7 @@ BattleAnimations::
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
 	dw BattleAnim_ScaryFace
-	dw BattleAnim_FeintAttack
+	dw BattleAnim_FaintAttack
 	dw BattleAnim_SweetKiss
 	dw BattleAnim_BellyDrum
 	dw BattleAnim_SludgeBomb
@@ -583,7 +583,7 @@ BattleAnim_InSandstorm:
 
 BattleAnim_InNightmare:
 	anim_1gfx ANIM_GFX_ANGELS
-	anim_sound 0, 0, SFX_BUBBLE_BEAM
+	anim_sound 0, 0, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_IN_NIGHTMARE, 68, 80, $0
 	anim_wait 40
 	anim_ret
@@ -1039,16 +1039,16 @@ BattleAnim_Bubble:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_BubbleBeam:
+BattleAnim_Bubblebeam:
 	anim_1gfx ANIM_GFX_BUBBLE
 .loop
-	anim_sound 16, 2, SFX_BUBBLE_BEAM
+	anim_sound 16, 2, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $92
 	anim_wait 6
-	anim_sound 16, 2, SFX_BUBBLE_BEAM
+	anim_sound 16, 2, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $b3
 	anim_wait 6
-	anim_sound 16, 2, SFX_BUBBLE_BEAM
+	anim_sound 16, 2, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $f4
 	anim_wait 8
 	anim_loop 3, .loop
@@ -1209,7 +1209,7 @@ BattleAnim_RazorLeaf:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_SolarBeam:
+BattleAnim_Solarbeam:
 	anim_if_param_equal $0, .FireSolarBeam
 	; charge turn
 	anim_1gfx ANIM_GFX_CHARGE
@@ -1705,7 +1705,7 @@ BattleAnim_EggBomb:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_SoftBoiled:
+BattleAnim_Softboiled:
 	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_BUBBLE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_sound 0, 0, SFX_SWITCH_POKEMON
@@ -2216,7 +2216,7 @@ BattleAnim_Mist:
 
 BattleAnim_Smog:
 	anim_1gfx ANIM_GFX_HAZE
-	anim_sound 0, 1, SFX_BUBBLE_BEAM
+	anim_sound 0, 1, SFX_BUBBLEBEAM
 .loop
 	anim_obj ANIM_OBJ_SMOG, 132, 16, $0
 	anim_wait 8
@@ -2226,7 +2226,7 @@ BattleAnim_Smog:
 
 BattleAnim_PoisonGas:
 	anim_1gfx ANIM_GFX_HAZE
-	anim_sound 16, 2, SFX_BUBBLE_BEAM
+	anim_sound 16, 2, SFX_BUBBLEBEAM
 .loop
 	anim_obj ANIM_OBJ_POISON_GAS, 44, 80, $2
 	anim_wait 8
@@ -3432,7 +3432,7 @@ BattleAnim_ScaryFace:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_FeintAttack:
+BattleAnim_FaintAttack:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_CURSE
 	anim_call BattleAnim_TargetObj_1Row
@@ -4740,7 +4740,7 @@ BattleAnimSub_Sludge:
 
 BattleAnimSub_Acid:
 .loop
-	anim_sound 6, 2, SFX_BUBBLE_BEAM
+	anim_sound 6, 2, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_ACID, 64, 92, $10
 	anim_wait 5
 	anim_loop 8, .loop

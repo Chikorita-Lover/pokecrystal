@@ -1986,7 +1986,7 @@ Stomp:
 	flinchtarget
 	endmove
 
-SolarBeam:
+Solarbeam:
 	checkcharge
 	checkobedience
 	doturn
@@ -2076,11 +2076,4 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
-	endmove
-
-Growth:
-	checkobedience
-	usedmovetext
-	doturn
-	growth
 	endmove

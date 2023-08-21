@@ -1229,7 +1229,7 @@ Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") implies 
  	db FIRE_PUNCH
  	db EMBER
  	db FLAMETHROWER
-+	db SOLAR_BEAM
++	db SOLARBEAM
  	db FIRE_SPIN
  	db FIRE_BLAST
 +	db FLAME_WHEEL
