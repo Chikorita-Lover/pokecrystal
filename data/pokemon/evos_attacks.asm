@@ -1188,28 +1188,30 @@ GrimerEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, POUND
-	db 5, HARDEN
-	db 10, DISABLE
-	db 16, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 40, ACID_ARMOR
-	db 50, SLUDGE_BOMB
+	db 4, HARDEN
+	db 7, MUD_SLAP
+	db 12, DISABLE
+	db 17, MINIMIZE
+	db 20, SLUDGE
+	db 28, SCREECH
+	db 33, SLUDGE_BOMB
+	db 39, ACID_ARMOR
 	db 0 ; no more level-up moves
 
 MukEvosAttacks:
 	db 0 ; no more evolutions
-	; moves are not sorted by level
 	db 1, POISON_GAS
 	db 1, POUND
 	db 1, HARDEN
-	db 33, HARDEN
-	db 37, DISABLE
-	db 45, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 45, ACID_ARMOR
-	db 60, SLUDGE_BOMB
+	db 1, MUD_SLAP
+	db 4, HARDEN
+	db 7, MUD_SLAP
+	db 12, DISABLE
+	db 17, MINIMIZE
+	db 20, SLUDGE
+	db 28, SCREECH
+	db 33, SLUDGE_BOMB
+	db 42, ACID_ARMOR
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:
@@ -1483,13 +1485,14 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 9, SMOG
-	db 17, SELFDESTRUCT
-	db 21, SLUDGE
-	db 25, SMOKESCREEN
-	db 33, HAZE
-	db 41, EXPLOSION
-	db 45, DESTINY_BOND
+	db 6, SMOG
+	db 10, SMOKESCREEN
+	db 15, SELFDESTRUCT
+	db 24, SLUDGE
+	db 28, HAZE
+	db 37, EXPLOSION
+	db 42, SLUDGE_BOMB
+	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
@@ -1497,14 +1500,15 @@ WeezingEvosAttacks:
 	db 1, POISON_GAS
 	db 1, TACKLE
 	db 1, SMOG
-	db 1, SELFDESTRUCT
-	db 9, SMOG
-	db 17, SELFDESTRUCT
-	db 21, SLUDGE
-	db 25, SMOKESCREEN
-	db 33, HAZE
-	db 44, EXPLOSION
-	db 51, DESTINY_BOND
+	db 1, SMOKESCREEN
+	db 6, SMOG
+	db 10, SMOKESCREEN
+	db 15, SELFDESTRUCT
+	db 24, SLUDGE
+	db 28, HAZE
+	db 39, EXPLOSION
+	db 46, SLUDGE_BOMB
+	db 52, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:
