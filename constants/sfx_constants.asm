@@ -54,7 +54,7 @@
 	const SFX_COMET_PUNCH                 ; 33
 	const SFX_MEGA_PUNCH                  ; 34
 	const SFX_SCRATCH                     ; 35
-	const SFX_VICEGRIP                    ; 36
+	const SFX_VISE_GRIP                    ; 36
 	const SFX_RAZOR_WIND                  ; 37
 	const SFX_CUT                         ; 38
 	const SFX_WING_ATTACK                 ; 39
@@ -68,7 +68,7 @@
 	const SFX_TACKLE                      ; 41
 	const SFX_POISON_STING                ; 42
 	const SFX_POWDER                      ; 43
-	const SFX_DOUBLESLAP                  ; 44
+	const SFX_DOUBLE_SLAP                  ; 44
 	const SFX_BITE                        ; 45
 	const SFX_JUMP_KICK                   ; 46
 	const SFX_STOMP                       ; 47
@@ -81,7 +81,7 @@
 	const SFX_SUPERSONIC                  ; 4e
 	const SFX_LEER                        ; 4f
 	const SFX_EMBER                       ; 50
-	const SFX_BUBBLEBEAM                  ; 51
+	const SFX_BUBBLE_BEAM                  ; 51
 	const SFX_HYDRO_PUMP                  ; 52
 	const SFX_SURF                        ; 53
 	const SFX_PSYBEAM                     ; 54

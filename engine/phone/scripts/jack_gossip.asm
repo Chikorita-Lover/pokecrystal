@@ -2,7 +2,7 @@ JackTriviaScript:
 	random 11
 	ifequal  0, .Thunder
 	ifequal  1, .Rollout
-	ifequal  2, .Solarbeam
+	ifequal  2, .SolarBeam
 	ifequal  3, .Stomp
 	ifequal  4, .Gust
 	ifequal  5, .Twister
@@ -22,8 +22,8 @@ JackTriviaScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-.Solarbeam:
-	farwritetext JackSolarbeamTriviaText
+.SolarBeam:
+	farwritetext JackSolarBeamTriviaText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

@@ -1080,7 +1080,7 @@ BattleCommand_DoTurn:
 	db EFFECT_RAZOR_WIND
 	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
-	db EFFECT_SOLARBEAM
+	db EFFECT_SOLAR_BEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
 	db EFFECT_BIDE
@@ -1892,7 +1892,7 @@ BattleCommand_LowerSub:
 	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
-	cp EFFECT_SOLARBEAM
+	cp EFFECT_SOLAR_BEAM
 	jr z, .charge_turn
 	cp EFFECT_FLY
 	jr z, .charge_turn
@@ -5558,7 +5558,7 @@ BattleCommand_Charge:
 	ld hl, .BattleMadeWhirlwindText
 	jr z, .done
 
-	cp SOLARBEAM
+	cp SOLAR_BEAM
 	ld hl, .BattleTookSunlightText
 	jr z, .done
 

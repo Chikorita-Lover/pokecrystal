@@ -4,7 +4,7 @@ BattleAnimations::
 	dw BattleAnim_Dummy
 	dw BattleAnim_Pound
 	dw BattleAnim_KarateChop
-	dw BattleAnim_Doubleslap
+	dw BattleAnim_DoubleSlap
 	dw BattleAnim_CometPunch
 	dw BattleAnim_MegaPunch
 	dw BattleAnim_PayDay
@@ -12,7 +12,7 @@ BattleAnimations::
 	dw BattleAnim_IcePunch
 	dw BattleAnim_Thunderpunch
 	dw BattleAnim_Scratch
-	dw BattleAnim_Vicegrip
+	dw BattleAnim_ViseGrip
 	dw BattleAnim_Guillotine
 	dw BattleAnim_RazorWind
 	dw BattleAnim_SwordsDance
@@ -50,7 +50,7 @@ BattleAnimations::
 	dw BattleAnim_Roar
 	dw BattleAnim_Sing
 	dw BattleAnim_Supersonic
-	dw BattleAnim_Sonicboom
+	dw BattleAnim_SonicBoom
 	dw BattleAnim_Disable
 	dw BattleAnim_Acid
 	dw BattleAnim_Ember
@@ -62,7 +62,7 @@ BattleAnimations::
 	dw BattleAnim_IceBeam
 	dw BattleAnim_Blizzard
 	dw BattleAnim_Psybeam
-	dw BattleAnim_Bubblebeam
+	dw BattleAnim_BubbleBeam
 	dw BattleAnim_AuroraBeam
 	dw BattleAnim_HyperBeam
 	dw BattleAnim_Peck
@@ -77,7 +77,7 @@ BattleAnimations::
 	dw BattleAnim_LeechSeed
 	dw BattleAnim_Growth
 	dw BattleAnim_RazorLeaf
-	dw BattleAnim_Solarbeam
+	dw BattleAnim_SolarBeam
 	dw BattleAnim_Poisonpowder
 	dw BattleAnim_StunSpore
 	dw BattleAnim_SleepPowder
@@ -136,7 +136,7 @@ BattleAnimations::
 	dw BattleAnim_Constrict
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Kinesis
-	dw BattleAnim_Softboiled
+	dw BattleAnim_SoftBoiled
 	dw BattleAnim_HiJumpKick
 	dw BattleAnim_Glare
 	dw BattleAnim_DreamEater
@@ -186,7 +186,7 @@ BattleAnimations::
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
 	dw BattleAnim_ScaryFace
-	dw BattleAnim_FaintAttack
+	dw BattleAnim_FeintAttack
 	dw BattleAnim_SweetKiss
 	dw BattleAnim_BellyDrum
 	dw BattleAnim_SludgeBomb
@@ -583,7 +583,7 @@ BattleAnim_InSandstorm:
 
 BattleAnim_InNightmare:
 	anim_1gfx ANIM_GFX_ANGELS
-	anim_sound 0, 0, SFX_BUBBLEBEAM
+	anim_sound 0, 0, SFX_BUBBLE_BEAM
 	anim_obj ANIM_OBJ_IN_NIGHTMARE, 68, 80, $0
 	anim_wait 40
 	anim_ret
@@ -678,10 +678,10 @@ BattleAnim_KarateChop:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Doubleslap:
+BattleAnim_DoubleSlap:
 	anim_1gfx ANIM_GFX_HIT
 	anim_if_param_equal $1, .alternate
-	anim_sound 0, 1, SFX_DOUBLESLAP
+	anim_sound 0, 1, SFX_DOUBLE_SLAP
 	anim_obj ANIM_OBJ_PALM, 144, 48, $0
 	anim_wait 6
 	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $0
@@ -689,7 +689,7 @@ BattleAnim_Doubleslap:
 	anim_ret
 
 .alternate:
-	anim_sound 0, 1, SFX_DOUBLESLAP
+	anim_sound 0, 1, SFX_DOUBLE_SLAP
 	anim_obj ANIM_OBJ_PALM, 120, 48, $0
 	anim_wait 6
 	anim_obj ANIM_OBJ_HIT_YFIX, 120, 48, $0
@@ -1039,16 +1039,16 @@ BattleAnim_Bubble:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Bubblebeam:
+BattleAnim_BubbleBeam:
 	anim_1gfx ANIM_GFX_BUBBLE
 .loop
-	anim_sound 16, 2, SFX_BUBBLEBEAM
+	anim_sound 16, 2, SFX_BUBBLE_BEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $92
 	anim_wait 6
-	anim_sound 16, 2, SFX_BUBBLEBEAM
+	anim_sound 16, 2, SFX_BUBBLE_BEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $b3
 	anim_wait 6
-	anim_sound 16, 2, SFX_BUBBLEBEAM
+	anim_sound 16, 2, SFX_BUBBLE_BEAM
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $f4
 	anim_wait 8
 	anim_loop 3, .loop
@@ -1209,7 +1209,7 @@ BattleAnim_RazorLeaf:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Solarbeam:
+BattleAnim_SolarBeam:
 	anim_if_param_equal $0, .FireSolarBeam
 	; charge turn
 	anim_1gfx ANIM_GFX_CHARGE
@@ -1315,17 +1315,17 @@ BattleAnim_RazorWind:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_Sonicboom_JP: ; unreferenced
+BattleAnim_SonicBoom_JP: ; unreferenced
 	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
 .loop
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
+	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 80, $3
 	anim_wait 8
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
+	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 88, $2
 	anim_wait 8
 	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
+	anim_obj ANIM_OBJ_SONIC_BOOM_JP, 64, 96, $4
 	anim_wait 8
 	anim_loop 2, .loop
 	anim_wait 32
@@ -1340,7 +1340,7 @@ BattleAnim_Sonicboom_JP: ; unreferenced
 	anim_ret
 
 BattleAnim_Gust:
-BattleAnim_Sonicboom:
+BattleAnim_SonicBoom:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT
 .loop
 	anim_sound 0, 1, SFX_RAZOR_WIND
@@ -1498,9 +1498,9 @@ BattleAnim_AuroraBeam:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Vicegrip:
+BattleAnim_ViseGrip:
 	anim_1gfx ANIM_GFX_CUT
-	anim_sound 0, 1, SFX_VICEGRIP
+	anim_sound 0, 1, SFX_VISE_GRIP
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
 	anim_wait 32
@@ -1705,7 +1705,7 @@ BattleAnim_EggBomb:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_Softboiled:
+BattleAnim_SoftBoiled:
 	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_BUBBLE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_sound 0, 0, SFX_SWITCH_POKEMON
@@ -2004,7 +2004,7 @@ BattleAnim_AcidArmor:
 
 BattleAnim_Splash:
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 0, SFX_VICEGRIP
+	anim_sound 0, 0, SFX_VISE_GRIP
 	anim_call BattleAnim_TargetObj_2Row
 	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
 	anim_wait 96
@@ -2216,7 +2216,7 @@ BattleAnim_Mist:
 
 BattleAnim_Smog:
 	anim_1gfx ANIM_GFX_HAZE
-	anim_sound 0, 1, SFX_BUBBLEBEAM
+	anim_sound 0, 1, SFX_BUBBLE_BEAM
 .loop
 	anim_obj ANIM_OBJ_SMOG, 132, 16, $0
 	anim_wait 8
@@ -2226,7 +2226,7 @@ BattleAnim_Smog:
 
 BattleAnim_PoisonGas:
 	anim_1gfx ANIM_GFX_HAZE
-	anim_sound 16, 2, SFX_BUBBLEBEAM
+	anim_sound 16, 2, SFX_BUBBLE_BEAM
 .loop
 	anim_obj ANIM_OBJ_POISON_GAS, 44, 80, $2
 	anim_wait 8
@@ -2513,7 +2513,7 @@ BattleAnim_Guillotine:
 	anim_1gfx ANIM_GFX_CUT
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_sound 0, 1, SFX_VICEGRIP
+	anim_sound 0, 1, SFX_VISE_GRIP
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 156, 44, $0
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 148, 36, $0
@@ -3432,7 +3432,7 @@ BattleAnim_ScaryFace:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_FaintAttack:
+BattleAnim_FeintAttack:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_CURSE
 	anim_call BattleAnim_TargetObj_1Row
@@ -4365,7 +4365,7 @@ BattleAnim_CrossChop:
 	anim_wait 8
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $58, $2, $0
 	anim_wait 92
-	anim_sound 0, 1, SFX_VICEGRIP
+	anim_sound 0, 1, SFX_VISE_GRIP
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
 	anim_wait 16
 	anim_ret
@@ -4740,7 +4740,7 @@ BattleAnimSub_Sludge:
 
 BattleAnimSub_Acid:
 .loop
-	anim_sound 6, 2, SFX_BUBBLEBEAM
+	anim_sound 6, 2, SFX_BUBBLE_BEAM
 	anim_obj ANIM_OBJ_ACID, 64, 92, $10
 	anim_wait 5
 	anim_loop 8, .loop

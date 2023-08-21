@@ -8,7 +8,7 @@
 	const NO_MOVE      ; 00
 	const POUND        ; 01
 	const KARATE_CHOP  ; 02
-	const DOUBLESLAP   ; 03
+	const DOUBLE_SLAP   ; 03
 	const COMET_PUNCH  ; 04
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06
@@ -16,7 +16,7 @@
 	const ICE_PUNCH    ; 08
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
-	const VICEGRIP     ; 0b
+	const VISE_GRIP     ; 0b
 	const GUILLOTINE   ; 0c
 	const RAZOR_WIND   ; 0d
 	const SWORDS_DANCE ; 0e
@@ -54,7 +54,7 @@
 	const ROAR         ; 2e
 	const SING         ; 2f
 	const SUPERSONIC   ; 30
-	const SONICBOOM    ; 31
+	const SONIC_BOOM    ; 31
 	const DISABLE      ; 32
 	const ACID         ; 33
 	const EMBER        ; 34
@@ -66,7 +66,7 @@
 	const ICE_BEAM     ; 3a
 	const BLIZZARD     ; 3b
 	const PSYBEAM      ; 3c
-	const BUBBLEBEAM   ; 3d
+	const BUBBLE_BEAM   ; 3d
 	const AURORA_BEAM  ; 3e
 	const HYPER_BEAM   ; 3f
 	const PECK         ; 40
@@ -81,7 +81,7 @@
 	const LEECH_SEED   ; 49
 	const GROWTH       ; 4a
 	const RAZOR_LEAF   ; 4b
-	const SOLARBEAM    ; 4c
+	const SOLAR_BEAM    ; 4c
 	const POISONPOWDER ; 4d
 	const STUN_SPORE   ; 4e
 	const SLEEP_POWDER ; 4f
@@ -140,7 +140,7 @@
 	const CONSTRICT    ; 84
 	const AMNESIA      ; 85
 	const KINESIS      ; 86
-	const SOFTBOILED   ; 87
+	const SOFT_BOILED   ; 87
 	const HI_JUMP_KICK ; 88
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
@@ -190,7 +190,7 @@
 	const PROTECT      ; b6
 	const MACH_PUNCH   ; b7
 	const SCARY_FACE   ; b8
-	const FAINT_ATTACK ; b9
+	const FEINT_ATTACK ; b9
 	const SWEET_KISS   ; ba
 	const BELLY_DRUM   ; bb
 	const SLUDGE_BOMB  ; bc

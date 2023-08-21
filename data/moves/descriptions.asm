@@ -3,7 +3,7 @@ MoveDescriptions::
 	table_width 2, MoveDescriptions
 	dw PoundDescription
 	dw KarateChopDescription
-	dw DoubleslapDescription
+	dw DoubleSlapDescription
 	dw CometPunchDescription
 	dw MegaPunchDescription
 	dw PayDayDescription
@@ -11,7 +11,7 @@ MoveDescriptions::
 	dw IcePunchDescription
 	dw ThunderpunchDescription
 	dw ScratchDescription
-	dw VicegripDescription
+	dw ViseGripDescription
 	dw GuillotineDescription
 	dw RazorWindDescription
 	dw SwordsDanceDescription
@@ -49,7 +49,7 @@ MoveDescriptions::
 	dw RoarDescription
 	dw SingDescription
 	dw SupersonicDescription
-	dw SonicboomDescription
+	dw SonicBoomDescription
 	dw DisableDescription
 	dw AcidDescription
 	dw EmberDescription
@@ -61,7 +61,7 @@ MoveDescriptions::
 	dw IceBeamDescription
 	dw BlizzardDescription
 	dw PsybeamDescription
-	dw BubblebeamDescription
+	dw BubbleBeamDescription
 	dw AuroraBeamDescription
 	dw HyperBeamDescription
 	dw PeckDescription
@@ -76,7 +76,7 @@ MoveDescriptions::
 	dw LeechSeedDescription
 	dw GrowthDescription
 	dw RazorLeafDescription
-	dw SolarbeamDescription
+	dw SolarBeamDescription
 	dw PoisonpowderDescription
 	dw StunSporeDescription
 	dw SleepPowderDescription
@@ -135,7 +135,7 @@ MoveDescriptions::
 	dw ConstrictDescription
 	dw AmnesiaDescription
 	dw KinesisDescription
-	dw SoftboiledDescription
+	dw SoftBoiledDescription
 	dw HiJumpKickDescription
 	dw GlareDescription
 	dw DreamEaterDescription
@@ -185,7 +185,7 @@ MoveDescriptions::
 	dw ProtectDescription
 	dw MachPunchDescription
 	dw ScaryFaceDescription
-	dw FaintAttackDescription
+	dw FeintAttackDescription
 	dw SweetKissDescription
 	dw BellyDrumDescription
 	dw SludgeBombDescription
@@ -275,7 +275,7 @@ KarateChopDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 
-DoubleslapDescription:
+DoubleSlapDescription:
 	db   "Repeatedly slaps"
 	next "2-5 times.@"
 
@@ -307,7 +307,7 @@ ScratchDescription:
 	db   "Scratches with"
 	next "sharp claws.@"
 
-VicegripDescription:
+ViseGripDescription:
 	db   "Grips with power-"
 	next "ful pincers.@"
 
@@ -459,7 +459,7 @@ SupersonicDescription:
 	db   "Sound waves that"
 	next "cause confusion.@"
 
-SonicboomDescription:
+SonicBoomDescription:
 	db   "Always inflicts"
 	next "20HP damage.@"
 
@@ -507,7 +507,7 @@ PsybeamDescription:
 	db   "An attack that may"
 	next "confuse the foe.@"
 
-BubblebeamDescription:
+BubbleBeamDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
 
@@ -567,7 +567,7 @@ RazorLeafDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 
-SolarbeamDescription:
+SolarBeamDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
 
@@ -803,7 +803,7 @@ KinesisDescription:
 	db   "Reduces the foe's"
 	next "accuracy.@"
 
-SoftboiledDescription:
+SoftBoiledDescription:
 	db   "Restores HP by 1/2"
 	next "the user's max HP.@"
 
@@ -1003,7 +1003,7 @@ ScaryFaceDescription:
 	db   "Sharply reduces"
 	next "the foe's SPEED.@"
 
-FaintAttackDescription:
+FeintAttackDescription:
 	db   "An attack that"
 	next "never misses.@"
 

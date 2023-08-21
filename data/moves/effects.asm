@@ -1986,7 +1986,7 @@ Stomp:
 	flinchtarget
 	endmove
 
-Solarbeam:
+SolarBeam:
 	checkcharge
 	checkobedience
 	doturn

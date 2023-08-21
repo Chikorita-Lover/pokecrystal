@@ -55,7 +55,7 @@ SFX:
 	dba Sfx_CometPunch
 	dba Sfx_MegaPunch
 	dba Sfx_Scratch
-	dba Sfx_Vicegrip
+	dba Sfx_ViseGrip
 	dba Sfx_RazorWind
 	dba Sfx_Cut
 	dba Sfx_WingAttack
@@ -69,7 +69,7 @@ SFX:
 	dba Sfx_Tackle
 	dba Sfx_PoisonSting
 	dba Sfx_Powder
-	dba Sfx_Doubleslap
+	dba Sfx_DoubleSlap
 	dba Sfx_Bite
 	dba Sfx_JumpKick
 	dba Sfx_Stomp
@@ -82,7 +82,7 @@ SFX:
 	dba Sfx_Supersonic
 	dba Sfx_Leer
 	dba Sfx_Ember
-	dba Sfx_Bubblebeam
+	dba Sfx_BubbleBeam
 	dba Sfx_HydroPump
 	dba Sfx_Surf
 	dba Sfx_Psybeam
