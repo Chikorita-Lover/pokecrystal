@@ -192,14 +192,14 @@ ButterfreeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, CONFUSION
 	db 10, CONFUSION
-	db 13, POISONPOWDER
-	db 14, STUN_SPORE
-	db 15, SLEEP_POWDER
+	db 12, POISONPOWDER
+	db 12, STUN_SPORE
+	db 12, SLEEP_POWDER
+	db 16, GUST
 	db 18, SUPERSONIC
-	db 23, WHIRLWIND
-	db 28, GUST
-	db 34, PSYBEAM
-	db 40, SAFEGUARD
+	db 22, WHIRLWIND
+	db 24, PSYBEAM
+	db 30, SAFEGUARD
 	db 0 ; no more level-up moves
 
 WeedleEvosAttacks:
