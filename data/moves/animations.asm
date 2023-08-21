@@ -3083,14 +3083,19 @@ BattleAnim_Slam:
 	anim_ret
 
 BattleAnim_Disable:
-	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_STATUS
-	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_obj ANIM_OBJ_DISABLE, 132, 56, $0
-	anim_wait 16
-	anim_sound 0, 1, SFX_BIND
-	anim_obj ANIM_OBJ_PARALYZED, 104, 56, $42
-	anim_obj ANIM_OBJ_PARALYZED, 160, 56, $c2
-	anim_wait 96
+	anim_1gfx ANIM_GFX_SHINE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 1, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_FORESIGHT, 64, 88, $0
+	anim_wait 24
+	anim_call BattleAnim_ShowMon_0
+	anim_call BattleAnim_UserObj_1Row
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, BG_EFFECT_TARGET, $40
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
+	anim_call BattleAnim_ShowMon_1
+	anim_wait 8
 	anim_ret
 
 BattleAnim_TailWhip:
