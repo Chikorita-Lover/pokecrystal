@@ -502,21 +502,21 @@ ClefairyEvosAttacks:
 	db 1, POUND
 	db 1, GROWL
 	db 4, ENCORE
-	db 8, SING
-	db 13, DOUBLE_SLAP
-	db 19, MINIMIZE
-	db 26, DEFENSE_CURL
-	db 34, METRONOME
-	db 43, MOONLIGHT
-	db 53, LIGHT_SCREEN
+	db 7, SING
+	db 10, DOUBLE_SLAP
+	db 13, DEFENSE_CURL
+	db 16, MINIMIZE
+	db 28, METRONOME
+	db 34, MOONLIGHT
+	db 40, LIGHT_SCREEN
 	db 0 ; no more level-up moves
 
 ClefableEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SING
 	db 1, DOUBLE_SLAP
+	db 1, MINIMIZE
 	db 1, METRONOME
-	db 1, MOONLIGHT
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
@@ -2442,8 +2442,8 @@ CleffaEvosAttacks:
 	db 1, POUND
 	db 1, CHARM
 	db 4, ENCORE
-	db 8, SING
-	db 13, SWEET_KISS
+	db 7, SING
+	db 10, SWEET_KISS
 	db 0 ; no more level-up moves
 
 IgglybuffEvosAttacks:
