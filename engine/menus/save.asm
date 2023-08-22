@@ -10,7 +10,7 @@ SaveMenu:
 	call AskOverwriteSaveFile
 	jr c, .refused
 	call PauseGameLogic
-	call _SavingDontTurnOffThePower
+	call SavedTheGame
 	call ResumeGameLogic
 	call ExitMenu
 	and a
@@ -38,21 +38,22 @@ SaveAfterLinkTrade:
 
 ChangeBoxSaveGame:
 	push de
-	ld hl, ChangeBoxSaveText
-	call MenuTextbox
-	call YesNoBox
-	call ExitMenu
-	jr c, .refused
 	call AskOverwriteSaveFile
 	jr c, .refused
 	call PauseGameLogic
-	call SavingDontTurnOffThePower
 	call SaveBox
 	pop de
 	ld a, e
 	ld [wCurBox], a
 	call LoadBox
-	call SavedTheGame
+	ld hl, .switching_text
+	call PrintText
+	ld c, 20
+	call DelayFrames
+	call SaveGameData
+	ld de, SFX_GOT_SAFARI_BALLS
+	call WaitPlaySFX
+	call WaitSFX
 	call ResumeGameLogic
 	and a
 	ret
@@ -60,11 +61,16 @@ ChangeBoxSaveGame:
 	pop de
 	ret
 
+.switching_text
+	text "SWITCHING BOXES"
+	line "AND SAVING…"
+	done
+
 Link_SaveGame:
 	call AskOverwriteSaveFile
 	jr c, .refused
 	call PauseGameLogic
-	call _SavingDontTurnOffThePower
+	call SavedTheGame
 	call ResumeGameLogic
 	and a
 
@@ -109,10 +115,7 @@ MoveMonWOMail_InsertMon_SaveGame:
 	call LoadBox
 	call ResumeGameLogic
 	ld de, SFX_SAVE
-	call PlaySFX
-	ld c, 24
-	call DelayFrames
-	ret
+	jp PlaySFX
 
 StartMoveMonWOMail_SaveGame:
 	ld hl, MoveMonWOMailSaveText
@@ -123,7 +126,7 @@ StartMoveMonWOMail_SaveGame:
 	call AskOverwriteSaveFile
 	jr c, .refused
 	call PauseGameLogic
-	call _SavingDontTurnOffThePower
+	call SavedTheGame
 	call ResumeGameLogic
 	and a
 	ret
@@ -174,31 +177,18 @@ AddHallOfFameEntry:
 		"GS_BALL_AVAILABLE is no longer equal to $b."
 	ret
 
-SaveGameData:
-	call _SaveGameData
-	ret
-
 AskOverwriteSaveFile:
 	ld a, [wSaveFileExists]
 	and a
 	jr z, .erase
 	call CompareLoadedAndSavedPlayerID
-	jr z, .yoursavefile
+	ret z
 	ld hl, AnotherSaveFileText
 	call SaveTheGame_yesorno
 	jr nz, .refused
-	jr .erase
-
-.yoursavefile
-	ld hl, AlreadyASaveFileText
-	call SaveTheGame_yesorno
-	jr nz, .refused
-	jr .ok
 
 .erase
 	call ErasePreviousSave
-
-.ok
 	and a
 	ret
 
@@ -236,34 +226,24 @@ CompareLoadedAndSavedPlayerID:
 	cp c
 	ret
 
-_SavingDontTurnOffThePower:
-	call SavingDontTurnOffThePower
 SavedTheGame:
-	call _SaveGameData
-	; wait 32 frames
-	ld c, 32
+	ld hl, .saving_text
+	call PrintText
+	ld c, 30
 	call DelayFrames
-	; copy the original text speed setting to the stack
-	ld a, [wOptions]
-	push af
-	; set text speed to medium
-	ld a, TEXT_DELAY_MED
-	ld [wOptions], a
+	call SaveGameData
 	; <PLAYER> saved the game!
 	ld hl, SavedTheGameText
 	call PrintText
-	; restore the original text speed setting
-	pop af
-	ld [wOptions], a
 	ld de, SFX_SAVE
 	call WaitPlaySFX
-	call WaitSFX
-	; wait 30 frames
-	ld c, 30
-	call DelayFrames
-	ret
+	jp WaitSFX
 
-_SaveGameData:
+.saving_text
+	text "SAVING…"
+	done
+
+SaveGameData:
 	ld a, TRUE
 	ld [wSaveFileExists], a
 	farcall StageRTCTimeForSave
@@ -332,30 +312,6 @@ FindStackTop:
 	ret nz
 	inc hl
 	jr .loop
-
-SavingDontTurnOffThePower:
-	; Prevent joypad interrupts
-	xor a
-	ldh [hJoypadReleased], a
-	ldh [hJoypadPressed], a
-	ldh [hJoypadSum], a
-	ldh [hJoypadDown], a
-	; Save the text speed setting to the stack
-	ld a, [wOptions]
-	push af
-	; Set the text speed to medium
-	ld a, TEXT_DELAY_MED
-	ld [wOptions], a
-	; SAVING... DON'T TURN OFF THE POWER.
-	ld hl, SavingDontTurnOffThePowerText
-	call PrintText
-	; Restore the text speed setting
-	pop af
-	ld [wOptions], a
-	; Wait for 16 frames
-	ld c, 16
-	call DelayFrames
-	ret
 
 ErasePreviousSave:
 	call EraseBoxes
@@ -1103,16 +1059,8 @@ WouldYouLikeToSaveTheGameText:
 	text_far _WouldYouLikeToSaveTheGameText
 	text_end
 
-SavingDontTurnOffThePowerText:
-	text_far _SavingDontTurnOffThePowerText
-	text_end
-
 SavedTheGameText:
 	text_far _SavedTheGameText
-	text_end
-
-AlreadyASaveFileText:
-	text_far _AlreadyASaveFileText
 	text_end
 
 AnotherSaveFileText:
