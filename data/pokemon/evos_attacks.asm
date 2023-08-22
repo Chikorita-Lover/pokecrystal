@@ -390,13 +390,16 @@ SandshrewEvosAttacks:
 	db EVOLVE_LEVEL, 22, SANDSLASH
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 6, DEFENSE_CURL
-	db 11, SAND_ATTACK
-	db 17, POISON_STING
-	db 23, SLASH
-	db 30, SWIFT
-	db 37, FURY_SWIPES
-	db 45, SANDSTORM
+	db 3, DEFENSE_CURL
+	db 7, SAND_ATTACK
+	db 9, POISON_STING
+	db 13, RAPID_SPIN
+	db 15, SWIFT
+	db 19, FURY_SWIPES
+	db 21, ROLLOUT
+	db 25, FURY_CUTTER
+	db 27, SLASH
+	db 31, SANDSTORM
 	db 0 ; no more level-up moves
 
 SandslashEvosAttacks:
@@ -404,13 +407,16 @@ SandslashEvosAttacks:
 	db 1, SCRATCH
 	db 1, DEFENSE_CURL
 	db 1, SAND_ATTACK
-	db 6, DEFENSE_CURL
-	db 11, SAND_ATTACK
-	db 17, POISON_STING
-	db 24, SLASH
-	db 33, SWIFT
-	db 42, FURY_SWIPES
-	db 52, SANDSTORM
+	db 3, DEFENSE_CURL
+	db 7, SAND_ATTACK
+	db 9, POISON_STING
+	db 13, RAPID_SPIN
+	db 15, SWIFT
+	db 19, FURY_SWIPES
+	db 21, ROLLOUT
+	db 28, FURY_CUTTER
+	db 33, SLASH
+	db 40, SANDSTORM
 	db 0 ; no more level-up moves
 
 NidoranFEvosAttacks:
