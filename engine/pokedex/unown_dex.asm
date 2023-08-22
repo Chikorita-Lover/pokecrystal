@@ -47,3 +47,24 @@ PrintUnownWord:
 	jr .loop
 
 INCLUDE "data/pokemon/unown_words.asm"
+
+CheckRegisteredUnown:
+	ld a, [wUnownLetter]
+	ld c, a
+	ld b, NUM_UNOWN
+	ld hl, wUnownDex
+.loop
+	ld a, [hli]
+; Return if the current value is zero (i.e. end of registered Unown)
+	and a
+	ret z
+; Set carry flag and return if the form is registered
+	cp c
+	jr z, .done
+	dec b
+	jr nz, .loop
+	ret
+
+.done
+	scf
+	ret

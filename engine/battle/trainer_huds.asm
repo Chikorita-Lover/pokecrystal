@@ -143,11 +143,23 @@ DrawEnemyHUDBorder:
 	dec a
 	ret nz
 	ld a, [wTempEnemyMonSpecies]
+	cp UNOWN
+	jr z, .unown
+
 	dec a
 	call CheckCaughtMon
 	ret z
+
+.caught_marker
 	hlcoord 1, 1
 	ld [hl], $5d
+	ret
+
+.unown
+	ld hl, wEnemyMonDVs
+	predef GetUnownLetter
+	farcall CheckRegisteredUnown
+	jr c, .caught_marker
 	ret
 
 .tiles
