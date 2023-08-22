@@ -234,11 +234,12 @@ PidgeyEvosAttacks:
 	db 1, TACKLE
 	db 5, SAND_ATTACK
 	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 21, WHIRLWIND
+	db 13, QUICK_ATTACK
+	db 17, WHIRLWIND
+	db 21, TWISTER
+	db 25, AGILITY
 	db 29, WING_ATTACK
-	db 37, AGILITY
-	db 47, MIRROR_MOVE
+	db 37, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -249,11 +250,12 @@ PidgeottoEvosAttacks:
 	db 1, GUST
 	db 5, SAND_ATTACK
 	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 23, WHIRLWIND
-	db 33, WING_ATTACK
-	db 43, AGILITY
-	db 55, MIRROR_MOVE
+	db 13, QUICK_ATTACK
+	db 17, WHIRLWIND
+	db 22, TWISTER
+	db 27, AGILITY
+	db 32, WING_ATTACK
+	db 42, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -264,11 +266,12 @@ PidgeotEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 5, SAND_ATTACK
 	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 23, WHIRLWIND
-	db 33, WING_ATTACK
-	db 46, AGILITY
-	db 61, MIRROR_MOVE
+	db 13, QUICK_ATTACK
+	db 17, WHIRLWIND
+	db 22, TWISTER
+	db 27, AGILITY
+	db 32, WING_ATTACK
+	db 44, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
@@ -300,12 +303,12 @@ SpearowEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, GROWL
-	db 7, LEER
-	db 13, FURY_ATTACK
-	db 25, PURSUIT
-	db 31, MIRROR_MOVE
-	db 37, DRILL_PECK
-	db 43, AGILITY
+	db 5, LEER
+	db 9, FURY_ATTACK
+	db 13, PURSUIT
+	db 17, MIRROR_MOVE
+	db 21, AGILITY
+	db 29, DRILL_PECK
 	db 0 ; no more level-up moves
 
 FearowEvosAttacks:
@@ -314,12 +317,12 @@ FearowEvosAttacks:
 	db 1, GROWL
 	db 1, LEER
 	db 1, FURY_ATTACK
-	db 7, LEER
-	db 13, FURY_ATTACK
-	db 26, PURSUIT
-	db 32, MIRROR_MOVE
-	db 40, DRILL_PECK
-	db 47, AGILITY
+	db 5, LEER
+	db 9, FURY_ATTACK
+	db 13, PURSUIT
+	db 17, MIRROR_MOVE
+	db 23, AGILITY
+	db 35, DRILL_PECK
 	db 0 ; no more level-up moves
 
 EkansEvosAttacks:
