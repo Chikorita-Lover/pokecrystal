@@ -38,6 +38,11 @@ SaveAfterLinkTrade:
 
 ChangeBoxSaveGame:
 	push de
+	ld hl, ChangeBoxSaveText
+	call MenuTextbox
+	call YesNoBox
+	call ExitMenu
+	jr c, .refused
 	call AskOverwriteSaveFile
 	jr c, .refused
 	call PauseGameLogic
@@ -46,7 +51,7 @@ ChangeBoxSaveGame:
 	ld a, e
 	ld [wCurBox], a
 	call LoadBox
-	ld hl, .switching_text
+	ld hl, .saving_text
 	call PrintText
 	ld c, 20
 	call DelayFrames
@@ -61,9 +66,8 @@ ChangeBoxSaveGame:
 	pop de
 	ret
 
-.switching_text
-	text "SWITCHING BOXES"
-	line "AND SAVING…"
+.saving_text
+	text "SAVING…"
 	done
 
 Link_SaveGame:
