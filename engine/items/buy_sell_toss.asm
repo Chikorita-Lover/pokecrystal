@@ -241,6 +241,7 @@ Buy_GetQuantityInPack:
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Berry
 
 .Item
 	ld hl, wNumItems
@@ -252,6 +253,10 @@ Buy_GetQuantityInPack:
 
 .Ball
 	ld hl, wNumBalls
+	jr .count
+
+.Berry
+	ld hl, wNumBerries
 	jr .count
 
 .TMHM

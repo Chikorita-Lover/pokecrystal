@@ -3,14 +3,16 @@
 	const PACKSTATE_INITGFX            ;  0
 	const PACKSTATE_INITITEMSPOCKET    ;  1
 	const PACKSTATE_ITEMSPOCKETMENU    ;  2
-	const PACKSTATE_INITBALLSPOCKET    ;  3
-	const PACKSTATE_BALLSPOCKETMENU    ;  4
-	const PACKSTATE_INITKEYITEMSPOCKET ;  5
-	const PACKSTATE_KEYITEMSPOCKETMENU ;  6
-	const PACKSTATE_INITTMHMPOCKET     ;  7
-	const PACKSTATE_TMHMPOCKETMENU     ;  8
-	const PACKSTATE_QUITNOSCRIPT       ;  9
-	const PACKSTATE_QUITRUNSCRIPT      ; 10
+	const PACKSTATE_INITBERRIESPOCKET    ;  3
+	const PACKSTATE_BERRIESPOCKETMENU    ;  4
+	const PACKSTATE_INITBALLSPOCKET    ;  5
+	const PACKSTATE_BALLSPOCKETMENU    ;  6
+	const PACKSTATE_INITKEYITEMSPOCKET ;  7
+	const PACKSTATE_KEYITEMSPOCKETMENU ;  8
+	const PACKSTATE_INITTMHMPOCKET     ;  9
+	const PACKSTATE_TMHMPOCKETMENU     ; 10
+	const PACKSTATE_QUITNOSCRIPT       ; 11
+	const PACKSTATE_QUITRUNSCRIPT      ; 12
 
 Pack:
 	ld hl, wOptions
@@ -43,6 +45,8 @@ Pack:
 	dw .InitGFX            ;  0
 	dw .InitItemsPocket    ;  1
 	dw .ItemsPocketMenu    ;  2
+	dw .InitBerriesPocket
+	dw .BerriesPocketMenu
 	dw .InitBallsPocket    ;  3
 	dw .BallsPocketMenu    ;  4
 	dw .InitKeyItemsPocket ;  5
@@ -83,7 +87,7 @@ Pack:
 	ld a, [wMenuCursorY]
 	ld [wItemsPocketCursor], a
 	ld b, PACKSTATE_INITTMHMPOCKET ; left
-	ld c, PACKSTATE_INITBALLSPOCKET ; right
+	ld c, PACKSTATE_INITBERRIESPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call .ItemBallsKey_LoadSubmenu
@@ -232,8 +236,36 @@ Pack:
 	ld [wBallsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
-	ld b, PACKSTATE_INITITEMSPOCKET ; left
+	ld b, PACKSTATE_INITBERRIESPOCKET ; left
 	ld c, PACKSTATE_INITKEYITEMSPOCKET ; right
+	call Pack_InterpretJoypad
+	ret c
+	call .ItemBallsKey_LoadSubmenu
+	ret
+
+.InitBerriesPocket:
+	ld a, BERRY_POCKET
+	ld [wCurPocket], a
+	call ClearPocketList
+	call DrawPocketName
+	call WaitBGMap_DrawPackGFX
+	call Pack_JumptableNext
+	ret
+
+.BerriesPocketMenu:
+	ld hl, BerryPocketMenuHeader
+	call CopyMenuHeader
+	ld a, [wBerriesPocketCursor]
+	ld [wMenuCursorPosition], a
+	ld a, [wBerriesPocketScrollPosition]
+	ld [wMenuScrollPosition], a
+	call ScrollingMenu
+	ld a, [wMenuScrollPosition]
+	ld [wBerriesPocketScrollPosition], a
+	ld a, [wMenuCursorY]
+	ld [wBerriesPocketCursor], a
+	ld b, PACKSTATE_INITITEMSPOCKET ; left
+	ld c, PACKSTATE_INITBALLSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call .ItemBallsKey_LoadSubmenu
@@ -652,6 +684,8 @@ BattlePack:
 	dw .InitGFX            ;  0
 	dw .InitItemsPocket    ;  1
 	dw .ItemsPocketMenu    ;  2
+	dw .InitBerriesPocket
+	dw .BerriesPocketMenu
 	dw .InitBallsPocket    ;  3
 	dw .BallsPocketMenu    ;  4
 	dw .InitKeyItemsPocket ;  5
@@ -692,7 +726,7 @@ BattlePack:
 	ld a, [wMenuCursorY]
 	ld [wItemsPocketCursor], a
 	ld b, PACKSTATE_INITTMHMPOCKET ; left
-	ld c, PACKSTATE_INITBALLSPOCKET ; right
+	ld c, PACKSTATE_INITBERRIESPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call ItemSubmenu
@@ -770,8 +804,36 @@ BattlePack:
 	ld [wBallsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
-	ld b, PACKSTATE_INITITEMSPOCKET ; left
+	ld b, PACKSTATE_INITBERRIESPOCKET ; left
 	ld c, PACKSTATE_INITKEYITEMSPOCKET ; right
+	call Pack_InterpretJoypad
+	ret c
+	call ItemSubmenu
+	ret
+
+.InitBerriesPocket:
+	ld a, BERRY_POCKET
+	ld [wCurPocket], a
+	call ClearPocketList
+	call DrawPocketName
+	call WaitBGMap_DrawPackGFX
+	call Pack_JumptableNext
+	ret
+
+.BerriesPocketMenu:
+	ld hl, BerryPocketMenuHeader
+	call CopyMenuHeader
+	ld a, [wBerriesPocketCursor]
+	ld [wMenuCursorPosition], a
+	ld a, [wBerriesPocketScrollPosition]
+	ld [wMenuScrollPosition], a
+	call ScrollingMenu
+	ld a, [wMenuScrollPosition]
+	ld [wBerriesPocketScrollPosition], a
+	ld a, [wMenuCursorY]
+	ld [wBerriesPocketCursor], a
+	ld b, PACKSTATE_INITITEMSPOCKET ; left
+	ld c, PACKSTATE_INITBALLSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call ItemSubmenu
@@ -941,6 +1003,7 @@ DepositSellPack:
 .Jumptable:
 ; entries correspond to *_POCKET constants
 	dw .ItemsPocket
+	dw .BerriesPocket
 	dw .BallsPocket
 	dw .KeyItemsPocket
 	dw .TMHMPocket
@@ -1002,6 +1065,22 @@ DepositSellPack:
 	ld [wBallsPocketCursor], a
 	ret
 
+.BerriesPocket:
+	ld a, BERRY_POCKET
+	call InitPocket
+	ld hl, PC_Mart_BerryPocketMenuHeader
+	call CopyMenuHeader
+	ld a, [wBerriesPocketCursor]
+	ld [wMenuCursorPosition], a
+	ld a, [wBerriesPocketScrollPosition]
+	ld [wMenuScrollPosition], a
+	call ScrollingMenu
+	ld a, [wMenuScrollPosition]
+	ld [wBerriesPocketScrollPosition], a
+	ld a, [wMenuCursorY]
+	ld [wBerriesPocketCursor], a
+	ret
+
 InitPocket:
 	ld [wCurPocket], a
 	call ClearPocketList
@@ -1041,7 +1120,10 @@ DepositSellTutorial_InterpretJoypad:
 .d_left
 	ld a, [wJumptableIndex]
 	dec a
-	maskbits NUM_POCKETS
+	cp -1
+	jr nz, .left_ok
+	ld a, NUM_POCKETS - 1
+.left_ok
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1053,7 +1135,10 @@ DepositSellTutorial_InterpretJoypad:
 .d_right
 	ld a, [wJumptableIndex]
 	inc a
-	maskbits NUM_POCKETS
+	cp NUM_POCKETS
+	jr nz, .right_ok
+	xor a
+.right_ok
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1085,6 +1170,7 @@ TutorialPack:
 .dw
 ; entries correspond to *_POCKET constants
 	dw .Items
+	dw .Berries
 	dw .Balls
 	dw .KeyItems
 	dw .TMHM
@@ -1092,7 +1178,7 @@ TutorialPack:
 .Items:
 	xor a ; ITEM_POCKET
 	ld hl, .ItemsMenuHeader
-	jr .DisplayPocket
+	jp .DisplayPocket
 
 .ItemsMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -1154,6 +1240,26 @@ TutorialPack:
 	db 5, 8 ; rows, columns
 	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
 	dbw 0, wDudeNumBalls
+	dba PlaceMenuItemName
+	dba PlaceMenuItemQuantity
+	dba UpdateItemDescription
+
+.Berries:
+	ld a, BERRY_POCKET
+	ld hl, .BerriesMenuHeader
+	jr .DisplayPocket
+
+.BerriesMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	dw .BerriesMenuData
+	db 1 ; default option
+
+.BerriesMenuData:
+	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP | STATICMENU_CURSOR ; flags
+	db 5, 8 ; rows, columns
+	db 2 ; horizontal spacing
+	dbw 0, wDudeNumBerries
 	dba PlaceMenuItemName
 	dba PlaceMenuItemQuantity
 	dba UpdateItemDescription
@@ -1236,6 +1342,7 @@ DrawPackGFX:
 
 PackGFXPointers:
 	dw PackGFX + (15 tiles) * 1 ; ITEM_POCKET
+	dw PackGFX + (15 tiles) * 4 ; BERRY_POCKET
 	dw PackGFX + (15 tiles) * 3 ; BALL_POCKET
 	dw PackGFX + (15 tiles) * 0 ; KEY_ITEM_POCKET
 	dw PackGFX + (15 tiles) * 2 ; TM_HM_POCKET
@@ -1467,6 +1574,36 @@ PC_Mart_ItemsPocketMenuHeader:
 	db 5, 8 ; rows, columns
 	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
 	dbw 0, wNumItems
+	dba PlaceMenuItemName
+	dba PlaceMenuItemQuantity
+	dba UpdateItemDescription
+
+BerryPocketMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP | STATICMENU_CURSOR ; flags
+	db 5, 8 ; rows, columns
+	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
+	dbw 0, wNumBerries
+	dba PlaceMenuItemName
+	dba PlaceMenuItemQuantity
+	dba UpdateItemDescription
+
+PC_Mart_BerryPocketMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 7, 1, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP ; flags
+	db 5, 8 ; rows, columns
+	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
+	dbw 0, wNumBerries
 	dba PlaceMenuItemName
 	dba PlaceMenuItemQuantity
 	dba UpdateItemDescription
