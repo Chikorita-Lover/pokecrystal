@@ -152,17 +152,10 @@ MainMenu_PrintCurrentTimeAndDay:
 	ret
 
 .PlaceBox:
-	call CheckRTCStatus
-	and %10000000 ; Day count exceeded 16383
-	jr nz, .TimeFail
 	hlcoord 0, 14
 	ld b, 2
 	ld c, 18
 	call Textbox
-	ret
-
-.TimeFail:
-	call SpeechTextbox
 	ret
 
 .PlaceTime:
@@ -175,34 +168,24 @@ MainMenu_PrintCurrentTimeAndDay:
 	call UpdateTime
 	call GetWeekday
 	ld b, a
-	decoord 1, 15
+	decoord 1, 16
 	call .PrintDayOfWeek
-	decoord 4, 16
+	decoord 11, 16
 	ldh a, [hHours]
+	ld b, a
+	ld a, [hMinutes]
 	ld c, a
-	farcall PrintHour
-	ld [hl], ":"
-	inc hl
-	ld de, hMinutes
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	farcall PrintHoursMins
 	ret
 
-.minString: ; unreferenced
-	db "min.@"
-
 .PrintTimeNotSet:
-	hlcoord 1, 14
+	hlcoord 1, 16
 	ld de, .TimeNotSetString
 	call PlaceString
 	ret
 
 .TimeNotSetString:
 	db "TIME NOT SET@"
-
-.MainMenuTimeUnknownText: ; unreferenced
-	text_far _MainMenuTimeUnknownText
-	text_end
 
 .PrintDayOfWeek:
 	push de
