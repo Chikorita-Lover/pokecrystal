@@ -330,16 +330,44 @@ GetNextTile:
 
 AddStepVector:
 	call GetStepVector
-	ld hl, OBJECT_SPRITE_X
-	add hl, bc
+	call .RunPushLR
 	ld a, [hl]
 	add d
 	ld [hl], a
-	ld hl, OBJECT_SPRITE_Y
-	add hl, bc
+	call .RunPushUD
 	ld a, [hl]
 	add e
 	ld [hl], a
+	ret
+
+.RunPushLR
+	ld hl, OBJECT_SPRITE_X
+	add hl, bc
+	ld a, [hl]
+	dec d
+	and %00001111
+	cp $1
+	ret z
+	inc d
+	inc d
+	cp $f
+	ret z
+	dec d
+	ret
+
+.RunPushUD
+	ld hl, OBJECT_SPRITE_Y
+	add hl, bc
+	ld a, [hl]
+	dec e
+	and %00001111
+	cp $1
+	ret z
+	inc e
+	inc e
+	cp $f
+	ret z
+	dec e
 	ret
 
 GetStepVector:
@@ -379,6 +407,11 @@ StepVectors:
 	db  0, -4,  4, 4
 	db -4,  0,  4, 4
 	db  4,  0,  4, 4
+	; running
+	db  0,  3,  5, 3
+	db  0, -3,  5, 3
+	db -3,  0,  5, 3
+	db  3,  0,  5, 3
 
 GetStepVectorSign:
 	add a

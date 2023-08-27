@@ -17,6 +17,10 @@ MovementPointers:
 	dw Movement_step_up               ; 0d
 	dw Movement_step_left             ; 0e
 	dw Movement_step_right            ; 0f
+	dw Movement_run_step_down
+	dw Movement_run_step_up
+	dw Movement_run_step_left
+	dw Movement_run_step_right
 	dw Movement_big_step_down         ; 10
 	dw Movement_big_step_up           ; 11
 	dw Movement_big_step_left         ; 12
@@ -469,6 +473,22 @@ Movement_step_left:
 
 Movement_step_right:
 	ld a, STEP_WALK << 2 | RIGHT
+	jp NormalStep
+
+Movement_run_step_down:
+	ld a, STEP_RUN << 2 | DOWN
+	jp NormalStep
+
+Movement_run_step_up:
+	ld a, STEP_RUN << 2 | UP
+	jp NormalStep
+
+Movement_run_step_left:
+	ld a, STEP_RUN << 2 | LEFT
+	jp NormalStep
+
+Movement_run_step_right:
+	ld a, STEP_RUN << 2 | RIGHT
 	jp NormalStep
 
 Movement_big_step_down:
