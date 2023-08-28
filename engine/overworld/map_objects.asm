@@ -330,44 +330,56 @@ GetNextTile:
 
 AddStepVector:
 	call GetStepVector
-	call .RunPushLR
+	call .RunPull
+
+	ld hl, OBJECT_SPRITE_X
+	add hl, bc
 	ld a, [hl]
 	add d
 	ld [hl], a
-	call .RunPushUD
+
+	ld hl, OBJECT_SPRITE_Y
+	add hl, bc
 	ld a, [hl]
 	add e
 	ld [hl], a
 	ret
 
-.RunPushLR
-	ld hl, OBJECT_SPRITE_X
+.RunPull
+; Adjust running speed on last movement frame.
+; Ensures that each running step moves the object (i.e. the player) 16 pixels.
+	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld a, [hl]
-	dec d
-	and %00001111
-	cp $1
-	ret z
-	inc d
-	inc d
-	cp $f
-	ret z
+	cp $2
+	jr z, .ok
+	cp $4
+	ret nz
+
+.ok
+	ld a, d
+	cp 3
+	jr z, .PullRight
+	cp -3
+	jr z, .PullLeft
+
+	ld a, e
+	cp -3
+	jr z, .PullUp
+	cp 3
+	ret nz
+
+.PullDown
+	dec e
+	ret
+.PullRight
 	dec d
 	ret
-
-.RunPushUD
-	ld hl, OBJECT_SPRITE_Y
-	add hl, bc
-	ld a, [hl]
-	dec e
-	and %00001111
-	cp $1
-	ret z
+.PullLeft
+	inc d
+	ret
+.PullUp
 	inc e
-	inc e
-	cp $f
-	ret z
-	dec e
 	ret
 
 GetStepVector:
@@ -408,10 +420,10 @@ StepVectors:
 	db -4,  0,  4, 4
 	db  4,  0,  4, 4
 	; running
-	db  0,  3,  5, 3
-	db  0, -3,  5, 3
-	db -3,  0,  5, 3
-	db  3,  0,  5, 3
+	db  0,  3,  6, 3
+	db  0, -3,  6, 3
+	db -3,  0,  6, 3
+	db  3,  0,  6, 3
 
 GetStepVectorSign:
 	add a
