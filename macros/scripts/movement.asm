@@ -28,6 +28,11 @@ MACRO big_step
 	db movement_big_step | \1
 ENDM
 
+	const movement_run_step
+MACRO run_step
+	db movement_run_step | \1
+ENDM
+
 	const movement_slow_slide_step ; $14
 MACRO slow_slide_step
 	db movement_slow_slide_step | \1
