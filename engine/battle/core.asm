@@ -4269,6 +4269,16 @@ HandleHPHealingItem:
 	ld a, b
 	cp HELD_BERRY
 	ret nz
+	ld a, [hl]
+	cp SITRUS_BERRY
+	jr nz, .not_sitrus_berry
+
+	ld b, 0
+	call SwitchTurnCore
+	call GetQuarterMaxHP
+	call SwitchTurnCore
+
+.not_sitrus_berry
 	ld de, wEnemyMonHP + 1
 	ld hl, wEnemyMonMaxHP
 	ldh a, [hBattleTurn]

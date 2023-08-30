@@ -89,24 +89,24 @@ WadeHasItem2:
 	clearevent EVENT_WADE_HAS_PRZCUREBERRY
 	clearevent EVENT_WADE_HAS_BITTER_BERRY
 	random 4
-	ifequal 0, .Berry
-	ifequal 1, .PsnCureBerry
-	ifequal 2, .PrzCureBerry
-	ifequal 3, .Bitterberry
+	ifequal 0, .OranBerry
+	ifequal 1, .PechaBerry
+	ifequal 2, .CheriBerry
+	ifequal 3, .PersimBerry
 
-.Berry:
+.OranBerry:
 	setevent EVENT_WADE_HAS_BERRY
 	sjump .FoundBerry
 
-.PsnCureBerry:
+.PechaBerry:
 	setevent EVENT_WADE_HAS_PSNCUREBERRY
 	sjump .FoundBerry
 
-.PrzCureBerry:
+.CheriBerry:
 	setevent EVENT_WADE_HAS_PRZCUREBERRY
 	sjump .FoundBerry
 
-.Bitterberry:
+.PersimBerry:
 	setevent EVENT_WADE_HAS_BITTER_BERRY
 
 .FoundBerry:
