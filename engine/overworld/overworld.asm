@@ -93,8 +93,12 @@ INCLUDE "data/sprites/player_sprites.asm"
 
 AddMapSprites:
 	call GetMapEnvironment
+	cp ROOFTOP
+	jr z, .indoor
 	call CheckOutdoorMap
 	jr z, .outdoor
+
+.indoor
 	call AddIndoorSprites
 	ret
 

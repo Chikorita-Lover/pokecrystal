@@ -1684,6 +1684,8 @@ BikeFunction:
 
 .CheckEnvironment:
 	call GetMapEnvironment
+	cp ROOFTOP
+	jr z, .nope
 	call CheckOutdoorMap
 	jr z, .ok
 	cp CAVE

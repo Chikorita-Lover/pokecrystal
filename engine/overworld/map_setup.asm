@@ -136,6 +136,8 @@ CheckUpdatePlayerSprite:
 	jr z, .no_biking
 	cp DUNGEON
 	jr z, .no_biking
+	CP ROOFTOP
+	jr z, .no_biking
 	jr .nope
 .no_biking
 	ld a, [wPlayerState]
