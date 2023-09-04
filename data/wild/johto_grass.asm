@@ -58,7 +58,7 @@ JohtoGrassWildMons:
 	db 5, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_2F
+	def_grass_wildmons BELL_TOWER_2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -86,7 +86,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_3F
+	def_grass_wildmons BELL_TOWER_3F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -114,7 +114,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_4F
+	def_grass_wildmons BELL_TOWER_4F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -142,7 +142,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_5F
+	def_grass_wildmons BELL_TOWER_5F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -170,7 +170,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_6F
+	def_grass_wildmons BELL_TOWER_6F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -198,7 +198,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_7F
+	def_grass_wildmons BELL_TOWER_7F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -226,7 +226,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_8F
+	def_grass_wildmons BELL_TOWER_8F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA
@@ -254,7 +254,7 @@ JohtoGrassWildMons:
 	db 24, RATTATA
 	end_grass_wildmons
 
-	def_grass_wildmons TIN_TOWER_9F
+	def_grass_wildmons BELL_TOWER_9F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, RATTATA

@@ -23,7 +23,7 @@ WiseTriosRoomNoop2Scene:
 WiseTriosRoomWiseTrioCallback:
 	checkevent EVENT_FOUGHT_SUICUNE
 	iftrue .NoWiseTrio
-	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
+	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_BELL_TOWER
 	iftrue .WiseTrio2
 	checkitem CLEAR_BELL
 	iftrue .WiseTrio2
@@ -50,7 +50,7 @@ WiseTriosRoomSage2Script:
 WiseTriosRoomSage3Script:
 	jumptextfaceplayer WiseTriosRoomSage3Text
 
-WiseTriosRoom_CannotEnterTinTowerScript:
+WiseTriosRoom_CannotEnterBellTowerScript:
 	turnobject WISETRIOSROOM_SAGE3, UP
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
@@ -90,7 +90,7 @@ TrainerSageKoji:
 	trainer SAGE, KOJI, EVENT_BEAT_SAGE_KOJI, SageKojiSeenText, SageKojiBeatenText, 0, .Script
 
 .Script:
-	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
+	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_BELL_TOWER
 	iftrue .KojiAllowsPassage
 	pause 10
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE6, 20
@@ -102,7 +102,7 @@ TrainerSageKoji:
 	closetext
 	applymovement WISETRIOSROOM_SAGE6, WiseTriosRoomSageAllowsPassageMovement
 	turnobject WISETRIOSROOM_SAGE6, UP
-	setevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
+	setevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_BELL_TOWER
 	setscene SCENE_WISETRIOSROOM_NOOP
 	end
 
@@ -154,7 +154,7 @@ WiseTriosRoomSage2Text:
 	done
 
 WiseTriosRoomSage3BlocksExitText:
-	text "TIN TOWER may be"
+	text "BELL TOWER may be"
 	line "entered by those"
 
 	para "bearing ECRUTEAK's"
@@ -191,8 +191,8 @@ SageGakuSeenText:
 	para "will come forth to"
 	line "put that trainer"
 
-	para "to test at the TIN"
-	line "TOWER."
+	para "to test at the"
+	line "BELL TOWER."
 
 	para "The legend has"
 	line "come true!"
@@ -250,10 +250,11 @@ SageMasaAfterBattleText:
 	line "which was said to"
 
 	para "awaken #MON,"
-	line "and the TIN TOWER,"
+	line "and the BELL"
 
-	para "where #MON were"
-	line "said to rest."
+	para "TOWER, where #-"
+	line "MON were said to"
+	cont "rest."
 
 	para "The view from the"
 	line "tops of the TOWERS"
@@ -328,7 +329,7 @@ SageKojiAfterBattleSpeechText:
 	line "and soul of truth."
 
 	para "Please, do go on"
-	line "and enter the TIN"
+	line "and enter the BELL"
 	cont "TOWER ahead."
 
 	para "SUICUNE will put"
@@ -348,10 +349,10 @@ WiseTriosRoom_MapEvents:
 	def_warp_events
 	warp_event  7,  4, ECRUTEAK_CITY, 4
 	warp_event  7,  5, ECRUTEAK_CITY, 5
-	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
+	warp_event  1,  4, ECRUTEAK_BELL_TOWER_ENTRANCE, 5
 
 	def_coord_events
-	coord_event  7,  4, SCENE_WISETRIOSROOM_SAGE_BLOCKS, WiseTriosRoom_CannotEnterTinTowerScript
+	coord_event  7,  4, SCENE_WISETRIOSROOM_SAGE_BLOCKS, WiseTriosRoom_CannotEnterBellTowerScript
 
 	def_bg_events
 

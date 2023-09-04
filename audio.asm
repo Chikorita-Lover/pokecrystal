@@ -105,7 +105,7 @@ assert BANK(Music_JohtoWildBattle) == BANK(Music_JohtoWildBattleNight)
 
 INCLUDE "audio/music/johtotrainerbattle.asm"
 INCLUDE "audio/music/lookyoungster.asm"
-INCLUDE "audio/music/tintower.asm"
+INCLUDE "audio/music/belltower.asm"
 INCLUDE "audio/music/sprouttower.asm"
 INCLUDE "audio/music/burnedtower.asm"
 INCLUDE "audio/music/mom.asm"

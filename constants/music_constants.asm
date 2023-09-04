@@ -66,7 +66,7 @@
 	const MUSIC_VERMILION_CITY               ; 3e
 	const MUSIC_POKEMON_CHANNEL              ; 3f
 	const MUSIC_POKE_FLUTE_CHANNEL           ; 40
-	const MUSIC_TIN_TOWER                    ; 41
+	const MUSIC_BELL_TOWER                   ; 41
 	const MUSIC_SPROUT_TOWER                 ; 42
 	const MUSIC_BURNED_TOWER                 ; 43
 	const MUSIC_LIGHTHOUSE                   ; 44

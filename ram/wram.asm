@@ -3078,7 +3078,7 @@ wGoldenrodPokecenter1FSceneID::                   db
 wOlivineCitySceneID::                             db
 wRoute34SceneID::                                 db
 wRoute34IlexForestGateSceneID::                   db
-wEcruteakTinTowerEntranceSceneID::                db
+wEcruteakBellTowerEntranceSceneID::               db
 wWiseTriosRoomSceneID::                           db
 wEcruteakPokecenter1FSceneID::                    db
 wEcruteakGymSceneID::                             db
@@ -3093,7 +3093,7 @@ wBattleTowerOutsideSceneID::                      db
 wRoute43GateSceneID::                             db
 wMountMoonSceneID::                               db
 wSproutTower3FSceneID::                           db
-wTinTower1FSceneID::                              db
+wBellTower1FSceneID::                             db
 wBurnedTower1FSceneID::                           db
 wBurnedTowerB1FSceneID::                          db
 wRadioTower5FSceneID::                            db

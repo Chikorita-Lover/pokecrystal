@@ -1,11 +1,11 @@
-Music_TinTower:
+Music_BellTower:
 	channel_count 4
-	channel 1, Music_TinTower_Ch1
-	channel 2, Music_TinTower_Ch2
-	channel 3, Music_TinTower_Ch3
-	channel 4, Music_TinTower_Ch4
+	channel 1, Music_BellTower_Ch1
+	channel 2, Music_BellTower_Ch2
+	channel 3, Music_BellTower_Ch3
+	channel 4, Music_BellTower_Ch4
 
-Music_TinTower_Ch1:
+Music_BellTower_Ch1:
 	tempo 208
 	volume 7, 7
 	duty_cycle 3
@@ -96,7 +96,7 @@ Music_TinTower_Ch1:
 	note A#, 4
 	sound_loop 0, .mainloop
 
-Music_TinTower_Ch2:
+Music_BellTower_Ch2:
 	duty_cycle 3
 	pitch_offset 2
 	vibrato 24, 4, 4
@@ -185,7 +185,7 @@ Music_TinTower_Ch2:
 	note C#, 2
 	sound_loop 0, .mainloop
 
-Music_TinTower_Ch3:
+Music_BellTower_Ch3:
 	note_type 12, 1, 4
 .mainloop:
 	rest 16
@@ -259,7 +259,7 @@ Music_TinTower_Ch3:
 	stereo_panning TRUE, TRUE
 	sound_loop 0, .mainloop
 
-Music_TinTower_Ch4:
+Music_BellTower_Ch4:
 	toggle_noise 0
 	drum_speed 12
 .mainloop:

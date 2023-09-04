@@ -30,7 +30,7 @@ Landmarks:
 	landmark  72,  68, Route36Name
 	landmark  68,  60, Route37Name
 	landmark  68,  52, EcruteakCityName
-	landmark  68,  44, TinTowerName
+	landmark  68,  44, BellTowerName
 	landmark  66,  50, BurnedTowerName
 	landmark  56,  52, Route38Name
 	landmark  44,  56, Route39Name
@@ -125,7 +125,7 @@ SlowpokeWellName:    db "SLOWPOKE¯WELL@"
 RadioTowerName:      db "RADIO TOWER@"
 PowerPlantName:      db "POWER PLANT@"
 NationalParkName:    db "NATIONAL¯PARK@"
-TinTowerName:        db "TIN TOWER@"
+BellTowerName:       db "BELL TOWER@"
 LighthouseName:      db "LIGHTHOUSE@"
 WhirlIslandsName:    db "WHIRL¯ISLANDS@"
 MtMortarName:        db "MT.MORTAR@"

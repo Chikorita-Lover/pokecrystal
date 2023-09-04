@@ -125,7 +125,7 @@ RadioTower5FRocketBossScript:
 	waitbutton
 	closetext
 	setscene SCENE_RADIOTOWER5F_NOOP
-	setmapscene ECRUTEAK_TIN_TOWER_ENTRANCE, SCENE_ECRUTEAKTINTOWERENTRANCE_SAGE_BLOCKS
+	setmapscene ECRUTEAK_BELL_TOWER_ENTRANCE, SCENE_ECRUTEAKTINTOWERENTRANCE_SAGE_BLOCKS
 	setevent EVENT_GOT_CLEAR_BELL
 	setevent EVENT_TEAM_ROCKET_DISBANDED
 	sjump .UselessJump
@@ -362,7 +362,7 @@ RadioTower5FDirectorDescribeClearBellText:
 	para "That bell has some"
 	line "connection to the"
 
-	para "TIN TOWER in"
+	para "BELL TOWER in"
 	line "ECRUTEAK CITY…"
 
 	para "Ah!"
@@ -374,7 +374,7 @@ RadioTower5FDirectorDescribeClearBellText:
 
 	para "Apparently, some-"
 	line "thing is going on"
-	cont "at the TIN TOWER."
+	cont "at the BELL TOWER."
 
 	para "I have no idea"
 	line "what is happening,"

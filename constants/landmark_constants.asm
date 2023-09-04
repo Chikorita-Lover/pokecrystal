@@ -24,7 +24,7 @@
 	const LANDMARK_ROUTE_36          ; 14
 	const LANDMARK_ROUTE_37          ; 15
 	const LANDMARK_ECRUTEAK_CITY     ; 16
-	const LANDMARK_TIN_TOWER         ; 17
+	const LANDMARK_BELL_TOWER        ; 17
 	const LANDMARK_BURNED_TOWER      ; 18
 	const LANDMARK_ROUTE_38          ; 19
 	const LANDMARK_ROUTE_39          ; 1a

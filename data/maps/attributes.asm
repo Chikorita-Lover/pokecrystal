@@ -379,15 +379,15 @@ ENDM
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0
 	map_attributes SproutTower2F, SPROUT_TOWER_2F, $00, 0
 	map_attributes SproutTower3F, SPROUT_TOWER_3F, $00, 0
-	map_attributes TinTower1F, TIN_TOWER_1F, $00, 0
-	map_attributes TinTower2F, TIN_TOWER_2F, $00, 0
-	map_attributes TinTower3F, TIN_TOWER_3F, $00, 0
-	map_attributes TinTower4F, TIN_TOWER_4F, $00, 0
-	map_attributes TinTower5F, TIN_TOWER_5F, $00, 0
-	map_attributes TinTower6F, TIN_TOWER_6F, $00, 0
-	map_attributes TinTower7F, TIN_TOWER_7F, $00, 0
-	map_attributes TinTower8F, TIN_TOWER_8F, $00, 0
-	map_attributes TinTower9F, TIN_TOWER_9F, $00, 0
+	map_attributes BellTower1F, BELL_TOWER_1F, $00, 0
+	map_attributes BellTower2F, BELL_TOWER_2F, $00, 0
+	map_attributes BellTower3F, BELL_TOWER_3F, $00, 0
+	map_attributes BellTower4F, BELL_TOWER_4F, $00, 0
+	map_attributes BellTower5F, BELL_TOWER_5F, $00, 0
+	map_attributes BellTower6F, BELL_TOWER_6F, $00, 0
+	map_attributes BellTower7F, BELL_TOWER_7F, $00, 0
+	map_attributes BellTower8F, BELL_TOWER_8F, $00, 0
+	map_attributes BellTower9F, BELL_TOWER_9F, $00, 0
 	map_attributes BurnedTower1F, BURNED_TOWER_1F, $00, 0
 	map_attributes BurnedTowerB1F, BURNED_TOWER_B1F, $09, 0
 	map_attributes NationalPark, NATIONAL_PARK, $00, 0
@@ -482,7 +482,7 @@ ENDM
 	map_attributes SafariZoneFuchsiaGateBeta, SAFARI_ZONE_FUCHSIA_GATE_BETA, $00, 0
 	map_attributes SafariZoneBeta, SAFARI_ZONE_BETA, $13, 0
 	map_attributes VictoryRoad, VICTORY_ROAD, $1d, 0
-	map_attributes EcruteakTinTowerEntrance, ECRUTEAK_TIN_TOWER_ENTRANCE, $00, 0
+	map_attributes EcruteakBellTowerEntrance, ECRUTEAK_BELL_TOWER_ENTRANCE, $00, 0
 	map_attributes WiseTriosRoom, WISE_TRIOS_ROOM, $00, 0
 	map_attributes EcruteakPokecenter1F, ECRUTEAK_POKECENTER_1F, $00, 0
 	map_attributes EcruteakLugiaSpeechHouse, ECRUTEAK_LUGIA_SPEECH_HOUSE, $00, 0
@@ -586,7 +586,7 @@ ENDM
 	map_attributes VermilionPortPassage, VERMILION_PORT_PASSAGE, $00, 0
 	map_attributes MountMoonSquare, MOUNT_MOON_SQUARE, $2d, 0
 	map_attributes MountMoonGiftShop, MOUNT_MOON_GIFT_SHOP, $00, 0
-	map_attributes TinTowerRoof, TIN_TOWER_ROOF, $00, 0
+	map_attributes BellTowerRoof, BELL_TOWER_ROOF, $00, 0
 	map_attributes IndigoPlateauPokecenter1F, INDIGO_PLATEAU_POKECENTER_1F, $00, 0
 	map_attributes WillsRoom, WILLS_ROOM, $00, 0
 	map_attributes KogasRoom, KOGAS_ROOM, $00, 0

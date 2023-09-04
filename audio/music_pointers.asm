@@ -68,7 +68,7 @@ Music:
 	dba Music_VermilionCity
 	dba Music_PokemonChannel
 	dba Music_PokeFluteChannel
-	dba Music_TinTower
+	dba Music_BellTower
 	dba Music_SproutTower
 	dba Music_BurnedTower
 	dba Music_Lighthouse

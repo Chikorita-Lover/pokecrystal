@@ -284,7 +284,7 @@ DungeonsGroupSprites:
 	db 0 ; end
 
 FastShipGroupSprites:
-; OlivinePort, VermilionPort, MountMoonSquare, TinTowerRoof
+; OlivinePort, VermilionPort, MountMoonSquare, BellTowerRoof
 	db SPRITE_SAILOR
 	db SPRITE_FISHING_GURU
 	db SPRITE_SUPER_NERD

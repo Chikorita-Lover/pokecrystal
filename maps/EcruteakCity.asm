@@ -67,8 +67,8 @@ EcruteakCityYoungsterScript:
 EcruteakCitySign:
 	jumptext EcruteakCitySignText
 
-TinTowerSign:
-	jumptext TinTowerSignText
+BellTowerSign:
+	jumptext BellTowerSignText
 
 EcruteakGymSign:
 	jumptext EcruteakGymSignText
@@ -223,8 +223,8 @@ EcruteakCitySignText:
 	line "Meets the Present"
 	done
 
-TinTowerSignText:
-	text "TIN TOWER"
+BellTowerSignText:
+	text "BELL TOWER"
 
 	para "A legendary #-"
 	line "MON is said to"
@@ -262,7 +262,7 @@ EcruteakCity_MapEvents:
 	def_warp_events
 	warp_event 35, 26, ROUTE_42_ECRUTEAK_GATE, 1
 	warp_event 35, 27, ROUTE_42_ECRUTEAK_GATE, 2
-	warp_event 18, 11, ECRUTEAK_TIN_TOWER_ENTRANCE, 1
+	warp_event 18, 11, ECRUTEAK_BELL_TOWER_ENTRANCE, 1
 	warp_event 20,  2, WISE_TRIOS_ROOM, 1
 	warp_event 20,  3, WISE_TRIOS_ROOM, 2
 	warp_event 23, 27, ECRUTEAK_POKECENTER_1F, 1
@@ -271,7 +271,7 @@ EcruteakCity_MapEvents:
 	warp_event 29, 21, ECRUTEAK_MART, 2
 	warp_event  6, 27, ECRUTEAK_GYM, 1
 	warp_event 13, 27, ECRUTEAK_ITEMFINDER_HOUSE, 1
-	warp_event 37,  7, TIN_TOWER_1F, 1
+	warp_event 37,  7, BELL_TOWER_1F, 1
 	warp_event  5,  5, BURNED_TOWER_1F, 1
 	warp_event  0, 18, ROUTE_38_ECRUTEAK_GATE, 3
 	warp_event  0, 19, ROUTE_38_ECRUTEAK_GATE, 4
@@ -280,7 +280,7 @@ EcruteakCity_MapEvents:
 
 	def_bg_events
 	bg_event 15, 21, BGEVENT_READ, EcruteakCitySign
-	bg_event 38, 10, BGEVENT_READ, TinTowerSign
+	bg_event 38, 10, BGEVENT_READ, BellTowerSign
 	bg_event  8, 28, BGEVENT_READ, EcruteakGymSign
 	bg_event 21, 21, BGEVENT_READ, EcruteakDanceTheaterSign
 	bg_event  2, 10, BGEVENT_READ, BurnedTowerSign

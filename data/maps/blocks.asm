@@ -586,35 +586,35 @@ GoldenrodUndergroundWarehouse_Blocks:
 BetaElevator_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaElevator.blk"
 
-TinTower1F_Blocks:
-	INCBIN "maps/TinTower1F.blk"
+BellTower1F_Blocks:
+	INCBIN "maps/BellTower1F.blk"
 
-TinTower2F_Blocks:
-	INCBIN "maps/TinTower2F.blk"
+BellTower2F_Blocks:
+	INCBIN "maps/BellTower2F.blk"
 
-TinTower3F_Blocks:
-	INCBIN "maps/TinTower3F.blk"
+BellTower3F_Blocks:
+	INCBIN "maps/BellTower3F.blk"
 
-TinTower4F_Blocks:
-	INCBIN "maps/TinTower4F.blk"
+BellTower4F_Blocks:
+	INCBIN "maps/BellTower4F.blk"
 
-TinTower5F_Blocks:
-	INCBIN "maps/TinTower5F.blk"
+BellTower5F_Blocks:
+	INCBIN "maps/BellTower5F.blk"
 
-TinTower6F_Blocks:
-	INCBIN "maps/TinTower6F.blk"
+BellTower6F_Blocks:
+	INCBIN "maps/BellTower6F.blk"
 
-TinTower7F_Blocks:
-	INCBIN "maps/TinTower7F.blk"
+BellTower7F_Blocks:
+	INCBIN "maps/BellTower7F.blk"
 
-TinTower8F_Blocks:
-	INCBIN "maps/TinTower8F.blk"
+BellTower8F_Blocks:
+	INCBIN "maps/BellTower8F.blk"
 
-TinTower9F_Blocks:
-	INCBIN "maps/TinTower9F.blk"
+BellTower9F_Blocks:
+	INCBIN "maps/BellTower9F.blk"
 
-TinTowerRoof_Blocks:
-	INCBIN "maps/TinTowerRoof.blk"
+BellTowerRoof_Blocks:
+	INCBIN "maps/BellTowerRoof.blk"
 
 BurnedTower1F_Blocks:
 	INCBIN "maps/BurnedTower1F.blk"
@@ -806,8 +806,8 @@ GoldenrodBikeShop_Blocks:
 DanceTheater_Blocks:
 	INCBIN "maps/DanceTheater.blk"
 
-EcruteakTinTowerEntrance_Blocks:
-	INCBIN "maps/EcruteakTinTowerEntrance.blk"
+EcruteakBellTowerEntrance_Blocks:
+	INCBIN "maps/EcruteakBellTowerEntrance.blk"
 
 GoldenrodGameCorner_Blocks:
 	INCBIN "maps/GoldenrodGameCorner.blk"

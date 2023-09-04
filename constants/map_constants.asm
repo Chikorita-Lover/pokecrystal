@@ -66,15 +66,15 @@ ENDM
 	map_const SPROUT_TOWER_1F,                             10,  8 ;  1
 	map_const SPROUT_TOWER_2F,                             10,  8 ;  2
 	map_const SPROUT_TOWER_3F,                             10,  8 ;  3
-	map_const TIN_TOWER_1F,                                10,  9 ;  4
-	map_const TIN_TOWER_2F,                                10,  9 ;  5
-	map_const TIN_TOWER_3F,                                10,  9 ;  6
-	map_const TIN_TOWER_4F,                                10,  9 ;  7
-	map_const TIN_TOWER_5F,                                10,  9 ;  8
-	map_const TIN_TOWER_6F,                                10,  9 ;  9
-	map_const TIN_TOWER_7F,                                10,  9 ; 10
-	map_const TIN_TOWER_8F,                                10,  9 ; 11
-	map_const TIN_TOWER_9F,                                10,  9 ; 12
+	map_const BELL_TOWER_1F,                               10,  9 ;  4
+	map_const BELL_TOWER_2F,                               10,  9 ;  5
+	map_const BELL_TOWER_3F,                               10,  9 ;  6
+	map_const BELL_TOWER_4F,                               10,  9 ;  7
+	map_const BELL_TOWER_5F,                               10,  9 ;  8
+	map_const BELL_TOWER_6F,                               10,  9 ;  9
+	map_const BELL_TOWER_7F,                               10,  9 ; 10
+	map_const BELL_TOWER_8F,                               10,  9 ; 11
+	map_const BELL_TOWER_9F,                               10,  9 ; 12
 	map_const BURNED_TOWER_1F,                             10,  9 ; 13
 	map_const BURNED_TOWER_B1F,                            10,  9 ; 14
 	map_const NATIONAL_PARK,                               20, 27 ; 15
@@ -157,7 +157,7 @@ ENDM
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
-	map_const ECRUTEAK_TIN_TOWER_ENTRANCE,                 10,  9 ;  1
+	map_const ECRUTEAK_BELL_TOWER_ENTRANCE,                10,  9 ;  1
 	map_const WISE_TRIOS_ROOM,                              4,  4 ;  2
 	map_const ECRUTEAK_POKECENTER_1F,                       5,  4 ;  3
 	map_const ECRUTEAK_LUGIA_SPEECH_HOUSE,                  4,  4 ;  4
@@ -326,7 +326,7 @@ ENDM
 	map_const VERMILION_PORT_PASSAGE,                      10,  9 ;  9
 	map_const MOUNT_MOON_SQUARE,                           15,  9 ; 10
 	map_const MOUNT_MOON_GIFT_SHOP,                         4,  4 ; 11
-	map_const TIN_TOWER_ROOF,                              10,  9 ; 12
+	map_const BELL_TOWER_ROOF,                             10,  9 ; 12
 	endgroup
 
 	newgroup INDIGO                                               ; 16

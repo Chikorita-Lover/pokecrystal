@@ -42,7 +42,7 @@ MapScenes::
 	scene_var OLIVINE_CITY,                                wOlivineCitySceneID
 	scene_var ROUTE_34,                                    wRoute34SceneID ; unused
 	scene_var ROUTE_34_ILEX_FOREST_GATE,                   wRoute34IlexForestGateSceneID ; unused
-	scene_var ECRUTEAK_TIN_TOWER_ENTRANCE,                 wEcruteakTinTowerEntranceSceneID
+	scene_var ECRUTEAK_BELL_TOWER_ENTRANCE,                wEcruteakBellTowerEntranceSceneID
 	scene_var WISE_TRIOS_ROOM,                             wWiseTriosRoomSceneID
 	scene_var ECRUTEAK_POKECENTER_1F,                      wEcruteakPokecenter1FSceneID
 	scene_var ECRUTEAK_GYM,                                wEcruteakGymSceneID
@@ -57,7 +57,7 @@ MapScenes::
 	scene_var ROUTE_43_GATE,                               wRoute43GateSceneID
 	scene_var MOUNT_MOON,                                  wMountMoonSceneID
 	scene_var SPROUT_TOWER_3F,                             wSproutTower3FSceneID
-	scene_var TIN_TOWER_1F,                                wTinTower1FSceneID
+	scene_var BELL_TOWER_1F,                               wBellTower1FSceneID
 	scene_var BURNED_TOWER_1F,                             wBurnedTower1FSceneID
 	scene_var BURNED_TOWER_B1F,                            wBurnedTowerB1FSceneID
 	scene_var RADIO_TOWER_5F,                              wRadioTower5FSceneID
