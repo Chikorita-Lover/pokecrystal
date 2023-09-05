@@ -149,10 +149,7 @@ EvolveAfterBattle_MasterLoop:
 	ld b, a
 	ld a, [wTempMonItem]
 	cp b
-	jp nz, .dont_evolve_2
-
-	call IsMonHoldingEverstone
-	jp z, .dont_evolve_2
+	jp nz, .dont_evolve_3
 
 	ld a, $0
 	ld [wTempMonItem], a
