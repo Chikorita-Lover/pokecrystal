@@ -64,6 +64,12 @@ PlayBattleMusic:
 	jp z, .done
 	cp BATTLETYPE_ROAMING
 	jp z, .done
+	
+	ld a, [wTempEnemyMonSpecies]
+	cp HO_OH
+	jp z, .done
+	cp LUGIA
+	jp z, .done
 
 	; Are we fighting a trainer?
 	ld a, [wOtherTrainerClass]
