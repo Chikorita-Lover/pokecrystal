@@ -2253,7 +2253,9 @@ FaintYourPokemon:
 	ld a, $f0
 	ld [wCryTracks], a
 	ld a, [wBattleMonSpecies]
-	call PlayStereoCry
+	call PlayFaintingCry
+	ld de, SFX_KINESIS
+	call PlaySFX
 	call PlayerMonFaintedAnimation
 	hlcoord 9, 7
 	lb bc, 5, 11
@@ -2263,16 +2265,51 @@ FaintYourPokemon:
 
 FaintEnemyPokemon:
 	call WaitSFX
+	ld a, $0f
+	ld [wCryTracks], a
+	ld a, [wEnemyMonSpecies]
+	call PlayFaintingCry
 	ld de, SFX_KINESIS
 	call PlaySFX
 	call EnemyMonFaintedAnimation
-	ld de, SFX_FAINT
-	call PlaySFX
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
 	ld hl, BattleText_EnemyMonFainted
 	jp StdBattleTextbox
+
+PlayFaintingCry:
+	call LoadCry
+	ret c
+
+	ld hl, wCryPitch
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, -$a0
+	add hl, bc
+	ld a, l
+	ld [wCryPitch], a
+	ld a, h
+	ld [wCryPitch + 1], a
+
+	ld hl, wCryLength
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, $10
+	add hl, bc
+
+	ld a, l
+	ld [wCryLength], a
+	ld a, h
+	ld [wCryLength + 1], a
+	ld a, 1
+	ld [wStereoPanningMask], a
+
+	callfar _PlayCry
+	call WaitSFX
+	ret
 
 CheckEnemyTrainerDefeated:
 	ld a, [wOTPartyCount]
