@@ -899,10 +899,6 @@ LoadOrangePage:
 	call PlaceString
 	ret
 
-.StatsScreenSortOfHappyText:
-	text_far _StatsScreenSortOfHappyText
-	text_end
-
 MetTimeString:
 	db "TIME/@"
 
