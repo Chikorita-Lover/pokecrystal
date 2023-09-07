@@ -2,10 +2,10 @@
 	const_def
 	const STARTMENUITEM_POKEDEX  ; 0
 	const STARTMENUITEM_POKEMON  ; 1
-	const STARTMENUITEM_PACK     ; 2
+	const STARTMENUITEM_BAG      ; 2
 	const STARTMENUITEM_STATUS   ; 3
 	const STARTMENUITEM_SAVE     ; 4
-	const STARTMENUITEM_OPTION   ; 5
+	const STARTMENUITEM_OPTIONS  ; 5
 	const STARTMENUITEM_EXIT     ; 6
 	const STARTMENUITEM_POKEGEAR ; 7
 	const STARTMENUITEM_QUIT     ; 8
@@ -178,20 +178,20 @@ StartMenu::
 ; entries correspond to STARTMENUITEM_* constants
 	dw StartMenu_Pokedex,  .PokedexString,  .PokedexDesc
 	dw StartMenu_Pokemon,  .PartyString,    .PartyDesc
-	dw StartMenu_Pack,     .PackString,     .PackDesc
+	dw StartMenu_Bag,      .BagString,      .BagDesc
 	dw StartMenu_Status,   .StatusString,   .StatusDesc
 	dw StartMenu_Save,     .SaveString,     .SaveDesc
-	dw StartMenu_Option,   .OptionString,   .OptionDesc
+	dw StartMenu_Options,  .OptionsString,  .OptionsDesc
 	dw StartMenu_Exit,     .ExitString,     .ExitDesc
 	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
 	dw StartMenu_Quit,     .QuitString,     .QuitDesc
 
 .PokedexString:  db "#DEX@"
 .PartyString:    db "#MON@"
-.PackString:     db "PACK@"
+.BagString:      db "BAG@"
 .StatusString:   db "<PLAYER>@"
 .SaveString:     db "SAVE@"
-.OptionString:   db "OPTION@"
+.OptionsString:  db "OPTIONS@"
 .ExitString:     db "EXIT@"
 .PokegearString: db "<POKE>GEAR@"
 .QuitString:     db "QUIT@"
@@ -204,7 +204,7 @@ StartMenu::
 	db   "Party <PKMN>"
 	next "status@"
 
-.PackDesc:
+.BagDesc:
 	db   "Contains"
 	next "items@"
 
@@ -220,7 +220,7 @@ StartMenu::
 	db   "Save your"
 	next "progress@"
 
-.OptionDesc:
+.OptionsDesc:
 	db   "Change"
 	next "settings@"
 
@@ -309,7 +309,7 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .no_pack
-	ld a, STARTMENUITEM_PACK
+	ld a, STARTMENUITEM_BAG
 	call .AppendMenuList
 .no_pack
 
@@ -335,7 +335,7 @@ endr
 	call .AppendMenuList
 .no_save
 
-	ld a, STARTMENUITEM_OPTION
+	ld a, STARTMENUITEM_OPTIONS
 	call .AppendMenuList
 	ld a, STARTMENUITEM_EXIT
 	call .AppendMenuList
@@ -441,7 +441,7 @@ StartMenu_Save:
 	ld a, 1
 	ret
 
-StartMenu_Option:
+StartMenu_Options:
 ; Game options.
 
 	call FadeToMenu
@@ -478,7 +478,7 @@ StartMenu_Pokegear:
 	ld a, 0
 	ret
 
-StartMenu_Pack:
+StartMenu_Bag:
 	call FadeToMenu
 	farcall Pack
 	ld a, [wPackUsedItem]
