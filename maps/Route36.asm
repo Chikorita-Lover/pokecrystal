@@ -33,7 +33,21 @@ Route36ArthurCallback:
 	appear ROUTE36_ARTHUR
 	endcallback
 
-Route36SuicuneScript:
+Route36SuicuneScript1:
+	showemote EMOTE_SHOCK, PLAYER, 15
+	pause 15
+	playsound SFX_WARP_FROM
+	turnobject PLAYER, RIGHT
+	applymovement ROUTE36_SUICUNE, Route36SuicuneMovement
+	disappear ROUTE36_SUICUNE
+	turnobject PLAYER, DOWN
+	pause 10
+	setscene SCENE_ROUTE36_NOOP
+	clearevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
+	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
+	end
+
+Route36SuicuneScript2:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	pause 15
 	playsound SFX_WARP_FROM
@@ -661,28 +675,32 @@ Route36_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 18,  8, ROUTE_36_NATIONAL_PARK_GATE, 3
-	warp_event 18,  9, ROUTE_36_NATIONAL_PARK_GATE, 4
-	warp_event 47, 13, ROUTE_36_RUINS_OF_ALPH_GATE, 1
-	warp_event 48, 13, ROUTE_36_RUINS_OF_ALPH_GATE, 2
+	warp_event  4, 12, ROUTE_36_NATIONAL_PARK_GATE, 3
+	warp_event  4, 13, ROUTE_36_NATIONAL_PARK_GATE, 4
+	warp_event 45, 17, ROUTE_36_RUINS_OF_ALPH_GATE, 1
+	warp_event 46, 17, ROUTE_36_RUINS_OF_ALPH_GATE, 2
+	warp_event 55, 14, ROUTE_36_VIOLET_GATE, 3
+	warp_event 55, 15, ROUTE_36_VIOLET_GATE, 4
 
 	def_coord_events
-	coord_event 20,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
-	coord_event 22,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
+	coord_event  9, 10, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript1
+	coord_event 10, 11, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript2
+	coord_event 11, 11, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript2
+	coord_event 12, 11, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript2
 
 	def_bg_events
-	bg_event 29,  1, BGEVENT_READ, Route36TrainerTips2
-	bg_event 45, 11, BGEVENT_READ, RuinsOfAlphNorthSign
-	bg_event 55,  7, BGEVENT_READ, Route36Sign
-	bg_event 21,  7, BGEVENT_READ, Route36TrainerTips1
+	bg_event 19,  1, BGEVENT_READ, Route36TrainerTips2
+	bg_event 43, 15, BGEVENT_READ, RuinsOfAlphNorthSign
+	bg_event 51, 13, BGEVENT_READ, Route36Sign
+	bg_event  7, 11, BGEVENT_READ, Route36TrainerTips1
 
 	def_object_events
-	object_event 20, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicMark, -1
-	object_event 31, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSchoolboyAlan1, -1
-	object_event 35,  9, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_SUDOWOODO, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SudowoodoScript, EVENT_ROUTE_36_SUDOWOODO
-	object_event 51,  8, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
-	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
-	object_event 21,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36FruitTree, -1
-	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
-	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
-	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
+	object_event 10, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicMark, -1
+	object_event 24, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSchoolboyAlan1, -1
+	object_event 33, 14, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_SUDOWOODO, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SudowoodoScript, EVENT_ROUTE_36_SUDOWOODO
+	object_event 48, 13, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
+	object_event 41, 14, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
+	object_event 11,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36FruitTree, -1
+	object_event 44, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
+	object_event 33, 19, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
+	object_event 11, 10, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36

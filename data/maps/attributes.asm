@@ -107,8 +107,8 @@ ENDM
 
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route32, ROUTE_32, 0
-	connection west, Route36, ROUTE_36, 0
-	connection east, Route31, ROUTE_31, 9
+	connection west, Route36, ROUTE_36, -2
+	connection east, Route31, ROUTE_31, 10
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
 	connection west, Route34, ROUTE_34, -18
@@ -164,9 +164,8 @@ ENDM
 	connection north, Route31, ROUTE_31, -10
 	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
 
-	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
+	map_attributes Route31, ROUTE_31, $05, SOUTH
 	connection south, Route30, ROUTE_30, 10
-	connection west, VioletCity, VIOLET_CITY, -9
 
 	map_attributes Route32, ROUTE_32, $05, NORTH | SOUTH
 	connection north, VioletCity, VIOLET_CITY, 0
@@ -181,17 +180,17 @@ ENDM
 	connection east, AzaleaTown, AZALEA_TOWN, 18
 
 	map_attributes Route35, ROUTE_35, $05, NORTH | SOUTH
-	connection north, Route36, ROUTE_36, 0
+	connection north, Route36, ROUTE_36, 4
 	connection south, GoldenrodCity, GOLDENROD_CITY, -5
 
 	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH | EAST
-	connection north, Route37, ROUTE_37, 10
-	connection south, Route35, ROUTE_35, 0
-	connection east, VioletCity, VIOLET_CITY, 0
+	connection north, Route37, ROUTE_37, 5
+	connection south, Route35, ROUTE_35, -4
+	connection east, VioletCity, VIOLET_CITY, 2
 
 	map_attributes Route37, ROUTE_37, $05, NORTH | SOUTH
 	connection north, EcruteakCity, ECRUTEAK_CITY, -5
-	connection south, Route36, ROUTE_36, -10
+	connection south, Route36, ROUTE_36, -5
 
 	map_attributes Route38, ROUTE_38, $05, WEST | EAST
 	connection west, Route39, ROUTE_39, 0
@@ -533,6 +532,7 @@ ENDM
 	map_attributes Route35NationalParkGate, ROUTE_35_NATIONAL_PARK_GATE, $00, 0
 	map_attributes Route36RuinsOfAlphGate, ROUTE_36_RUINS_OF_ALPH_GATE, $00, 0
 	map_attributes Route36NationalParkGate, ROUTE_36_NATIONAL_PARK_GATE, $00, 0
+	map_attributes Route36VioletGate, ROUTE_36_VIOLET_GATE, $00, 0
 	map_attributes GoldenrodGym, GOLDENROD_GYM, $00, 0
 	map_attributes GoldenrodBikeShop, GOLDENROD_BIKE_SHOP, $00, 0
 	map_attributes GoldenrodHappinessRater, GOLDENROD_HAPPINESS_RATER, $00, 0

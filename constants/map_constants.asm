@@ -234,7 +234,7 @@ ENDM
 	newgroup VIOLET                                               ; 10
 	map_const ROUTE_32,                                    10, 45 ;  1
 	map_const ROUTE_35,                                    10, 18 ;  2
-	map_const ROUTE_36,                                    30,  9 ;  3
+	map_const ROUTE_36,                                    30, 11 ;  3
 	map_const ROUTE_37,                                    10,  9 ;  4
 	map_const VIOLET_CITY,                                 20, 18 ;  5
 	map_const VIOLET_MART,                                  6,  4 ;  6
@@ -249,6 +249,7 @@ ENDM
 	map_const ROUTE_35_NATIONAL_PARK_GATE,                  4,  4 ; 15
 	map_const ROUTE_36_RUINS_OF_ALPH_GATE,                  5,  4 ; 16
 	map_const ROUTE_36_NATIONAL_PARK_GATE,                  5,  4 ; 17
+	map_const ROUTE_36_VIOLET_GATE,                         5,  4 ; 18
 	endgroup
 
 	newgroup GOLDENROD                                            ; 11
