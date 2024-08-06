@@ -15,6 +15,9 @@ Route44_Blocks:
 Route28_Blocks:
 	INCBIN "maps/Route28.blk"
 
+BetaPlayersHouse2F_Blocks: ; unreferenced
+	INCBIN "maps/unused/BetaPlayersHouse2F.blk"
+
 CeladonCity_Blocks:
 	INCBIN "maps/CeladonCity.blk"
 
@@ -1042,9 +1045,3 @@ BetaBlank_Blocks: ; unreferenced
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
-
-
-SECTION "Map Blocks 4", ROMX
-
-Route36VioletGate_Blocks:
-	INCBIN "maps/EastWestGate.blk"
