@@ -1547,23 +1547,23 @@ JohtoGrassWildMons:
 	; morn
 	db 13, EKANS
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 15, MANKEY
+	db 15, MANKEY
 	db 15, ARBOK
 	db 16, FEAROW
 	db 16, FEAROW
 	; day
 	db 13, EKANS
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 15, MANKEY
+	db 15, MANKEY
 	db 15, ARBOK
 	db 16, FEAROW
 	db 16, FEAROW
 	; nite
-	db 13, RATTATA
+	db 15, MANKEY
 	db 14, ZUBAT
-	db 15, RATICATE
+	db 15, HOUNDOUR
 	db 16, GOLBAT
 	db 15, MARILL
 	db 16, GOLBAT
