@@ -65,6 +65,8 @@ PokecenterNurseScript:
 	iftrue .morn
 	checktime DAY
 	iftrue .day
+	checktime EVE
+	iftrue .eve
 	checktime NITE
 	iftrue .nite
 	sjump .ok
@@ -91,14 +93,21 @@ PokecenterNurseScript:
 	promptbutton
 	sjump .ok
 
+.eve
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .eve_nite_champion
+	farwritetext NurseEveText
+	promptbutton
+	sjump .ok
+
 .nite
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .nite_champion
+	iftrue .eve_nite_champion
 	farwritetext NurseNiteText
 	promptbutton
 	sjump .ok
-.nite_champion
-	farwritetext NurseChampionNiteText
+.eve_nite_champion
+	farwritetext NurseChampionEveNiteText
 	promptbutton
 	sjump .ok
 
