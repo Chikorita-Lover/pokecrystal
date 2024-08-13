@@ -82,23 +82,23 @@ _BillsPC:
 .strings
 	db "WITHDRAW <PK><MN>@"
 	db "DEPOSIT <PK><MN>@"
+	db "MOVE <PK><MN>@"
 	db "CHANGE BOX@"
-	db "MOVE <PK><MN> W/O MAIL@"
 	db "SEE YA!@"
 
 .Jumptable:
 	dw BillsPC_WithdrawMenu
 	dw BillsPC_DepositMenu
-	dw BillsPC_ChangeBoxMenu
 	dw BillsPC_MovePKMNMenu
+	dw BillsPC_ChangeBoxMenu
 	dw BillsPC_SeeYa
 
 .items
 	db 5 ; # items
 	db 0 ; WITHDRAW
 	db 1 ; DEPOSIT
-	db 2 ; CHANGE BOX
-	db 3 ; MOVE PKMN
+	db 2 ; MOVE
+	db 3 ; CHANGE BOX
 	db 4 ; SEE YA!
 	db -1
 
@@ -139,35 +139,6 @@ BillsPC_DepositMenu:
 	and a
 	ret
 
-BillsPC_Deposit_CheckPartySize: ; unreferenced
-	ld a, [wPartyCount]
-	and a
-	jr z, .no_mon
-	cp 2
-	jr c, .only_one_mon
-	and a
-	ret
-
-.no_mon
-	ld hl, .PCNoSingleMonText
-	call MenuTextboxBackup
-	scf
-	ret
-
-.only_one_mon
-	ld hl, .PCCantDepositLastMonText
-	call MenuTextboxBackup
-	scf
-	ret
-
-.PCNoSingleMonText:
-	text_far _PCNoSingleMonText
-	text_end
-
-.PCCantDepositLastMonText:
-	text_far _PCCantDepositLastMonText
-	text_end
-
 CheckCurPartyMonFainted:
 	ld hl, wPartyMon1HP
 	ld de, PARTYMON_STRUCT_LENGTH
@@ -204,19 +175,6 @@ BillsPC_WithdrawMenu:
 	call ClearPCItemScreen
 	call CloseWindow
 	and a
-	ret
-
-BillsPC_Withdraw_CheckPartySize: ; unreferenced
-	ld a, [wPartyCount]
-	cp PARTY_LENGTH
-	jr nc, .party_full
-	and a
-	ret
-
-.party_full
-	ld hl, PCCantTakeText
-	call MenuTextboxBackup
-	scf
 	ret
 
 PCCantTakeText:
