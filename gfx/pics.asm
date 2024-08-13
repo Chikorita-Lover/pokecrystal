@@ -590,7 +590,6 @@ PichuBackpic:        INCBIN "gfx/pokemon/pichu/back.2bpp.lz"
 HoundoomBackpic:     INCBIN "gfx/pokemon/houndoom/back.2bpp.lz"
 BellsproutBackpic:   INCBIN "gfx/pokemon/bellsprout/back.2bpp.lz"
 GrimerBackpic:       INCBIN "gfx/pokemon/grimer/back.2bpp.lz"
-LanturnBackpic:      INCBIN "gfx/pokemon/lanturn/back.2bpp.lz"
 PidgeottoBackpic:    INCBIN "gfx/pokemon/pidgeotto/back.2bpp.lz"
 StaryuBackpic:       INCBIN "gfx/pokemon/staryu/back.2bpp.lz"
 MrMimeBackpic:       INCBIN "gfx/pokemon/mr__mime/back.2bpp.lz"
@@ -711,6 +710,7 @@ SECTION "Pics 19", ROMX
 
 RaichuFrontpic:      INCBIN "gfx/pokemon/raichu/front.animated.2bpp.lz"
 SunkernBackpic:      INCBIN "gfx/pokemon/sunkern/back.2bpp.lz"
+LanturnBackpic:      INCBIN "gfx/pokemon/lanturn/back.2bpp.lz"
 
 
 ; Sections "Pics 20" to "Pics 24" are not used for any graphics,
