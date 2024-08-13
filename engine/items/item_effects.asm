@@ -118,7 +118,7 @@ ItemEffects:
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
 	dw NoEffect            ; PINK_BOW
-	dw NoEffect            ; STICK
+	dw NoEffect            ; LEEK
 	dw NoEffect            ; SMOKE_BALL
 	dw NoEffect            ; NEVERMELTICE
 	dw NoEffect            ; MAGNET
@@ -185,7 +185,7 @@ ItemEffects:
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
 	dw NoEffect            ; ITEM_AB
-	dw NoEffect            ; UP_GRADE
+	dw NoEffect            ; UPGRADE
 	dw RestoreHPEffect     ; ORAN_BERRY
 	dw RestoreHPEffect     ; SITRUS_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE

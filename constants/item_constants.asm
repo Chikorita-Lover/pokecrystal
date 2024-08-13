@@ -79,17 +79,17 @@
 	const SILVER_WING  ; 47
 	const MOOMOO_MILK  ; 48
 	const QUICK_CLAW   ; 49
-	const PECHA_BERRY ; 4a
+	const PECHA_BERRY  ; 4a
 	const GOLD_LEAF    ; 4b
 	const SOFT_SAND    ; 4c
 	const SHARP_BEAK   ; 4d
-	const CHERI_BERRY ; 4e
-	const ASPEAR_BERRY  ; 4f
-	const RAWST_BERRY    ; 50
+	const CHERI_BERRY  ; 4e
+	const ASPEAR_BERRY ; 4f
+	const RAWST_BERRY  ; 50
 	const POISON_BARB  ; 51
 	const KINGS_ROCK   ; 52
 	const PERSIM_BERRY ; 53
-	const CHESTO_BERRY   ; 54
+	const CHESTO_BERRY ; 54
 	const RED_APRICORN ; 55
 	const TINYMUSHROOM ; 56
 	const BIG_MUSHROOM ; 57
@@ -110,11 +110,11 @@
 	const BLACKGLASSES ; 66
 	const SLOWPOKETAIL ; 67
 	const PINK_BOW     ; 68
-	const STICK        ; 69
+	const LEEK         ; 69
 	const SMOKE_BALL   ; 6a
 	const NEVERMELTICE ; 6b
 	const MAGNET       ; 6c
-	const LUM_BERRY ; 6d
+	const LUM_BERRY    ; 6d
 	const PEARL        ; 6e
 	const BIG_PEARL    ; 6f
 	const EVERSTONE    ; 70
@@ -155,7 +155,7 @@
 	const ITEM_93      ; 93
 	const ITEM_94      ; 94
 	const ITEM_95      ; 95
-	const LEPPA_BERRY ; 96
+	const LEPPA_BERRY  ; 96
 	const DRAGON_SCALE ; 97
 	const BERSERK_GENE ; 98
 	const ITEM_99      ; 99
@@ -177,9 +177,9 @@
 	const SUN_STONE    ; a9
 	const POLKADOT_BOW ; aa
 	const ITEM_AB      ; ab
-	const UP_GRADE     ; ac
-	const ORAN_BERRY        ; ad
-	const SITRUS_BERRY   ; ae
+	const UPGRADE      ; ac
+	const ORAN_BERRY   ; ad
+	const SITRUS_BERRY ; ae
 	const SQUIRTBOTTLE ; af
 	const ITEM_B0      ; b0
 	const PARK_BALL    ; b1

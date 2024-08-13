@@ -105,7 +105,7 @@ ItemDescriptions:
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
 	dw PinkBowDesc
-	dw StickDesc
+	dw LeekDesc
 	dw SmokeBallDesc
 	dw NeverMeltIceDesc
 	dw MagnetDesc
@@ -172,7 +172,7 @@ ItemDescriptions:
 	dw SunStoneDesc
 	dw PolkadotBowDesc
 	dw TeruSama22Desc
-	dw UpGradeDesc
+	dw UpgradeDesc
 	dw OranBerryDesc
 	dw SitrusBerryDesc
 	dw SquirtBottleDesc
@@ -312,7 +312,7 @@ ParlyzHealDesc:
 
 FullRestoreDesc:
 	db   "Fully restores HP"
-	next "& status.@"
+	next "and heals status.@"
 
 MaxPotionDesc:
 	db   "Fully restores"
@@ -468,8 +468,8 @@ XSpecialDesc:
 	next "ATTACK. (1 BTL)@"
 
 CoinCaseDesc:
-	db   "Holds up to 9,999"
-	next "game coins.@"
+	db   "Holds coins for"
+	next "the GAME CORNER.@"
 
 ItemfinderDesc:
 	db   "Checks for unseen"
@@ -543,8 +543,8 @@ MoomooMilkDesc:
 	next "HP by 100.@"
 
 QuickClawDesc:
-	db   "Raises 1st strike"
-	next "ratio. (HOLD)@"
+	db   "May allow the 1st"
+	next "strike. (HOLD)@"
 
 PechaBerryDesc:
 	db   "A self-cure for"
@@ -591,7 +591,8 @@ ChestoBerryDesc:
 	next "for sleep. (HOLD)@"
 
 RedApricornDesc:
-	db   "A red APRICORN.@"
+	db   "A red APRICORN"
+	next "for making BALLS.@"
 
 TinyMushroomDesc:
 	db   "An ordinary mush-"
@@ -606,7 +607,8 @@ SilverPowderDesc:
 	next "moves. (HOLD)@"
 
 BluApricornDesc:
-	db   "A blue APRICORN.@"
+	db   "A blue APRICORN"
+	next "for making BALLS.@"
 
 TeruSama6Desc:
 	db   "?@"
@@ -616,10 +618,12 @@ AmuletCoinDesc:
 	next "earnings. (HOLD)@"
 
 YlwApricornDesc:
-	db   "A yellow APRICORN.@"
+	db   "A yellow APRICORN"
+	next "for making BALLS.@"
 
 GrnApricornDesc:
-	db   "A green APRICORN.@"
+	db   "A green APRICORN"
+	next "for making BALLS.@"
 
 CleanseTagDesc:
 	db   "Helps repel wild"
@@ -634,22 +638,23 @@ TwistedSpoonDesc:
 	next "type moves. (HOLD)@"
 
 WhtApricornDesc:
-	db   "A white APRICORN.@"
+	db   "A white APRICORN"
+	next "for making BALLS.@"
 
 BlackbeltDesc:
 	db   "Boosts fighting-"
 	next "type moves. (HOLD)@"
 
 BlkApricornDesc:
-	db   "A black APRICORN."
-	next "@"
+	db   "A black APRICORN"
+	next "for making BALLS.@"
 
 TeruSama7Desc:
 	db   "?@"
 
 PnkApricornDesc:
-	db   "A pink APRICORN."
-	next "@"
+	db   "A pink APRICORN"
+	next "for making BALLS.@"
 
 BlackGlassesDesc:
 	db   "Powers up dark-"
@@ -663,9 +668,9 @@ PinkBowDesc:
 	db   "Powers up normal-"
 	next "type moves. (HOLD)@"
 
-StickDesc:
-	db   "An ordinary stick."
-	next "Sell low.@"
+LeekDesc:
+	db   "Ups crit.hit ratio"
+	next "of FARFETCH'D.@"
 
 SmokeBallDesc:
 	db   "Escape from wild"
@@ -704,20 +709,20 @@ RageCandyBarDesc:
 	next "HP by 20.@"
 
 GSBallDesc:
-	db   "The mysterious"
-	next "BALL.@"
+	db   "A mysterious gold"
+	next "and silver BALL.@"
 
 BlueCardDesc:
-	db   "Card to save"
-	next "points.@"
+	db   "Saves points for"
+	next "BUENA'S PASSWORD.@"
 
 MiracleSeedDesc:
 	db   "Powers up grass-"
 	next "type moves. (HOLD)@"
 
 ThickClubDesc:
-	db   "A bone of some"
-	next "sort. Sell low.@"
+	db   "Doubles ATTACK of"
+	next "CUBONE or MAROWAK.@"
 
 FocusBandDesc:
 	db   "May prevent faint-"
@@ -775,7 +780,8 @@ StarPieceDesc:
 	next "Sell very high.@"
 
 BasementKeyDesc:
-	db   "Opens doors.@"
+	db   "Opens doors in the"
+	next "GOLDENROD TUNNEL.@"
 
 PassDesc:
 	db   "A ticket for the"
@@ -820,8 +826,8 @@ TeruSama14Desc:
 	db   "?@"
 
 LeftoversDesc:
-	db   "Restores HP during"
-	next "battle. (HOLD)@"
+	db   "Restores 1/16 HP"
+	next "every turn. (HOLD)@"
 
 TeruSama15Desc:
 	db   "?@"
@@ -874,15 +880,15 @@ LureBallDesc:
 	next "hooked by a ROD.@"
 
 FastBallDesc:
-	db   "A BALL for catch-"
-	next "ing fast #MON.@"
+	db   "A BALL for #MON"
+	next "that can flee.@"
 
 TeruSama21Desc:
 	db   "?@"
 
 LightBallDesc:
-	db   "An odd, electrical"
-	next "orb. (HOLD)@"
+	db   "Doubles SPCL.ATK"
+	next "of PIKACHU. (HOLD)@"
 
 FriendBallDesc:
 	db   "A BALL that makes"
@@ -893,7 +899,7 @@ MoonBallDesc:
 	next "STONE evolvers.@"
 
 LoveBallDesc:
-	db   "For catching the"
+	db   "A BALL for the"
 	next "opposite gender.@"
 
 NormalBoxDesc:
@@ -915,7 +921,7 @@ PolkadotBowDesc:
 TeruSama22Desc:
 	db   "?@"
 
-UpGradeDesc:
+UpgradeDesc:
 	db   "A mysterious box"
 	next "made by SILPH CO.@"
 
@@ -947,7 +953,7 @@ TeruSama24Desc:
 
 BrickPieceDesc:
 	db   "A rare chunk of"
-	next "tile.@"
+	next "tile. Sell low.@"
 
 SurfMailDesc:
 	db   "LAPRAS-print MAIL."
