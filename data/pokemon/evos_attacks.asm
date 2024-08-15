@@ -2069,12 +2069,11 @@ ChikoritaEvosAttacks:
 	db 1, TACKLE
 	db 1, GROWL
 	db 8, RAZOR_LEAF
-	db 12, POISONPOWDER
-	db 15, SYNTHESIS
-	db 22, REFLECT
-	db 26, SWEET_SCENT
-	db 29, LIGHT_SCREEN
-	db 36, BODY_SLAM
+	db 12, REFLECT
+	db 15, POISONPOWDER
+	db 22, SYNTHESIS
+	db 29, BODY_SLAM
+	db 36, LIGHT_SCREEN
 	db 43, SAFEGUARD
 	db 50, SOLAR_BEAM
 	db 0 ; no more level-up moves
@@ -2085,14 +2084,13 @@ BayleefEvosAttacks:
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, RAZOR_LEAF
-	db 1, POISONPOWDER
+	db 1, REFLECT
 	db 8, RAZOR_LEAF
-	db 12, POISONPOWDER
-	db 15, SYNTHESIS
-	db 23, REFLECT
-	db 27, SWEET_SCENT
-	db 31, LIGHT_SCREEN
-	db 39, BODY_SLAM
+	db 12, REFLECT
+	db 15, POISONPOWDER
+	db 23, SYNTHESIS
+	db 31, BODY_SLAM
+	db 39, LIGHT_SCREEN
 	db 47, SAFEGUARD
 	db 55, SOLAR_BEAM
 	db 0 ; no more level-up moves
@@ -2102,15 +2100,13 @@ MeganiumEvosAttacks:
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, RAZOR_LEAF
-	db 1, POISONPOWDER
+	db 1, REFLECT
 	db 8, RAZOR_LEAF
-	db 12, POISONPOWDER
-	db 15, SYNTHESIS
-	db 23, REFLECT
-	db 27, SWEET_SCENT
-	db 31, LIGHT_SCREEN
-	db 32, PETAL_DANCE
-	db 41, BODY_SLAM
+	db 12, REFLECT
+	db 15, POISONPOWDER
+	db 23, SYNTHESIS
+	db 31, BODY_SLAM
+	db 41, LIGHT_SCREEN
 	db 51, SAFEGUARD
 	db 61, SOLAR_BEAM
 	db 0 ; no more level-up moves
@@ -2122,13 +2118,10 @@ CyndaquilEvosAttacks:
 	db 1, LEER
 	db 6, SMOKESCREEN
 	db 12, EMBER
-	db 15, QUICK_ATTACK
-	db 19, FLAME_WHEEL
-	db 23, DEFENSE_CURL
-	db 27, SWIFT
-	db 36, FLAMETHROWER
-	db 41, ROLLOUT
-	db 46, DOUBLE_EDGE
+	db 19, QUICK_ATTACK
+	db 27, FLAME_WHEEL
+	db 36, SWIFT
+	db 46, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 QuilavaEvosAttacks:
@@ -2139,13 +2132,10 @@ QuilavaEvosAttacks:
 	db 1, SMOKESCREEN
 	db 6, SMOKESCREEN
 	db 12, EMBER
-	db 16, QUICK_ATTACK
-	db 21, FLAME_WHEEL
-	db 26, DEFENSE_CURL
-	db 31, SWIFT
-	db 42, FLAMETHROWER
-	db 48, ROLLOUT
-	db 54, DOUBLE_EDGE
+	db 21, QUICK_ATTACK
+	db 31, FLAME_WHEEL
+	db 42, SWIFT
+	db 54, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 TyphlosionEvosAttacks:
@@ -2156,13 +2146,10 @@ TyphlosionEvosAttacks:
 	db 1, EMBER
 	db 6, SMOKESCREEN
 	db 12, EMBER
-	db 16, QUICK_ATTACK
-	db 21, FLAME_WHEEL
-	db 26, DEFENSE_CURL
-	db 31, SWIFT
-	db 45, FLAMETHROWER
-	db 53, ROLLOUT
-	db 60, DOUBLE_EDGE
+	db 21, QUICK_ATTACK
+	db 31, FLAME_WHEEL
+	db 45, SWIFT
+	db 60, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
@@ -2170,15 +2157,12 @@ TotodileEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 7, WATER_GUN
-	db 13, RAGE
-	db 17, BITE
-	db 20, SCARY_FACE
-	db 27, FLAIL
-	db 31, CRUNCH
+	db 7, RAGE
+	db 13, WATER_GUN
+	db 20, BITE
+	db 27, SCARY_FACE
 	db 35, SLASH
-	db 39, SCREECH
-	db 43, THRASH
+	db 43, SCREECH
 	db 52, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -2187,16 +2171,13 @@ CroconawEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, WATER_GUN
-	db 7, WATER_GUN
-	db 13, RAGE
-	db 17, BITE
-	db 21, SCARY_FACE
-	db 28, FLAIL
-	db 33, CRUNCH
+	db 1, RAGE
+	db 7, RAGE
+	db 13, WATER_GUN
+	db 21, BITE
+	db 28, SCARY_FACE
 	db 37, SLASH
-	db 42, SCREECH
-	db 45, THRASH
+	db 45, SCREECH
 	db 55, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -2204,18 +2185,14 @@ FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, WATER_GUN
 	db 1, RAGE
-	db 7, WATER_GUN
-	db 13, RAGE
-	db 17, BITE
-	db 21, SCARY_FACE
-	db 28, FLAIL
-	db 30, AGILITY
-	db 34, CRUNCH
+	db 1, WATER_GUN
+	db 7, RAGE
+	db 13, WATER_GUN
+	db 21, BITE
+	db 28, SCARY_FACE
 	db 38, SLASH
-	db 43, SCREECH
-	db 47, THRASH
+	db 47, SCREECH
 	db 58, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
