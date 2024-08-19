@@ -104,7 +104,7 @@ ItemDescriptions:
 	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
-	dw PinkBowDesc
+	dw SilkScarfDesc
 	dw LeekDesc
 	dw SmokeBallDesc
 	dw NeverMeltIceDesc
@@ -664,7 +664,7 @@ SlowpokeTailDesc:
 	db   "Very tasty. Sell"
 	next "high.@"
 
-PinkBowDesc:
+SilkScarfDesc:
 	db   "Powers up normal-"
 	next "type moves. (HOLD)@"
 

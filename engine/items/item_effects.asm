@@ -117,7 +117,7 @@ ItemEffects:
 	dw NoEffect            ; PNK_APRICORN
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
-	dw NoEffect            ; PINK_BOW
+	dw NoEffect            ; SILK_SCARF
 	dw NoEffect            ; LEEK
 	dw NoEffect            ; SMOKE_BALL
 	dw NoEffect            ; NEVERMELTICE
