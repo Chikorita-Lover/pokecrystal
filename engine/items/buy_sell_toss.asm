@@ -29,18 +29,13 @@ SelectQuantityToSell:
 	ret
 
 Buy_DisplayQuantityOfItem:
-	hlcoord 0, 9
-	ld b, 3
-	ld c, 7
+	hlcoord 0, 11
+	ld b, 1
+	ld c, 3
 	call Textbox
-	hlcoord 1, 11
-	ld de, .InPackString
-	call PlaceString
 	ld hl, wNumItems
 	call Buy_GetQuantityInPack
-	hlcoord 0, 10
-	ld de, 2 * SCREEN_WIDTH + 5
-	add hl, de
+	hlcoord 1, 12
 	ld [hl], "×"
 	inc hl
 	ld de, wItemQuantityChange
@@ -49,8 +44,6 @@ Buy_DisplayQuantityOfItem:
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ret
-.InPackString
-	db "PACK@"
 
 Toss_Sell_Loop:
 	ld a, 1
