@@ -1,27 +1,27 @@
 	object_const_def
-	const MANIASHOUSE_ROCKER
+	const KIRKSHOUSE_ROCKER
 
-ManiasHouse_MapScripts:
+KirksHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-ManiaScript:
+KirkScript:
 	faceplayer
 	opentext
-	checkevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	checkevent EVENT_KIRK_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	iftrue .default_postevent
 	checkevent EVENT_GOT_SHUCKIE
 	iftrue .alreadyhaveshuckie
-	writetext ManiaText_AskLookAfterShuckle
+	writetext KirkText_AskLookAfterShuckle
 	yesorno
 	iffalse .refusetotakeshuckie
 	special GiveShuckle
 	iffalse .partyfull
-	writetext ManiaText_TakeCareOfShuckle
+	writetext KirkText_TakeCareOfShuckle
 	promptbutton
 	waitsfx
-	writetext ManiaText_GotShuckle
+	writetext KirkText_GotShuckle
 	playsound SFX_KEY_ITEM
 	waitsfx
 	closetext
@@ -31,25 +31,25 @@ ManiaScript:
 .alreadyhaveshuckie
 	checkflag ENGINE_GOT_SHUCKIE_TODAY
 	iffalse .returnshuckie
-	writetext ManiaText_TakeCareOfShuckle
+	writetext KirkText_TakeCareOfShuckle
 	waitbutton
 	closetext
 	end
 
 .partyfull
-	writetext ManiaText_PartyFull
+	writetext KirkText_PartyFull
 	waitbutton
 	closetext
 	end
 
 .refusetotakeshuckie
-	writetext ManiaText_IfHeComesBack
+	writetext KirkText_IfHeComesBack
 	waitbutton
 	closetext
 	end
 
 .returnshuckie
-	writetext ManiaText_CanIHaveMyMonBack
+	writetext KirkText_CanIHaveMyMonBack
 	yesorno
 	iffalse .refused
 	special ReturnShuckie
@@ -58,47 +58,47 @@ ManiaScript:
 	ifequal SHUCKIE_HAPPY, .superhappy
 	ifequal SHUCKIE_FAINTED, .default_postevent
 	; SHUCKIE_RETURNED
-	writetext ManiaText_ThankYou
+	writetext KirkText_ThankYou
 	waitbutton
 	closetext
-	setevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	setevent EVENT_KIRK_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	end
 
 .wrong
-	writetext ManiaText_ShuckleNotThere
+	writetext KirkText_ShuckleNotThere
 	waitbutton
 	closetext
 	end
 
 .superhappy
-	writetext ManiaText_ShuckleLikesYou
+	writetext KirkText_ShuckleLikesYou
 	waitbutton
 	closetext
-	setevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	setevent EVENT_KIRK_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	end
 
 .refused
-	writetext ManiaText_SameAsBeingRobbed
+	writetext KirkText_SameAsBeingRobbed
 	waitbutton
 	closetext
 	end
 
 .nothingleft ; unreferenced
-	writetext ManiaText_ShuckleIsYourLastMon
+	writetext KirkText_ShuckleIsYourLastMon
 	waitbutton
 	closetext
 	end
 
 .default_postevent
-	writetext ManiaText_HappinessSpeech
+	writetext KirkText_HappinessSpeech
 	waitbutton
 	closetext
 	end
 
-ManiasHouseUnusedBookshelf: ; unreferenced
+KirksHouseUnusedBookshelf: ; unreferenced
 	jumpstd PictureBookshelfScript
 
-ManiaText_AskLookAfterShuckle:
+KirkText_AskLookAfterShuckle:
 	text "I, I'm in shock!"
 
 	para "A guy about your"
@@ -122,30 +122,30 @@ ManiaText_AskLookAfterShuckle:
 	line "for a while?"
 	done
 
-ManiaText_TakeCareOfShuckle:
+KirkText_TakeCareOfShuckle:
 	text "Oh, thank you!"
 
 	para "Take good care of"
 	line "it, please!"
 	done
 
-ManiaText_GotShuckle:
+KirkText_GotShuckle:
 	text "<PLAYER> received a"
 	line "#MON."
 	done
 
-ManiaText_PartyFull:
+KirkText_PartyFull:
 	text "Your #MON party"
 	line "is full."
 	done
 
-ManiaText_IfHeComesBack:
+KirkText_IfHeComesBack:
 	text "Oh, no… What'll"
 	line "I do if he comes"
 	cont "back?"
 	done
 
-ManiaText_CanIHaveMyMonBack:
+KirkText_CanIHaveMyMonBack:
 	text "Hi! How's my #-"
 	line "MON?"
 
@@ -154,17 +154,17 @@ ManiaText_CanIHaveMyMonBack:
 	cont "it back?"
 	done
 
-ManiaText_ThankYou:
+KirkText_ThankYou:
 	text "Thank you!"
 	done
 
-ManiaText_ShuckleNotThere:
+KirkText_ShuckleNotThere:
 	text "Hey, you don't"
 	line "have my #MON"
 	cont "with you."
 	done
 
-ManiaText_ShuckleLikesYou:
+KirkText_ShuckleLikesYou:
 	text "My #MON has"
 	line "come to like you."
 
@@ -175,13 +175,13 @@ ManiaText_ShuckleLikesYou:
 	line "be good to it!"
 	done
 
-ManiaText_SameAsBeingRobbed:
+KirkText_SameAsBeingRobbed:
 	text "Oh, no, no… That's"
 	line "the same as being"
 	cont "robbed."
 	done
 
-ManiaText_HappinessSpeech:
+KirkText_HappinessSpeech:
 	text "For #MON, hap-"
 	line "piness is being"
 
@@ -189,7 +189,7 @@ ManiaText_HappinessSpeech:
 	line "treats them well."
 	done
 
-ManiaText_ShuckleIsYourLastMon:
+KirkText_ShuckleIsYourLastMon:
 	text "If I take my #-"
 	line "MON back, what are"
 
@@ -197,7 +197,7 @@ ManiaText_ShuckleIsYourLastMon:
 	line "in battle?"
 	done
 
-ManiasHouse_MapEvents:
+KirksHouse_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
@@ -209,4 +209,4 @@ ManiasHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  2,  4, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ManiaScript, -1
+	object_event  2,  4, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KirkScript, -1

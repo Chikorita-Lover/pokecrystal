@@ -143,15 +143,6 @@ AzaleaTownSlowpokeScript:
 	closetext
 	end
 
-UnusedWoosterScript: ; unreferenced
-	faceplayer
-	opentext
-	writetext WoosterText
-	cry QUAGSIRE
-	waitbutton
-	closetext
-	end
-
 AzaleaTownCelebiScene:
 	applymovement PLAYER, AzaleaTownPlayerLeavesKurtsHouseMovement
 	opentext
@@ -348,7 +339,7 @@ AzaleaTownGrampsTextAfter:
 AzaleaTownTeacherText:
 	text "Did you come to"
 	line "get KURT to make"
-	cont "some BALLS?"
+	cont "some # BALLS?"
 
 	para "A lot of people do"
 	line "just that."
@@ -380,10 +371,6 @@ AzaleaTownSlowpokeText2:
 	text "<……> <……>Yawn?"
 	done
 
-WoosterText:
-	text "WOOSTER: Gugyoo…"
-	done
-
 AzaleaTownKurtText1:
 	text "ILEX FOREST is"
 	line "restless!"
@@ -404,10 +391,9 @@ AzaleaTownKurtText3:
 
 AzaleaTownSignText:
 	text "AZALEA TOWN"
-	line "Where People and"
 
-	para "#MON Live in"
-	line "Happy Harmony"
+	text "Living Happily"
+	line "with #MON"
 	done
 
 KurtsHouseSignText:
@@ -490,7 +476,7 @@ AzaleaTown_MapEvents:
 	object_event 18,  9, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 29,  9, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 15, 15, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
-	object_event  8,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhiteApricornTree, -1
+	object_event  6,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhiteApricornTree, -1
 	object_event 11, 10, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
 	object_event 10, 16, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownRocket2Script, EVENT_SLOWPOKE_WELL_ROCKETS
-	object_event  6,  5, SPRITE_KURT_OUTSIDE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT
+	object_event  5,  5, SPRITE_KURT_OUTSIDE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT

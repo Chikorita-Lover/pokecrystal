@@ -259,12 +259,12 @@ GuideGentMovement3:
 	step LEFT
 	step LEFT
 	step LEFT
-	step LEFT
-	step LEFT
 	turn_head UP
 	step_end
 
 GuideGentMovement4:
+	step LEFT
+	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
@@ -315,11 +315,6 @@ CherrygroveCity_RivalWalksToYou:
 CherrygroveCity_RivalPushesYouOutOfTheWay:
 	big_step DOWN
 	turn_head UP
-	step_end
-
-CherrygroveCity_UnusedMovementData: ; unreferenced
-	step LEFT
-	turn_head DOWN
 	step_end
 
 CherrygroveCity_RivalExitsStageLeft:
@@ -536,8 +531,8 @@ MysticWaterGuyTextAfter:
 CherrygroveCitySignText:
 	text "CHERRYGROVE CITY"
 
-	para "The City of Cute,"
-	line "Fragrant Flowers"
+	para "The City of Frag-"
+	line "rant Flowers"
 	done
 
 GuideGentsHouseSignText:

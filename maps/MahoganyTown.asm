@@ -225,8 +225,7 @@ MahoganyTownLassText:
 MahoganyTownSignText:
 	text "MAHOGANY TOWN"
 
-	para "Welcome to the"
-	line "Home of the Ninja"
+	para "Home of the Ninja"
 	done
 
 MahoganyTownRagecandybarSignText:
@@ -252,7 +251,7 @@ MahoganyTown_MapEvents:
 	warp_event 17,  7, MAHOGANY_RED_GYARADOS_SPEECH_HOUSE, 1
 	warp_event  6, 13, MAHOGANY_GYM, 1
 	warp_event 15, 13, MAHOGANY_POKECENTER_1F, 1
-	warp_event  9,  1, ROUTE_43_MAHOGANY_GATE, 3
+	warp_event  7,  1, ROUTE_43_MAHOGANY_GATE, 3
 
 	def_coord_events
 	coord_event 19,  8, SCENE_MAHOGANYTOWN_TRY_RAGECANDYBAR, MahoganyTownTryARageCandyBarScript

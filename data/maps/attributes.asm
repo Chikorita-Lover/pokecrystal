@@ -102,12 +102,12 @@ ENDM
 	connection east, Route27, ROUTE_27, 0
 
 	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
-	connection north, Route30, ROUTE_30, 5
+	connection north, Route30, ROUTE_30, 6
 	connection east, Route29, ROUTE_29, 0
 
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route32, ROUTE_32, 0
-	connection west, Route36, ROUTE_36, 0
+	connection west, Route36, ROUTE_36, 1
 	connection east, Route31, ROUTE_31, 9
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
@@ -128,10 +128,10 @@ ENDM
 	map_attributes EcruteakCity, ECRUTEAK_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route37, ROUTE_37, 5
 	connection west, Route38, ROUTE_38, 5
-	connection east, Route42, ROUTE_42, 9
+	connection east, Route42, ROUTE_42, 7
 
 	map_attributes MahoganyTown, MAHOGANY_TOWN, $71, NORTH | WEST | EAST
-	connection north, Route43, ROUTE_43, 0
+	connection north, Route43, ROUTE_43, -1
 	connection west, Route42, ROUTE_42, 0
 	connection east, Route44, ROUTE_44, 0
 
@@ -162,7 +162,7 @@ ENDM
 
 	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH
 	connection north, Route31, ROUTE_31, -10
-	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
+	connection south, CherrygroveCity, CHERRYGROVE_CITY, -6
 
 	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
 	connection south, Route30, ROUTE_30, 10
@@ -187,7 +187,7 @@ ENDM
 	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH | EAST
 	connection north, Route37, ROUTE_37, 10
 	connection south, Route35, ROUTE_35, 0
-	connection east, VioletCity, VIOLET_CITY, 0
+	connection east, VioletCity, VIOLET_CITY, -1
 
 	map_attributes Route37, ROUTE_37, $05, NORTH | SOUTH
 	connection north, EcruteakCity, ECRUTEAK_CITY, -5
@@ -210,12 +210,12 @@ ENDM
 	connection west, CianwoodCity, CIANWOOD_CITY, 0
 
 	map_attributes Route42, ROUTE_42, $05, WEST | EAST
-	connection west, EcruteakCity, ECRUTEAK_CITY, -9
+	connection west, EcruteakCity, ECRUTEAK_CITY, -7
 	connection east, MahoganyTown, MAHOGANY_TOWN, 0
 
 	map_attributes Route43, ROUTE_43, $05, NORTH | SOUTH
 	connection north, LakeOfRage, LAKE_OF_RAGE, -5
-	connection south, MahoganyTown, MAHOGANY_TOWN, 0
+	connection south, MahoganyTown, MAHOGANY_TOWN, 1
 
 	map_attributes Route44, ROUTE_44, $71, WEST | EAST
 	connection west, MahoganyTown, MAHOGANY_TOWN, 0
@@ -642,7 +642,7 @@ ENDM
 	map_attributes Route16Gate, ROUTE_16_GATE, $00, 0
 	map_attributes Route7SaffronGate, ROUTE_7_SAFFRON_GATE, $00, 0
 	map_attributes Route17Route18Gate, ROUTE_17_ROUTE_18_GATE, $00, 0
-	map_attributes ManiasHouse, MANIAS_HOUSE, $00, 0
+	map_attributes KirksHouse, KIRKS_HOUSE, $00, 0
 	map_attributes CianwoodGym, CIANWOOD_GYM, $00, 0
 	map_attributes CianwoodPokecenter1F, CIANWOOD_POKECENTER_1F, $00, 0
 	map_attributes CianwoodPharmacy, CIANWOOD_PHARMACY, $00, 0

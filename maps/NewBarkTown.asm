@@ -262,9 +262,8 @@ NewBarkTownRivalText2:
 NewBarkTownSignText:
 	text "NEW BARK TOWN"
 
-	para "The Town Where the"
-	line "Winds of a New"
-	cont "Beginning Blow"
+	para "Winds of a New"
+	line "Beginning"
 	done
 
 NewBarkTownPlayersHouseSignText:

@@ -1,4 +1,4 @@
-DEF MANIA_OT_ID EQU 00518
+DEF KIRK_OT_ID EQU 00518
 
 GiveShuckle:
 ; Adding to the party.
@@ -33,9 +33,9 @@ GiveShuckle:
 ; OT ID.
 	ld hl, wPartyMon1ID
 	call AddNTimes
-	ld a, HIGH(MANIA_OT_ID)
+	ld a, HIGH(KIRK_OT_ID)
 	ld [hli], a
-	ld [hl], LOW(MANIA_OT_ID)
+	ld [hl], LOW(KIRK_OT_ID)
 
 ; Nickname.
 	ld a, [wPartyCount]
@@ -66,7 +66,7 @@ GiveShuckle:
 	ret
 
 SpecialShuckleOT:
-	db "MANIA@"
+	db "KIRK@"
 
 SpecialShuckleNickname:
 	db "SHUCKIE@"
@@ -86,10 +86,10 @@ ReturnShuckie:
 
 ; OT ID
 	ld a, [hli]
-	cp HIGH(MANIA_OT_ID)
+	cp HIGH(KIRK_OT_ID)
 	jr nz, .DontReturn
 	ld a, [hl]
-	cp LOW(MANIA_OT_ID)
+	cp LOW(KIRK_OT_ID)
 	jr nz, .DontReturn
 
 ; OT
