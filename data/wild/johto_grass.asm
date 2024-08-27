@@ -61,225 +61,225 @@ JohtoGrassWildMons:
 	def_grass_wildmons BELL_TOWER_2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_3F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_4F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_5F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_6F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_7F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_8F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BELL_TOWER_9F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, RATICATE
+	db 33, RATICATE
+	db 34, RATICATE
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 32, MISDREAVUS
+	db 33, HAUNTER
+	db 34, HAUNTER
+	db 34, RATICATE
+	db 35, RATICATE
+	db 36, RATICATE
+	db 36, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons BURNED_TOWER_1F
