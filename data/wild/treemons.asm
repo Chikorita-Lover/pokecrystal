@@ -8,7 +8,9 @@ TreeMons:
 	dw TreeMonSet_Kanto
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
-	dw TreeMonSet_Rock
+	dw TreeMonSet_Cave
+	dw TreeMonSet_Shore
+	dw TreeMonSet_Tower
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
@@ -125,7 +127,17 @@ TreeMonSet_Forest:
 	db  5, KAKUNA,     10
 	db -1
 
-TreeMonSet_Rock:
+TreeMonSet_Cave:
+	db 70, DUNSPARCE,  15
+	db 30, GEODUDE,    15
+	db -1
+
+TreeMonSet_Shore:
 	db 90, KRABBY,     15
 	db 10, SHUCKLE,    15
+	db -1
+
+TreeMonSet_Tower:
+	db 60, SLUGMA,     15
+	db 40, GEODUDE,    15
 	db -1
