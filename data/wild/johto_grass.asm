@@ -1467,7 +1467,7 @@ JohtoGrassWildMons:
 	db 16, GROWLITHE
 	db 15, PIDGEOTTO
 	db 15, LEDIAN
-	db 16, BAYLEEF
+	db 15, LEDIAN
 	; day
 	db 13, PIDGEY
 	db 14, GROWLITHE
@@ -1475,7 +1475,7 @@ JohtoGrassWildMons:
 	db 16, GROWLITHE
 	db 15, PIDGEOTTO
 	db 15, PIDGEY
-	db 16, BAYLEEF
+	db 15, PIDGEY
 	; nite
 	db 13, SPINARAK
 	db 14, STANTLER
@@ -1483,7 +1483,7 @@ JohtoGrassWildMons:
 	db 16, STANTLER
 	db 15, NOCTOWL
 	db 15, ARIADOS
-	db 16, BAYLEEF
+	db 15, ARIADOS
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_38
@@ -1495,7 +1495,7 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 13, TAUROS
 	db 13, MILTANK
-	db 16, QUILAVA
+	db 13, MILTANK
 	; day
 	db 16, RATTATA
 	db 16, RATICATE
@@ -1503,7 +1503,7 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 13, TAUROS
 	db 13, MILTANK
-	db 16, QUILAVA
+	db 13, MILTANK
 	; nite
 	db 16, MEOWTH
 	db 16, RATICATE
@@ -1511,7 +1511,7 @@ JohtoGrassWildMons:
 	db 16, NOCTOWL
 	db 16, MEOWTH
 	db 16, MEOWTH
-	db 16, QUILAVA
+	db 16, MEOWTH
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_39
@@ -1523,7 +1523,7 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 15, MILTANK
 	db 15, TAUROS
-	db 16, QUILAVA
+	db 15, TAUROS
 	; day
 	db 16, RATTATA
 	db 16, RATICATE
@@ -1531,7 +1531,7 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 15, MILTANK
 	db 15, TAUROS
-	db 16, QUILAVA
+	db 15, TAUROS
 	; nite
 	db 16, MEOWTH
 	db 16, RATICATE
@@ -1539,7 +1539,7 @@ JohtoGrassWildMons:
 	db 16, NOCTOWL
 	db 18, MEOWTH
 	db 18, MEOWTH
-	db 16, QUILAVA
+	db 18, MEOWTH
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_42
@@ -1607,7 +1607,7 @@ JohtoGrassWildMons:
 	db 24, WEEPINBELL
 	db 24, LICKITUNG
 	db 26, LICKITUNG
-	db 26, CROCONAW
+	db 26, LICKITUNG
 	; day
 	db 23, TANGELA
 	db 22, LICKITUNG
@@ -1615,7 +1615,7 @@ JohtoGrassWildMons:
 	db 24, WEEPINBELL
 	db 24, LICKITUNG
 	db 26, LICKITUNG
-	db 26, CROCONAW
+	db 26, LICKITUNG
 	; nite
 	db 23, TANGELA
 	db 22, POLIWAG
@@ -1623,7 +1623,7 @@ JohtoGrassWildMons:
 	db 24, WEEPINBELL
 	db 24, POLIWHIRL
 	db 26, POLIWHIRL
-	db 26, CROCONAW
+	db 26, POLIWHIRL
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_45
