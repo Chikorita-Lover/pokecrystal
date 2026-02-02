@@ -36,7 +36,7 @@ Buy_DisplayQuantityOfItem:
 	ld hl, wNumItems
 	call Buy_GetQuantityInPack
 	hlcoord 1, 12
-	ld [hl], "×"
+	ld [hl], '×'
 	inc hl
 	ld de, wItemQuantityChange
 	lb bc, 1, 2
