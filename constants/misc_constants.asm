@@ -6,6 +6,9 @@ DEF TRUE  EQU 1
 DEF MALE   EQU 0
 DEF FEMALE EQU 1
 
+; input
+DEF NO_INPUT EQU %00000000
+
 ; FlagAction arguments (see home/flag.asm)
 	const_def
 	const RESET_FLAG
@@ -29,7 +32,7 @@ DEF RTC_HALT_VALUE EQU $1234
 ; time of day boundaries
 DEF MORN_HOUR EQU 4  ; 4 AM
 DEF DAY_HOUR  EQU 11 ; 11 AM
-EVE_HOUR      EQU 17 ; 5 PM
+DEF EVE_HOUR  EQU 17 ; 5 PM
 DEF NITE_HOUR EQU 20 ; 8 PM
 DEF NOON_HOUR EQU 12 ; 12 PM
 DEF MAX_HOUR  EQU 24 ; 12 AM
@@ -48,3 +51,9 @@ DEF MAX_DAY_CARE_EXP EQU $500000
 
 ; hall of fame
 DEF HOF_MASTER_COUNT EQU 200
+
+; card flip
+DEF CARDFLIP_DECK_SIZE EQU 4 * 6
+
+; SGB command MLT_REQ can be used to detect SGB hardware
+DEF JOYP_SGB_MLT_REQ EQU %00000011

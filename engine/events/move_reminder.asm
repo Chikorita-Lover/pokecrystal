@@ -266,7 +266,7 @@ CheckPokemonAlreadyKnowsMove:
 ; The number of items is stored in "wd002"
 ; The list of items is stored in "wd002 + 1"
 ChooseMoveToLearn:
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	farcall BlankScreen
     farcall SetUpMoveScreenBG
 	ld hl, .MenuHeader
@@ -330,7 +330,7 @@ ChooseMoveToLearn:
 .print_pp
 	ld hl, wStringBuffer1
 	ld bc, wStringBuffer2 - wStringBuffer1
-	ld a, " "
+	ld a, ' '
 	call ByteFill
 	ld a, [wMenuSelection]
 	inc a
@@ -350,12 +350,12 @@ ChooseMoveToLearn:
 	lb bc, 1, 2
 	call PrintNum
 	ld hl, wStringBuffer1 + 11
-	ld [hl], "/"
+	ld [hl], '/'
 	ld hl, wStringBuffer1 + 12
 	call PrintNum
 	
 	ld hl, wStringBuffer1 + 14
-	ld [hl], "@"
+	ld [hl], '@'
 
 	pop hl
 	ld de, wStringBuffer1
@@ -374,7 +374,7 @@ ChooseMoveToLearn:
 ; that remains when the cancel option is highlighted.
 .cancel_border_fix
 	hlcoord 0, 10
-	ld [hl], "│"
+	ld [hl], '│'
 	inc hl
 	ret
 
