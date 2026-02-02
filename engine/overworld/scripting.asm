@@ -510,7 +510,7 @@ AppendTMHMMoveName::
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	pop hl
-	ld [hl], " "
+	ld [hl], ' '
 	inc hl
 	ld de, wStringBuffer1
 	jp CopyName2
