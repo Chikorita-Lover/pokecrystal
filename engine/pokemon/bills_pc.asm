@@ -135,7 +135,7 @@ _DepositPKMN:
 	jp c, BillsPCDepositFuncCancel
 	ld a, [wMenuCursorY]
 	dec a
-	and %11
+	and %111
 	ld e, a
 	ld d, 0
 	ld hl, BillsPCDepositJumptable
@@ -149,6 +149,7 @@ _DepositPKMN:
 BillsPCDepositJumptable:
 	dw BillsPCDepositFuncDeposit ; Deposit Pokemon
 	dw BillsPCDepositFuncStats ; Pokemon Stats
+	dw BillsPCDepositFuncItem ; Pokemon Item
 	dw BillsPCDepositFuncRelease ; Release Pokemon
 	dw BillsPCDepositFuncCancel ; Cancel
 
@@ -178,6 +179,132 @@ BillsPCDepositFuncStats:
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
 	call BillsPC_ApplyPalettes
+	ret
+
+BillsPCDepositFuncItem:
+	ld a, [wMenuCursorY]
+	push af
+
+	ld a, [wBillsPC_CursorPosition]
+	ld hl, wBillsPC_ScrollPosition
+	add [hl]
+	ld [wCurPartyMon], a
+	call BillsPCGetPartyItemLocation
+	ld a, [hl]
+	ld [wCurItem], a
+	and a
+	jp z, .not_holding_item
+
+	ld de, PCString_TakeItem
+	call BillsPC_PlaceString
+	call LoadStandardMenuHeader
+	lb bc, 14, 11
+	call PlaceYesNoBox
+	ld a, [wMenuCursorY]
+	dec a
+	call ExitMenu
+	and a
+	jp nz, .done
+
+	ld a, [wCurItem]
+	ld d, a
+	farcall ItemIsMail
+	jr nc, .remove_item
+
+	ld de, PCString_SendMailToPC
+	call BillsPC_PlaceString
+	call LoadStandardMenuHeader
+	lb bc, 14, 11
+	call PlaceYesNoBox
+	ld a, [wMenuCursorY]
+	dec a
+	call ExitMenu
+	and a
+	jr nz, .remove_mail_to_bag
+	ld a, [wCurPartyMon]
+	ld b, a
+	farcall SendMailToPC
+	jr c, .mailbox_full
+
+	hlcoord 7, 12
+	ld a, ' '
+	ld [hl], a
+	ld de, PCString_SentMailToPC
+	call BillsPC_PlaceString
+	call WaitBGMap
+	ld c, 50
+	call DelayFrames
+	jp .done
+
+.mailbox_full:
+	ld de, PCString_MailboxFull
+	jr .display_error
+
+.remove_mail_to_bag:
+	ld de, PCString_OKToClearMail
+	call BillsPC_PlaceString
+	call LoadStandardMenuHeader
+	lb bc, 14, 11
+	call PlaceYesNoBox
+	ld a, [wMenuCursorY]
+	dec a
+	call ExitMenu
+	and a
+	jr nz, .done
+	; fallthrough
+
+.remove_item
+	call BillsPCReceiveItemFromPokemon
+	jr nc, .item_storage_full
+	hlcoord 7, 12
+	ld a, ' '
+	ld [hl], a
+	hlcoord 0, 15
+	lb bc, 1, 18
+	call Textbox
+	call WaitBGMap
+	hlcoord 1, 16
+	ld de, PCString_Got
+	call PlaceString
+	ld l, c
+	ld h, b
+	push hl
+	call BillsPC_RemoveMonItem
+	ld a, [wCurItem]
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	ld de, wStringBuffer1
+	pop hl
+	call PlaceString
+	ld a, '!'
+	ld [bc], a
+	ld c, 50
+	call DelayFrames
+	jr .done
+
+.not_holding_item
+	ld de, PCString_NoItemHeld
+	jr .display_error
+
+.item_storage_full
+	ld de, PCString_ItemStorageFull
+	; fallthrough
+
+.display_error
+	call BillsPC_PlaceString
+	call WaitBGMap
+	ld de, SFX_WRONG
+	call WaitPlaySFX
+	call WaitSFX
+	ld c, 50
+	call DelayFrames
+	; fallthrough
+
+.done
+	ld de, PCString_WhatsUp
+	call BillsPC_PlaceString
+	pop af
+	ld [wMenuCursorY], a
 	ret
 
 BillsPCDepositFuncRelease:
@@ -225,17 +352,31 @@ BillsPCDepositFuncCancel:
 	ld [wJumptableIndex], a
 	ret
 
+BillsPCGetPartyItemLocation:
+	push af
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	pop af
+	ret
+
+BillsPCReceiveItemFromPokemon:
+	ld a, 1
+	ld [wItemQuantityChange], a
+	ld hl, wNumItems
+	jp ReceiveItem
+
 BillsPCDepositMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 9, 4, SCREEN_WIDTH - 1, 13
+	menu_coords 9, 2, SCREEN_WIDTH - 1, 13
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 5 ; items
 	db "DEPOSIT@"
 	db "STATS@"
+	db "ITEM@"
 	db "RELEASE@"
 	db "CANCEL@"
 
@@ -392,7 +533,7 @@ BillsPC_Withdraw:
 	jp c, .cancel
 	ld a, [wMenuCursorY]
 	dec a
-	and %11
+	and %111
 	ld e, a
 	ld d, 0
 	ld hl, .dw
@@ -406,6 +547,7 @@ BillsPC_Withdraw:
 .dw
 	dw .withdraw ; Withdraw
 	dw .stats ; Stats
+	dw .item ; Item
 	dw .release ; Release
 	dw .cancel ; Cancel
 
@@ -434,6 +576,75 @@ BillsPC_Withdraw:
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
 	call BillsPC_ApplyPalettes
+	ret
+
+.item
+	ld a, [wMenuCursorY]
+	push af
+	ld a, [wTempMonItem]
+	and a
+	jr z, .NotHoldingItem
+	ld de, PCString_TakeItem
+	call BillsPC_PlaceString
+	call LoadStandardMenuHeader
+	lb bc, 14, 11
+	call PlaceYesNoBox
+	ld a, [wMenuCursorY]
+	dec a
+	call ExitMenu
+	and a
+	jr nz, .FinishItem
+	ld a, [wTempMonItem]
+	ld [wCurItem], a
+	call BillsPCReceiveItemFromPokemon
+	jr nc, .ItemStorageFull
+	call BillsPC_RemoveMonItem
+	hlcoord 7, 12
+	ld a, ' '
+	ld [hl], a
+	hlcoord 0, 15
+	lb bc, 1, 18
+	call Textbox
+	call WaitBGMap
+	hlcoord 1, 16
+	ld de, PCString_Got
+	call PlaceString
+	ld l, c
+	ld h, b
+	push hl
+	ld hl, wTempMonItem
+	ld a, [hl]
+	ld [hl], NO_ITEM
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	ld de, wStringBuffer1
+	pop hl
+	call PlaceString
+	ld a, '!'
+	ld [bc], a
+	ld c, 50
+	call DelayFrames
+	jr .FinishItem
+.NotHoldingItem
+	ld de, PCString_NoItemHeld
+	jr .ItemError
+.ItemStorageFull
+	ld de, PCString_ItemStorageFull
+	; fallthrough
+.ItemError
+	call BillsPC_PlaceString
+	call WaitBGMap
+	ld de, SFX_WRONG
+	call WaitPlaySFX
+	call WaitSFX
+	ld c, 50
+	call DelayFrames
+	; fallthrough
+.FinishItem:
+	ld de, PCString_WhatsUp
+	call BillsPC_PlaceString
+	pop af
+	ld [wMenuCursorY], a
 	ret
 
 .release
@@ -480,15 +691,16 @@ BillsPC_Withdraw:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 9, 4, SCREEN_WIDTH - 1, 13
+	menu_coords 9, 2, SCREEN_WIDTH - 1, 13
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 5 ; items
 	db "WITHDRAW@"
 	db "STATS@"
+	db "ITEM@"
 	db "RELEASE@"
 	db "CANCEL@"
 
@@ -1213,6 +1425,56 @@ endr
 	ld a, [hl]
 	ld [de], a
 
+	call CloseSRAM
+	ret
+
+BillsPC_RemoveMonItem:
+	ld a, [wBillsPC_CursorPosition]
+	ld hl, wBillsPC_ScrollPosition
+	add [hl]
+	ld e, a
+	ld d, 0
+	ld hl, wBillsPCPokemonList + BOXLIST_BOXNUM
+rept BOXLIST_SIZE
+	add hl, de
+endr
+	ld a, [hl]
+	and a
+	jr z, .party
+	cp NUM_BOXES + 1
+	jr z, .sBox
+	ld b, a
+	call GetBoxPointer
+	ld a, b
+	call OpenSRAM
+	ld bc, sBoxMon1Item - sBox
+	add hl, bc
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, NO_ITEM
+	ld [hl], a
+	call CloseSRAM
+	ret
+
+.party
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, NO_ITEM
+	ld [hl], a
+	ret
+
+.sBox
+	ld a, BANK(sBox)
+	call OpenSRAM
+	ld hl, sBoxMon1Item
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, NO_ITEM
+	ld [hl], a
 	call CloseSRAM
 	ret
 
@@ -2218,6 +2480,14 @@ PCString_Non: db "Non.@" ; unreferenced
 PCString_BoxFull: db "The BOX is full.@"
 PCString_PartyFull: db "Your party's full!@"
 PCString_NoReleasingEGGS: db "No releasing EGGS!@"
+PCString_TakeItem: db "Take item?@"
+PCString_NoItemHeld: db "No item is held!@"
+PCString_Took: db "Got @"
+PCString_ItemStorageFull: db "Item storage full!@"
+PCString_SendMailToPC: db "Send MAIL to PC?@"
+PCString_MailboxFull: db "MAILBOX is full!@"
+PCString_SentMailToPC: db "Sent MAIL to PC!@"
+PCString_OKToClearMail: db "OK to clear MAIL?@"
 
 _ChangeBox:
 	call LoadStandardMenuHeader
