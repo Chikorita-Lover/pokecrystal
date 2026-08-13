@@ -189,24 +189,43 @@ BillsPCDepositFuncItem:
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
 	ld [wCurPartyMon], a
-	call BillsPCGetPartyItemLocation
+	call BillsPC_GetPartyItemLocation
 	ld a, [hl]
 	ld [wCurItem], a
+
+	ld hl, BillsPCItemMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call ExitMenu
+	jp c, .done
+
+	call GetCurNickname
+	ld hl, wStringBuffer1
+	ld de, wMonOrItemNameBuffer
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	ld a, [wMenuCursorY]
+	cp 1
+	jr nz, .take
+
+	call LoadStandardMenuHeader
+	call ClearPalettes
+	call .GiveItem
+	call ClearPalettes
+	call ClearTilemap
+	call BillsPC_InitGFX
+	call ExitMenu
+	call PCMonInfo
+	call BillsPC_GetSelectedPokemonSpecies
+	ld [wCurPartySpecies], a
+	ld a, SCGB_BILLS_PC
+	call BillsPC_ApplyPalettes
+	jp .done
+
+.take
+	ld a, [wCurItem]
 	and a
 	jp z, .not_holding_item
-
-	ld de, PCString_TakeItem
-	call BillsPC_PlaceString
-	call LoadStandardMenuHeader
-	lb bc, 14, 11
-	call PlaceYesNoBox
-	ld a, [wMenuCursorY]
-	dec a
-	call ExitMenu
-	and a
-	jp nz, .done
-
-	ld a, [wCurItem]
 	ld d, a
 	farcall ItemIsMail
 	jr nc, .remove_item
@@ -254,7 +273,7 @@ BillsPCDepositFuncItem:
 	; fallthrough
 
 .remove_item
-	call BillsPCReceiveItemFromPokemon
+	call BillsPC_ReceiveItemFromPokemon
 	jr nc, .item_storage_full
 	hlcoord 7, 12
 	ld a, ' '
@@ -269,9 +288,11 @@ BillsPCDepositFuncItem:
 	ld l, c
 	ld h, b
 	push hl
-	call BillsPC_RemoveMonItem
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
+	ld a, NO_ITEM
+	ld [wCurItem], a
+	call BillsPC_GiveMonItem
 	call GetItemName
 	ld de, wStringBuffer1
 	pop hl
@@ -305,6 +326,38 @@ BillsPCDepositFuncItem:
 	call BillsPC_PlaceString
 	pop af
 	ld [wMenuCursorY], a
+	ret
+
+.GiveItem:
+	farcall DepositSellInitPackBuffers
+
+.loop
+	farcall DepositSellPack
+
+	ld a, [wPackUsedItem]
+	and a
+	jr z, .quit
+
+	ld a, [wCurPocket]
+	cp KEY_ITEM_POCKET
+	jr z, .next
+
+	call CheckTossableItem
+	ld a, [wItemAttributeValue]
+	and a
+	jr nz, .next
+
+	farcall TryGiveItemToPartymon
+	jr .quit
+
+.next
+	ld hl, BillsPC_ItemCantHeldText
+	call MenuTextboxBackup
+	jr .loop
+
+.quit
+	ld a, $3
+	ld [wJumptableIndex], a
 	ret
 
 BillsPCDepositFuncRelease:
@@ -352,18 +405,78 @@ BillsPCDepositFuncCancel:
 	ld [wJumptableIndex], a
 	ret
 
-BillsPCGetPartyItemLocation:
+BillsPC_GetPartyItemLocation:
 	push af
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	pop af
 	ret
 
-BillsPCReceiveItemFromPokemon:
+BillsPC_ReceiveItemFromPokemon:
+; increment quantity of wCurItem
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
 	jp ReceiveItem
+
+BillsPC_GiveItemToPokemon:
+; decrement quantity of wCurItem
+	ld a, 1
+	ld [wItemQuantityChange], a
+	ld hl, wNumItems
+	jp TossItem
+
+BillsPC_TryGiveItemToPokemon:
+	call SpeechTextbox
+	ld a, [wCurItem]
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	call CopyName1
+	ld a, [wTempMonItem]
+	and a
+	jr nz, .already_holding_item
+
+	call BillsPC_GiveItemToPokemon
+	ld hl, BillsPC_PokemonHoldItemText
+	call MenuTextboxBackup
+	call BillsPC_GiveMonItem
+	ret
+
+.already_holding_item
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	ld hl, BillsPC_PokemonAskSwapItemText
+	call MenuTextbox
+	call YesNoBox
+	call ExitMenu
+	jr c, .abort
+
+	call BillsPC_GiveItemToPokemon
+	ld a, [wNamedObjectIndex]
+	push af
+	ld a, [wCurItem]
+	ld [wNamedObjectIndex], a
+	pop af
+	ld [wCurItem], a
+	call BillsPC_ReceiveItemFromPokemon
+	jr nc, .bag_full
+
+	ld hl, BillsPC_PokemonSwapItemText
+	call MenuTextboxBackup
+	ld a, [wNamedObjectIndex]
+	ld [wCurItem], a
+	call BillsPC_GiveMonItem
+	ret
+
+.bag_full
+	ld a, [wNamedObjectIndex]
+	ld [wCurItem], a
+	call BillsPC_ReceiveItemFromPokemon
+	ld hl, BillsPC_ItemStorageFullText
+	call MenuTextboxBackup
+
+.abort
+	ret
 
 BillsPCDepositMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -379,6 +492,18 @@ BillsPCDepositMenuHeader:
 	db "ITEM@"
 	db "RELEASE@"
 	db "CANCEL@"
+
+BillsPCItemMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 12, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 3
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 2 ; # items
+	db "GIVE@"
+	db "TAKE@"
 
 BillsPCClearThreeBoxes: ; unreferenced
 	hlcoord 0, 0
@@ -582,23 +707,54 @@ BillsPC_Withdraw:
 	ld a, [wMenuCursorY]
 	push af
 	ld a, [wTempMonItem]
+	ld [wCurItem], a
+
+	ld hl, BillsPCItemMenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call ExitMenu
+	jp c, .FinishItem
+
+	ld a, [wBillsPC_CursorPosition]
+	ld hl, wBillsPC_ScrollPosition
+	add [hl]
+	ld [wCurPartyMon], a
+	ld a, BANK(sBoxMonNicknames)
+	call OpenSRAM
+	ld a, [wCurPartyMon]
+	ld hl, sBoxMonNicknames
+	call GetNickname
+	call CloseSRAM
+	ld hl, wStringBuffer1
+	ld de, wMonOrItemNameBuffer
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	ld a, [wMenuCursorY]
+	cp 1
+	jr nz, .Take
+
+	call LoadStandardMenuHeader
+	call ClearPalettes
+	call .GiveItem
+	call ClearPalettes
+	call ClearTilemap
+	call BillsPC_InitGFX
+	call ExitMenu
+	call PCMonInfo
+	call BillsPC_GetSelectedPokemonSpecies
+	ld [wCurPartySpecies], a
+	ld a, SCGB_BILLS_PC
+	call BillsPC_ApplyPalettes
+	jp .FinishItem
+.Take
+	ld a, [wTempMonItem]
 	and a
 	jr z, .NotHoldingItem
-	ld de, PCString_TakeItem
-	call BillsPC_PlaceString
-	call LoadStandardMenuHeader
-	lb bc, 14, 11
-	call PlaceYesNoBox
-	ld a, [wMenuCursorY]
-	dec a
-	call ExitMenu
-	and a
-	jr nz, .FinishItem
-	ld a, [wTempMonItem]
-	ld [wCurItem], a
-	call BillsPCReceiveItemFromPokemon
+	call BillsPC_ReceiveItemFromPokemon
 	jr nc, .ItemStorageFull
-	call BillsPC_RemoveMonItem
+	ld a, NO_ITEM
+	ld [wCurItem], a
+	call BillsPC_GiveMonItem
 	hlcoord 7, 12
 	ld a, ' '
 	ld [hl], a
@@ -645,6 +801,34 @@ BillsPC_Withdraw:
 	call BillsPC_PlaceString
 	pop af
 	ld [wMenuCursorY], a
+	ret
+.GiveItem:
+	farcall DepositSellInitPackBuffers
+.GiveItemLoop
+	farcall DepositSellPack
+
+	ld a, [wPackUsedItem]
+	and a
+	jr z, .GiveItemQuit
+
+	ld a, [wCurPocket]
+	cp KEY_ITEM_POCKET
+	jr z, .GiveItemNext
+
+	call CheckTossableItem
+	ld a, [wItemAttributeValue]
+	and a
+	jr nz, .GiveItemNext
+
+	farcall BillsPC_TryGiveItemToPokemon
+	jr .GiveItemQuit
+.GiveItemNext
+	ld hl, BillsPC_ItemCantHeldText
+	call MenuTextboxBackup
+	jr .GiveItemLoop
+.GiveItemQuit
+	ld a, $3
+	ld [wJumptableIndex], a
 	ret
 
 .release
@@ -1428,7 +1612,7 @@ endr
 	call CloseSRAM
 	ret
 
-BillsPC_RemoveMonItem:
+BillsPC_GiveMonItem:
 	ld a, [wBillsPC_CursorPosition]
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
@@ -1452,7 +1636,7 @@ endr
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
 	call AddNTimes
-	ld a, NO_ITEM
+	ld a, [wCurItem]
 	ld [hl], a
 	call CloseSRAM
 	ret
@@ -1462,7 +1646,7 @@ endr
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, e
 	call AddNTimes
-	ld a, NO_ITEM
+	ld a, [wCurItem]
 	ld [hl], a
 	ret
 
@@ -1473,7 +1657,7 @@ endr
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
 	call AddNTimes
-	ld a, NO_ITEM
+	ld a, [wCurItem]
 	ld [hl], a
 	call CloseSRAM
 	ret
@@ -2488,6 +2672,26 @@ PCString_SendMailToPC: db "Send MAIL to PC?@"
 PCString_MailboxFull: db "MAILBOX is full!@"
 PCString_SentMailToPC: db "Sent MAIL to PC!@"
 PCString_OKToClearMail: db "OK to clear MAIL?@"
+
+BillsPC_PokemonSwapItemText:
+	text_far _PokemonSwapItemText
+	text_end
+
+BillsPC_PokemonHoldItemText:
+	text_far _PokemonHoldItemText
+	text_end
+
+BillsPC_ItemStorageFullText:
+	text_far _ItemStorageFullText
+	text_end
+
+BillsPC_PokemonAskSwapItemText:
+	text_far _PokemonAskSwapItemText
+	text_end
+
+BillsPC_ItemCantHeldText:
+	text_far _ItemCantHeldText
+	text_end
 
 _ChangeBox:
 	call LoadStandardMenuHeader
