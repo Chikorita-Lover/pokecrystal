@@ -820,10 +820,19 @@ BillsPC_Withdraw:
 	and a
 	jr nz, .GiveItemNext
 
+	ld a, [wCurItem]
+	ld d, a
+	farcall ItemIsMail
+	jr c, .GiveItemMail
+
 	farcall BillsPC_TryGiveItemToPokemon
 	jr .GiveItemQuit
 .GiveItemNext
 	ld hl, BillsPC_ItemCantHeldText
+	call MenuTextboxBackup
+	jr .GiveItemLoop
+.GiveItemMail
+	ld hl, BillsPC_MailCantHeldText
 	call MenuTextboxBackup
 	jr .GiveItemLoop
 .GiveItemQuit
@@ -2692,6 +2701,11 @@ BillsPC_PokemonAskSwapItemText:
 BillsPC_ItemCantHeldText:
 	text_far _ItemCantHeldText
 	text_end
+
+BillsPC_MailCantHeldText:
+	text "MAIL can't be held"
+	line "right now."
+	prompt
 
 _ChangeBox:
 	call LoadStandardMenuHeader
